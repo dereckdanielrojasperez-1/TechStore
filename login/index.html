@@ -1,0 +1,327 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TechStore | Mi Cuenta - Iniciar Sesión y Registro</title>
+    <!-- Fuentes de Google -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700;800&display=swap" rel="stylesheet">
+    <!-- Iconos FontAwesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <!-- Hoja de estilos -->
+    <link rel="stylesheet" href="estilos.css">
+</head>
+<body>
+
+        <!-- Encabezado y navegacion -->
+    <header id="cabecera">
+        <!-- Barra superior institucional -->
+        <div class="barra-superior-util">
+            <div class="contenedor contenedor-util">
+                <div class="util-izquierda">
+                    <span class="item-util"><i class="fas fa-map-marker-alt"></i> Tienda Lima: <strong>CC Cyberplaza Tienda 2A-102, Av. Garcilaso de la Vega 1348</strong></span>
+                    <span class="item-util"><i class="fas fa-phone-alt"></i> Cotizaciones: <strong>929-207-945 / 991-439-162</strong></span>
+                </div>
+                <div class="util-derecha">
+                    <span class="item-util util-horario"><i class="fas fa-clock"></i> Lun - Sáb: 9:00 AM - 8:00 PM</span>
+                    <a href="../servicios/index.html" class="enlace-util"><i class="fas fa-shield-alt"></i> Garantía Oficial</a>
+                    <a href="../contacto/index.html#reclamaciones" class="enlace-util"><i class="fas fa-book"></i> Libro de Reclamaciones</a>
+                    <a href="./index.html" class="enlace-util util-destacado"><i class="fas fa-user-circle"></i> Mi Cuenta / Ingresar</a>
+                </div>
+            </div>
+        </div>
+
+        <!-- Barra de navegacion principal -->
+        <div class="contenedor barra-navegacion">
+            <h1 class="logotipo">
+                <a href="../index.html">
+                    <i class="fas fa-gamepad"></i> Tech<span class="acento">Store</span>
+                </a>
+            </h1>
+
+            <!-- Control menu responsive -->
+            <input type="checkbox" id="checkmenu">
+
+            <nav id="menu" aria-label="Navegación principal">
+                <ul class="lista-menu">
+                    <li class="elemento-menu"><a href="../index.html" class="enlace-menu"><i class="fas fa-home"></i> Inicio</a></li>
+                    
+                    <!-- Dropdown Productos -->
+                    <li class="elemento-menu item-con-sub">
+                        <a href="../productos/index.html" class="enlace-menu">
+                            <i class="fas fa-laptop"></i> Productos <i class="fas fa-chevron-down flecha-sub"></i>
+                        </a>
+                        <ul class="submenu-desplegable">
+                            <li><a href="../productos/index.html#laptops"><i class="fas fa-laptop"></i> Laptops Gamer</a></li>
+                            <li><a href="../productos/index.html#pcs"><i class="fas fa-desktop"></i> PCs Ensambladas</a></li>
+                            <li><a href="../productos/index.html#monitores"><i class="fas fa-tv"></i> Monitores eSports</a></li>
+                            <li><a href="../productos/index.html#perifericos"><i class="fas fa-keyboard"></i> Periféricos Gamer</a></li>
+                        </ul>
+                    </li>
+
+                    <li class="elemento-menu"><a href="../comparativa/index.html" class="enlace-menu"><i class="fas fa-balance-scale"></i> Comparativa</a></li>
+                    <li class="elemento-menu"><a href="../ofertas/index.html" class="enlace-menu"><i class="fas fa-fire"></i> Ofertas</a></li>
+                    <li class="elemento-menu"><a href="../servicios/index.html" class="enlace-menu"><i class="fas fa-tools"></i> Servicios</a></li>
+                    <li class="elemento-menu"><a href="../nosotros/index.html" class="enlace-menu"><i class="fas fa-users"></i> Nosotros</a></li>
+                    <li class="elemento-menu"><a href="../contacto/index.html" class="enlace-menu"><i class="fas fa-envelope"></i> Contacto</a></li>
+                    <li class="elemento-menu"><a href="./index.html" class="enlace-menu activo"><i class="fas fa-user"></i> Mi Cuenta</a></li>
+                </ul>
+            </nav>
+
+            <div class="acciones-cabecera">
+                <a href="./index.html" class="boton-ingresar-nav activo">
+                    <i class="fas fa-user-circle"></i> Ingresar
+                </a>
+                
+                <label for="checkmenu" class="boton-hamburguesa" aria-label="Abrir menú"><i class="fas fa-bars"></i></label>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <!-- Banner principal -->
+        <section class="portada">
+            <div class="contenedor">
+                <div class="etiqueta-hero">
+                    <i class="fas fa-user-shield"></i> Acceso Seguro a la Plataforma
+                </div>
+                <h2 class="titulo-portada">
+                    Portal de Clientes <span class="acento">TechStore</span>
+                </h2>
+                <p class="texto-portada">
+                    Inicia sesión para gestionar tus cotizaciones, dar seguimiento a tus pedidos de hardware y acceder a tu historial de garantías.
+                </p>
+            </div>
+        </section>
+
+        <!-- Seccion de Formularios de Login y Registro -->
+        <section class="seccion">
+            <div class="contenedor">
+                <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 30px; max-width: 1000px; margin: 0 auto;">
+                    
+                    <!-- Tarjeta de Inicio de Sesion -->
+                    <div style="background-color: var(--color-tarjeta); border: 1px solid var(--color-borde); border-radius: var(--radio-borde); padding: 35px; box-shadow: var(--sombra-suave);">
+                        <div style="display: flex; align-items: center; gap: 12px; margin-bottom: 20px;">
+                            <div style="width: 45px; height: 45px; border-radius: 8px; background: rgba(0, 180, 216, 0.15); display: flex; align-items: center; justify-content: center; color: var(--color-primario); font-size: 1.3rem;">
+                                <i class="fas fa-sign-in-alt"></i>
+                            </div>
+                            <div>
+                                <h3 style="font-size: 1.25rem;">Iniciar Sesión</h3>
+                                <p style="color: var(--color-texto-apagado); font-size: 0.85rem;">Si ya tienes cuenta en TechStore</p>
+                            </div>
+                        </div>
+
+                        <form id="formulario-login" action="#" method="POST">
+                            <div class="grupo-formulario">
+                                <label for="login-correo" class="etiqueta-formulario">
+                                    <i class="fas fa-envelope"></i> Correo Electrónico
+                                </label>
+                                <input type="email" id="login-correo" class="control-formulario" placeholder="ejemplo@correo.com" required>
+                            </div>
+
+                            <div class="grupo-formulario">
+                                <label for="login-clave" class="etiqueta-formulario">
+                                    <i class="fas fa-lock"></i> Contraseña
+                                </label>
+                                <input type="password" id="login-clave" class="control-formulario" placeholder="â€¢â€¢â€¢â€¢â€¢â€¢â€¢â€¢" required>
+                            </div>
+
+                            <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 20px; font-size: 0.85rem;">
+                                <label style="display: flex; align-items: center; gap: 8px; cursor: pointer; color: var(--color-texto-apagado);">
+                                    <input type="checkbox" style="accent-color: var(--color-primario);"> Recordar sesión
+                                </label>
+                                <a href="#" style="color: var(--color-primario); text-decoration: none;">¿Olvidaste tu contraseña?</a>
+                            </div>
+
+                            <button type="submit" class="boton boton-principal" style="width: 100%;">
+                                <i class="fas fa-door-open"></i> Entrar a mi Cuenta
+                            </button>
+                        </form>
+                    </div>
+
+                    <!-- Tarjeta de Registro de Nuevo Cliente -->
+                    <div style="background-color: var(--color-tarjeta); border: 1px solid var(--color-borde); border-radius: var(--radio-borde); padding: 35px; box-shadow: var(--sombra-suave);">
+                        <div style="display: flex; align-items: center; gap: 12px; margin-bottom: 20px;">
+                            <div style="width: 45px; height: 45px; border-radius: 8px; background: rgba(247, 37, 133, 0.15); display: flex; align-items: center; justify-content: center; color: var(--color-secundario); font-size: 1.3rem;">
+                                <i class="fas fa-user-plus"></i>
+                            </div>
+                            <div>
+                                <h3 style="font-size: 1.25rem;">Crear Cuenta Nueva</h3>
+                                <p style="color: var(--color-texto-apagado); font-size: 0.85rem;">Regístrate en menos de un minuto</p>
+                            </div>
+                        </div>
+
+                        <form id="formulario-registro" action="#" method="POST">
+                            <div class="grupo-formulario">
+                                <label for="reg-nombre" class="etiqueta-formulario">
+                                    <i class="fas fa-user"></i> Nombre Completo
+                                </label>
+                                <input type="text" id="reg-nombre" class="control-formulario" placeholder="Tu nombre y apellidos" required>
+                            </div>
+
+                            <div class="grupo-formulario">
+                                <label for="reg-correo" class="etiqueta-formulario">
+                                    <i class="fas fa-envelope"></i> Correo Electrónico
+                                </label>
+                                <input type="email" id="reg-correo" class="control-formulario" placeholder="tucorreo@dominio.com" required>
+                            </div>
+
+                            <div class="grupo-formulario">
+                                <label for="reg-telefono" class="etiqueta-formulario">
+                                    <i class="fas fa-phone"></i> Celular (9 dígitos)
+                                </label>
+                                <input type="tel" id="reg-telefono" class="control-formulario" placeholder="987654321" pattern="[0-9]{9}" required>
+                            </div>
+
+                            <div class="grupo-formulario">
+                                <label for="reg-clave" class="etiqueta-formulario">
+                                    <i class="fas fa-lock"></i> Crear Contraseña
+                                </label>
+                                <input type="password" id="reg-clave" class="control-formulario" placeholder="Mínimo 6 caracteres" minlength="6" required>
+                            </div>
+
+                            <button type="submit" class="boton boton-secundario" style="width: 100%;">
+                                <i class="fas fa-check-circle"></i> Registrarme Ahora
+                            </button>
+                        </form>
+                    </div>
+
+                </div>
+
+                <!-- Beneficios de la Cuenta -->
+                <div style="margin-top: 50px; max-width: 1000px; margin-left: auto; margin-right: auto;">
+                    <div class="encabezado-seccion">
+                        <h3 class="titulo-seccion" style="font-size: 1.4rem;">Ventajas de tu Cuenta Gamer TechStore</h3>
+                    </div>
+                    <div class="cuadricula-beneficios" style="grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));">
+                        <div class="caja-beneficio">
+                            <i class="fas fa-truck-fast icono-beneficio"></i>
+                            <h3 class="titulo-beneficio">Seguimiento en Vivo</h3>
+                            <p class="texto-beneficio">Rastrea el estado de tu pedido y despacho a domicilio en tiempo real.</p>
+                        </div>
+
+                        <div class="caja-beneficio">
+                            <i class="fas fa-file-invoice-dollar icono-beneficio"></i>
+                            <h3 class="titulo-beneficio">Historial de Cotizaciones</h3>
+                            <p class="texto-beneficio">Guarda ensambles y presupuestos para consultarlos o modificarlos cuando desees.</p>
+                        </div>
+
+                        <div class="caja-beneficio">
+                            <i class="fas fa-shield-alt icono-beneficio"></i>
+                            <h3 class="titulo-beneficio">Garantía Digital</h3>
+                            <p class="texto-beneficio">Accede a tus pólizas y números de serie sin necesidad de guardar papeles.</p>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+    </main>
+
+    <!-- Pie de pagina corporativo multinivel -->
+    <footer id="pie-pagina">
+        <!-- Banner Libro de Reclamaciones -->
+        <div class="banner-reclamaciones">
+            <div class="contenedor contenedor-reclamaciones">
+                <div class="info-reclamaciones">
+                    <div class="icono-reclamaciones-caja">
+                        <i class="fas fa-book-open"></i>
+                    </div>
+                    <div>
+                        <h4 class="titular-reclamaciones">Libro de Reclamaciones Virtual</h4>
+                        <p class="desc-reclamaciones">Conforme a lo establecido en el Código de Protección y Defensa del Consumidor (Ley N° 29571). RUC: 20608945123 - TechStore Perú S.A.C.</p>
+                    </div>
+                </div>
+                <a href="../contacto/index.html#reclamaciones" class="boton-reclamaciones">
+                    <i class="fas fa-file-signature"></i> Hoja de Reclamación Virtual
+                </a>
+            </div>
+        </div>
+
+        <div class="contenedor">
+            <div class="cuadricula-pie">
+                <!-- Columna 1: Identidad Corporativa -->
+                <div class="columna-pie">
+                    <h3 class="titulo-pie"><i class="fas fa-gamepad"></i> Tech<span class="acento">Store</span></h3>
+                    <p class="texto-pie">
+                        Especialistas en hardware gamer de alto rendimiento, computadoras ensambladas a medida y distribución autorizada de componentes con garantía oficial en Lima y todo el Perú.
+                    </p>
+                    <p class="texto-pie" style="font-size: 0.82rem; color: var(--color-texto-apagado);">
+                        <strong>Razón Social:</strong> TechStore Perú S.A.C.<br>
+                        <strong>RUC:</strong> 20608945123 | Tienda Formal Registrada
+                    </p>
+                    <div class="redes-sociales">
+                        <a href="#" class="enlace-red" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#" class="enlace-red" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                        <a href="#" class="enlace-red" aria-label="YouTube"><i class="fab fa-youtube"></i></a>
+                        <a href="#" class="enlace-red" aria-label="TikTok"><i class="fab fa-tiktok"></i></a>
+                    </div>
+                </div>
+
+                <!-- Columna 2: Navegación del Catálogo -->
+                <div class="columna-pie">
+                    <h3 class="titulo-pie">Líneas de Productos</h3>
+                    <ul class="lista-pie">
+                        <li><a href="../productos/index.html#laptops"><i class="fas fa-chevron-right"></i> Laptops Gamer</a></li>
+                        <li><a href="../productos/index.html#pcs"><i class="fas fa-desktop"></i> PCs de Escritorio Ensambladas</a></li>
+                        <li><a href="../productos/index.html#monitores"><i class="fas fa-tv"></i> Monitores eSports 144Hz+</a></li>
+                        <li><a href="../productos/index.html#perifericos"><i class="fas fa-keyboard"></i> Periféricos de Precisión</a></li>
+                        <li><a href="../ofertas/index.html"><i class="fas fa-chevron-right"></i> Promociones y Descuentos</a></li>
+                    </ul>
+                </div>
+
+                <!-- Columna 3: Información y Confianza -->
+                <div class="columna-pie">
+                    <h3 class="titulo-pie">Servicio y Garantía</h3>
+                    <ul class="lista-pie">
+                        <li><a href="../servicios/index.html"><i class="fas fa-chevron-right"></i> Servicio Técnico y Ensamble</a></li>
+                        <li><a href="../comparativa/index.html"><i class="fas fa-chevron-right"></i> Comparador de Rendimiento</a></li>
+                        <li><a href="../nosotros/index.html"><i class="fas fa-chevron-right"></i> Sobre TechStore Perú</a></li>
+                        <li><a href="./index.html"><i class="fas fa-chevron-right"></i> Portal de Clientes / Mi Cuenta</a></li>
+                        <li><a href="../contacto/index.html"><i class="fas fa-chevron-right"></i> Cotizaciones Corporativas</a></li>
+                    </ul>
+                </div>
+
+                <!-- Columna 4: Tienda Física y Ubicación con Mapa -->
+                <div class="columna-pie">
+                    <h3 class="titulo-pie">Tienda Física en Lima</h3>
+                    <p class="texto-pie"><i class="fas fa-map-marker-alt acento"></i> CC Cyberplaza Tienda 2A-102, Av. Garcilaso de la Vega 1348, Lima Centro</p>
+                    <p class="texto-pie"><i class="fas fa-phone-alt acento"></i> (01) 234-5678 / 929-207-945 / 991-439-162</p>
+                    <p class="texto-pie"><i class="fas fa-envelope acento"></i> ventas@techstore.pe</p>
+                    <p class="texto-pie"><i class="fas fa-clock acento"></i> Lun - Sáb: 9:00 AM - 8:00 PM</p>
+                    
+                    <!-- Mapa Embebido Semántico -->
+                    <div class="mapa-pie-contenedor">
+                        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3901.9686008882046!2d-77.03780332405052!3d-12.054366688183017!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x9105c8c697858c85%3A0x67399a9a0899127!2sCentro%20Comercial%20Cyberplaza!5e0!3m2!1ses!2spe!4v1710000000000!5m2!1ses!2spe" width="100%" height="130" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade" title="Ubicación Tienda TechStore - CC Cyberplaza Lima"></iframe>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Métodos de Pago Aceptados en Perú -->
+            <div class="metodos-pago-pie">
+                <div class="titulo-pagos-pie">Métodos de Pago 100% Seguros Aceptados en Perú</div>
+                <div class="insignias-pago-grid">
+                    <span class="insignia-pago-badge"><i class="fab fa-cc-visa"></i> Visa</span>
+                    <span class="insignia-pago-badge"><i class="fab fa-cc-mastercard"></i> Mastercard</span>
+                    <span class="insignia-pago-badge"><i class="fab fa-cc-amex"></i> Amex</span>
+                    <span class="insignia-pago-badge"><i class="fas fa-qrcode"></i> Yape</span>
+                    <span class="insignia-pago-badge"><i class="fas fa-mobile-alt"></i> Plin</span>
+                    <span class="insignia-pago-badge"><i class="fas fa-university"></i> BCP / BBVA</span>
+                    <span class="insignia-pago-badge"><i class="fas fa-money-bill-wave"></i> PagoEfectivo</span>
+                </div>
+            </div>
+        </div>
+
+        <div class="creditos-pie">
+            <div class="contenedor">
+                <p>&copy; 2026 TechStore Perú S.A.C. - RUC: 20608945123. Especialistas en Hardware Gamer. Todos los derechos reservados.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Script principal -->
+    
+</body>
+</html>

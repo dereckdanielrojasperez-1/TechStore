@@ -1,0 +1,385 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TechStore | Contacto y Cotizaciones</title>
+    <!-- Fuentes de Google -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700;800&display=swap" rel="stylesheet">
+    <!-- Iconos FontAwesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <!-- Hoja de estilos -->
+    <link rel="stylesheet" href="estilos.css">
+</head>
+<body>
+
+        <!-- Encabezado y navegacion -->
+    <header id="cabecera">
+        <!-- Barra superior institucional -->
+        <div class="barra-superior-util">
+            <div class="contenedor contenedor-util">
+                <div class="util-izquierda">
+                    <span class="item-util"><i class="fas fa-map-marker-alt"></i> Tienda Lima: <strong>CC Cyberplaza Tienda 2A-102, Av. Garcilaso de la Vega 1348</strong></span>
+                    <span class="item-util"><i class="fas fa-phone-alt"></i> Cotizaciones: <strong>929-207-945 / 991-439-162</strong></span>
+                </div>
+                <div class="util-derecha">
+                    <span class="item-util util-horario"><i class="fas fa-clock"></i> Lun - Sáb: 9:00 AM - 8:00 PM</span>
+                    <a href="../servicios/index.html" class="enlace-util"><i class="fas fa-shield-alt"></i> Garantía Oficial</a>
+                    <a href="#reclamaciones" class="enlace-util"><i class="fas fa-book"></i> Libro de Reclamaciones</a>
+                    <a href="../login/index.html" class="enlace-util util-destacado"><i class="fas fa-user-circle"></i> Mi Cuenta / Ingresar</a>
+                </div>
+            </div>
+        </div>
+
+        <!-- Barra de navegacion principal -->
+        <div class="contenedor barra-navegacion">
+            <h1 class="logotipo">
+                <a href="../index.html">
+                    <i class="fas fa-gamepad"></i> Tech<span class="acento">Store</span>
+                </a>
+            </h1>
+
+            <!-- Control menu responsive -->
+            <input type="checkbox" id="checkmenu">
+
+            <nav id="menu" aria-label="Navegación principal">
+                <ul class="lista-menu">
+                    <li class="elemento-menu"><a href="../index.html" class="enlace-menu"><i class="fas fa-home"></i> Inicio</a></li>
+                    
+                    <!-- Dropdown Productos -->
+                    <li class="elemento-menu item-con-sub">
+                        <a href="../productos/index.html" class="enlace-menu">
+                            <i class="fas fa-laptop"></i> Productos <i class="fas fa-chevron-down flecha-sub"></i>
+                        </a>
+                        <ul class="submenu-desplegable">
+                            <li><a href="../productos/index.html#laptops"><i class="fas fa-laptop"></i> Laptops Gamer</a></li>
+                            <li><a href="../productos/index.html#pcs"><i class="fas fa-desktop"></i> PCs Ensambladas</a></li>
+                            <li><a href="../productos/index.html#monitores"><i class="fas fa-tv"></i> Monitores eSports</a></li>
+                            <li><a href="../productos/index.html#perifericos"><i class="fas fa-keyboard"></i> Periféricos Gamer</a></li>
+                        </ul>
+                    </li>
+
+                    <li class="elemento-menu"><a href="../comparativa/index.html" class="enlace-menu"><i class="fas fa-balance-scale"></i> Comparativa</a></li>
+                    <li class="elemento-menu"><a href="../ofertas/index.html" class="enlace-menu"><i class="fas fa-fire"></i> Ofertas</a></li>
+                    <li class="elemento-menu"><a href="../servicios/index.html" class="enlace-menu"><i class="fas fa-tools"></i> Servicios</a></li>
+                    <li class="elemento-menu"><a href="../nosotros/index.html" class="enlace-menu"><i class="fas fa-users"></i> Nosotros</a></li>
+                    <li class="elemento-menu"><a href="./index.html" class="enlace-menu activo"><i class="fas fa-envelope"></i> Contacto</a></li>
+                    <li class="elemento-menu"><a href="../login/index.html" class="enlace-menu"><i class="fas fa-user"></i> Mi Cuenta</a></li>
+                </ul>
+            </nav>
+
+            <div class="acciones-cabecera">
+                <a href="../login/index.html" class="boton-ingresar-nav">
+                    <i class="fas fa-user-circle"></i> Ingresar
+                </a>
+                
+                <label for="checkmenu" class="boton-hamburguesa" aria-label="Abrir menú"><i class="fas fa-bars"></i></label>
+            </div>
+        </div>
+    </header>
+
+    <main>
+
+                        <!-- Seccion de compra y cotizacion -->
+        <section class="seccion">
+            <div class="contenedor">
+                <div class="encabezado-seccion">
+                    <h2 class="titulo-seccion">Compras y Cotizaciones</h2>
+                    <p class="subtitulo-seccion">Adquiere tu hardware gamer directamente o solicita una cotización personalizada con garantía oficial.</p>
+                </div>
+
+                <div class="cuadricula-contacto">
+
+                    <!-- Informacion de atencion -->
+                    <div class="tarjeta-info-contacto">
+                        <h3 style="margin-bottom: 25px; font-size: 1.35rem;">
+                            <i class="fas fa-store acento"></i> Canales de Atención
+                        </h3>
+
+                        <div class="item-info">
+                            <div class="icono-info"><i class="fas fa-map-marker-alt"></i></div>
+                            <div>
+                                <h4 style="font-size: 1rem;">Showroom & Tienda Principal</h4>
+                                <p style="color: var(--color-texto-apagado); font-size: 0.9rem;">Av. Tecnología 1234, Miraflores, Lima - Perú</p>
+                            </div>
+                        </div>
+
+                        <div class="item-info">
+                            <div class="icono-info"><i class="fab fa-whatsapp"></i></div>
+                            <div>
+                                <h4 style="font-size: 1rem;">WhatsApp Ventas y Cotizaciones</h4>
+                                <p style="color: var(--color-texto-apagado); font-size: 0.9rem;">+51 987 654 321 (Atención directa)</p>
+                            </div>
+                        </div>
+
+                        <div class="item-info">
+                            <div class="icono-info"><i class="fas fa-envelope"></i></div>
+                            <div>
+                                <h4 style="font-size: 1rem;">Correo Corporativo</h4>
+                                <p style="color: var(--color-texto-apagado); font-size: 0.9rem;">ventas@techstore.pe</p>
+                            </div>
+                        </div>
+
+                        <div class="item-info">
+                            <div class="icono-info"><i class="fas fa-clock"></i></div>
+                            <div>
+                                <h4 style="font-size: 1rem;">Horario de Atención y Despacho</h4>
+                                <p style="color: var(--color-texto-apagado); font-size: 0.9rem;">Lunes a Sábado: 9:00 AM - 8:00 PM</p>
+                            </div>
+                        </div>
+
+                        <div style="margin-top: 30px; padding: 20px; background-color: var(--color-fondo-suave); border-radius: 8px; border: 1px solid var(--color-borde);">
+                            <h4 style="color: var(--color-primario); font-size: 0.95rem; margin-bottom: 8px;">
+                                <i class="fas fa-info-circle"></i> ¿Buscas Servicio Técnico?
+                            </h4>
+                            <p style="color: var(--color-texto-apagado); font-size: 0.85rem; margin-bottom: 12px;">
+                                También puedes agendar citas para mantenimiento y ensamble especializado en nuestra sección técnica.
+                            </p>
+                            <a href="../servicios/index.html" class="boton boton-secundario" style="width: 100%; font-size: 0.85rem; padding: 8px;">
+                                Ver Servicios Técnicos
+                            </a>
+                        </div>
+                    </div>
+
+                    <!-- Formulario de compra y cotizacion -->
+                    <div>
+                        <form id="formulario-contacto" class="formulario-contacto" action="#" method="POST">
+                            <fieldset class="grupo-campos">
+                                <legend class="titulo-grupo"><i class="fas fa-user"></i> Datos del Cliente</legend>
+
+                                <div class="fila-campo">
+                                    <span class="etiqueta-campo" style="display: block; margin-bottom: 6px;">Tipo de Solicitud *</span>
+                                    <div style="display: flex; gap: 20px; flex-wrap: wrap;">
+                                        <label style="display: flex; align-items: center; gap: 6px; cursor: pointer; font-size: 0.9rem;">
+                                            <input type="radio" name="tipo_solicitud" value="compra" checked required> Compra Directa de Producto
+                                        </label>
+                                        <label style="display: flex; align-items: center; gap: 6px; cursor: pointer; font-size: 0.9rem;">
+                                            <input type="radio" name="tipo_solicitud" value="cotizacion" required> Cotización / Presupuesto Formal
+                                        </label>
+                                    </div>
+                                </div>
+
+                                <div class="fila-campo">
+                                    <label for="nombre" class="etiqueta-campo">Nombres y Apellidos *</label>
+                                    <input type="text" id="nombre" name="nombre" class="entrada-texto" placeholder="Ej. Carlos Mendoza" required>
+                                </div>
+
+                                <div class="fila-campo">
+                                    <label for="dni" class="etiqueta-campo">DNI del Titular (8 dígitos) *</label>
+                                    <input type="text" id="dni" name="dni" class="entrada-texto" placeholder="12345678" maxlength="8" pattern="[0-9]{8}" title="Debe ingresar exactamente 8 dígitos de su DNI" required>
+                                </div>
+
+                                <div class="fila-campo">
+                                    <label for="correo" class="etiqueta-campo">Correo Electrónico *</label>
+                                    <input type="email" id="correo" name="correo" class="entrada-texto" placeholder="ejemplo@correo.com" required>
+                                </div>
+
+                                <div class="fila-campo">
+                                    <label for="telefono" class="etiqueta-campo">Número de Celular (9 dígitos) *</label>
+                                    <input type="tel" id="telefono" name="telefono" class="entrada-texto" placeholder="987654321" maxlength="9" pattern="[0-9]{9}" title="Ingrese exactamente 9 dígitos numéricos de su celular" required>
+                                </div>
+
+                                <div class="fila-campo">
+                                    <label for="direccion" class="etiqueta-campo">Dirección de Entrega (Lima o Provincias) *</label>
+                                    <input type="text" id="direccion" name="direccion" class="entrada-texto" placeholder="Av. Principal 123, Dpto 4B, Distrito" required>
+                                </div>
+
+                                <div class="fila-campo">
+                                    <label for="fecha" class="etiqueta-campo">Fecha Preferida de Entrega o Atención *</label>
+                                    <input type="date" id="fecha" name="fecha" class="entrada-texto" required>
+                                </div>
+                            </fieldset>
+
+                            <fieldset class="grupo-campos">
+                                <legend class="titulo-grupo"><i class="fas fa-shopping-cart"></i> Detalle del Producto y Pago</legend>
+
+                                <div class="fila-campo">
+                                    <label for="producto" class="etiqueta-campo">Producto o Categoría de Interés *</label>
+                                    <select id="producto" name="producto" class="selector" required>
+                                        <option value="" disabled selected>-- Selecciona un producto o categoría --</option>
+                                        <option value="laptops">Laptops Gamer</option>
+                                        <option value="computadoras">PCs de Escritorio / BattleStation</option>
+                                        <option value="monitores">Monitores eSports y Curvos</option>
+                                        <option value="accesorios">Periféricos (Teclados, Mouse, Headset)</option>
+                                        <option value="servicio">Servicio Técnico / Mantenimiento</option>
+                                    </select>
+                                </div>
+
+                                <div class="fila-campo">
+                                    <span class="etiqueta-campo" style="display: block; margin-bottom: 6px;">Método de Pago Preferido *</span>
+                                    <div style="display: flex; gap: 20px; flex-wrap: wrap;">
+                                        <label style="display: flex; align-items: center; gap: 6px; cursor: pointer; font-size: 0.9rem;">
+                                            <input type="radio" name="metodo_pago" value="tarjeta" checked required> Tarjeta Débito / Crédito
+                                        </label>
+                                        <label style="display: flex; align-items: center; gap: 6px; cursor: pointer; font-size: 0.9rem;">
+                                            <input type="radio" name="metodo_pago" value="billetera" required> Yape / Plin
+                                        </label>
+                                        <label style="display: flex; align-items: center; gap: 6px; cursor: pointer; font-size: 0.9rem;">
+                                            <input type="radio" name="metodo_pago" value="transferencia" required> Transferencia Bancaria
+                                        </label>
+                                        <label style="display: flex; align-items: center; gap: 6px; cursor: pointer; font-size: 0.9rem;">
+                                            <input type="radio" name="metodo_pago" value="contraentrega" required> Pago Contra Entrega
+                                        </label>
+                                    </div>
+                                </div>
+
+                                <div class="fila-campo">
+                                    <label for="mensaje" class="etiqueta-campo">Indicaciones o Especificaciones Adicionales</label>
+                                    <textarea id="mensaje" name="mensaje" class="area-texto" rows="3" placeholder="Indica componentes deseados, detalles de envío o notas de cotización..."></textarea>
+                                </div>
+
+                                <div class="fila-campo" style="margin-top: 10px;">
+                                    <label style="display: flex; align-items: flex-start; gap: 8px; cursor: pointer; font-size: 0.85rem; color: var(--color-texto-apagado);">
+                                        <input type="checkbox" id="terminos" name="terminos" required style="margin-top: 2px;">
+                                        <span>Acepto las políticas de compra, cotización formal y garantía oficial de TechStore. *</span>
+                                    </label>
+                                </div>
+
+                                <div class="botones-formulario">
+                                    <button type="reset" class="boton boton-outline-blanco">
+                                        <i class="fas fa-undo"></i> Limpiar Formulario
+                                    </button>
+                                    <button type="submit" class="boton boton-principal">
+                                        <i class="fas fa-check-circle"></i> Confirmar Pedido / Cotización
+                                    </button>
+                                </div>
+                            </fieldset>
+                        </form>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+
+        <!-- Modulo Informativo Libro de Reclamaciones Ley 29571 -->
+        <section id="reclamaciones" class="seccion seccion-oscura" style="padding: 40px 0;">
+            <div class="contenedor">
+                <div style="background-color: var(--color-tarjeta); border: 1px solid var(--color-borde); border-radius: var(--radio-borde); padding: 30px; display: flex; align-items: center; gap: 25px; flex-wrap: wrap;">
+                    <div style="width: 60px; height: 60px; border-radius: 12px; background: rgba(0, 180, 216, 0.15); border: 1.5px solid var(--color-primario); display: flex; align-items: center; justify-content: center; font-size: 2rem; color: var(--color-primario); flex-shrink: 0;">
+                        <i class="fas fa-book-open"></i>
+                    </div>
+                    <div style="flex: 1; min-width: 260px;">
+                        <h3 style="font-size: 1.25rem; margin-bottom: 6px;">Libro de Reclamaciones Virtual - INDECOPI</h3>
+                        <p style="color: var(--color-texto-apagado); font-size: 0.92rem; margin-bottom: 0;">
+                            Conforme al Código de Protección y Defensa del Consumidor (Ley N° 29571), ponemos a disposición de nuestros clientes la Hoja de Reclamación Virtual para registrar cualquier queja o reclamo. Razón Social: <strong>TechStore Perú S.A.C.</strong> | RUC: <strong>20608945123</strong>. Correo de atención: <strong>reclamaciones@techstore.pe</strong>. Plazo legal de respuesta: 15 días hábiles.
+                        </p>
+                    </div>
+                    <div>
+                        <a href="#formulario-pedido" class="boton boton-secundario" style="white-space: nowrap;">
+                            <i class="fas fa-file-alt"></i> Redactar en el Formulario
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- Pie de pagina comercial peruano -->
+    <footer id="pie-pagina">
+        <!-- Banner Oficial de Libro de Reclamaciones (Normativa INDECOPI / Ley N° 29571) -->
+        <div class="banner-reclamaciones">
+            <div class="contenedor contenedor-reclamaciones">
+                <div class="info-reclamaciones-bloque">
+                    <div class="icono-reclamaciones-caja">
+                        <i class="fas fa-book-open"></i>
+                    </div>
+                    <div>
+                        <h4 class="titular-reclamaciones">Libro de Reclamaciones Virtual</h4>
+                        <p class="desc-reclamaciones">Conforme a lo establecido en el Código de Protección y Defensa del Consumidor (Ley N° 29571). RUC: 20608945123 - TechStore Perú S.A.C.</p>
+                    </div>
+                </div>
+                <a href="#reclamaciones" class="boton-reclamaciones">
+                    <i class="fas fa-file-signature"></i> Hoja de Reclamación Virtual
+                </a>
+            </div>
+        </div>
+
+        <div class="contenedor">
+            <div class="cuadricula-pie">
+                <!-- Columna 1: Identidad Corporativa -->
+                <div class="columna-pie">
+                    <h3 class="titulo-pie"><i class="fas fa-gamepad"></i> Tech<span class="acento">Store</span></h3>
+                    <p class="texto-pie">
+                        Especialistas en hardware gamer de alto rendimiento, computadoras ensambladas a medida y distribución autorizada de componentes con garantía oficial en Lima y todo el Perú.
+                    </p>
+                    <p class="texto-pie" style="font-size: 0.82rem; color: var(--color-texto-apagado);">
+                        <strong>Razón Social:</strong> TechStore Perú S.A.C.<br>
+                        <strong>RUC:</strong> 20608945123 | Tienda Formal Registrada
+                    </p>
+                    <div class="redes-sociales">
+                        <a href="#" class="enlace-red" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#" class="enlace-red" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                        <a href="#" class="enlace-red" aria-label="YouTube"><i class="fab fa-youtube"></i></a>
+                        <a href="#" class="enlace-red" aria-label="TikTok"><i class="fab fa-tiktok"></i></a>
+                    </div>
+                </div>
+
+                <!-- Columna 2: Navegación del Catálogo -->
+                <div class="columna-pie">
+                    <h3 class="titulo-pie">Líneas de Productos</h3>
+                    <ul class="lista-pie">
+                        <li><a href="../productos/index.html#laptops"><i class="fas fa-chevron-right"></i> Laptops Gamer</a></li>
+                        <li><a href="../productos/index.html#pcs"><i class="fas fa-desktop"></i> PCs de Escritorio Ensambladas</a></li>
+                        <li><a href="../productos/index.html#monitores"><i class="fas fa-tv"></i> Monitores eSports 144Hz+</a></li>
+                        <li><a href="../productos/index.html#perifericos"><i class="fas fa-keyboard"></i> Periféricos de Precisión</a></li>
+                        <li><a href="../ofertas/index.html"><i class="fas fa-chevron-right"></i> Promociones y Descuentos</a></li>
+                    </ul>
+                </div>
+
+                <!-- Columna 3: Información y Confianza -->
+                <div class="columna-pie">
+                    <h3 class="titulo-pie">Servicio y Garantía</h3>
+                    <ul class="lista-pie">
+                        <li><a href="../servicios/index.html"><i class="fas fa-chevron-right"></i> Servicio Técnico y Ensamble</a></li>
+                        <li><a href="../comparativa/index.html"><i class="fas fa-chevron-right"></i> Comparador de Rendimiento</a></li>
+                        <li><a href="../nosotros/index.html"><i class="fas fa-chevron-right"></i> Sobre TechStore Perú</a></li>
+                        <li><a href="../login/index.html"><i class="fas fa-chevron-right"></i> Portal de Clientes / Mi Cuenta</a></li>
+                        <li><a href="./index.html"><i class="fas fa-chevron-right"></i> Cotizaciones Corporativas</a></li>
+                    </ul>
+                </div>
+
+                <!-- Columna 4: Tienda Física y Ubicación con Mapa -->
+                <div class="columna-pie">
+                    <h3 class="titulo-pie">Tienda Física en Lima</h3>
+                    <p class="texto-pie"><i class="fas fa-map-marker-alt acento"></i> CC Cyberplaza Tienda 2A-102, Av. Garcilaso de la Vega 1348, Lima Centro</p>
+                    <p class="texto-pie"><i class="fas fa-phone-alt acento"></i> (01) 234-5678 / 929-207-945 / 991-439-162</p>
+                    <p class="texto-pie"><i class="fas fa-envelope acento"></i> ventas@techstore.pe</p>
+                    <p class="texto-pie"><i class="fas fa-clock acento"></i> Lun - Sáb: 9:00 AM - 8:00 PM</p>
+                    
+                    <!-- Mapa Embebido Semántico -->
+                    <div class="mapa-pie-contenedor">
+                        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3901.9686008882046!2d-77.03780332405052!3d-12.054366688183017!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x9105c8c697858c85%3A0x67399a9a0899127!2sCentro%20Comercial%20Cyberplaza!5e0!3m2!1ses!2spe!4v1710000000000!5m2!1ses!2spe" width="100%" height="130" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade" title="Ubicación Tienda TechStore - CC Cyberplaza Lima"></iframe>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Métodos de Pago Aceptados en Perú -->
+            <div class="metodos-pago-pie">
+                <div class="titulo-pagos-pie">Métodos de Pago 100% Seguros Aceptados en Perú</div>
+                <div class="insignias-pago-grid">
+                    <span class="insignia-pago-badge"><i class="fab fa-cc-visa"></i> Visa</span>
+                    <span class="insignia-pago-badge"><i class="fab fa-cc-mastercard"></i> Mastercard</span>
+                    <span class="insignia-pago-badge"><i class="fab fa-cc-amex"></i> Amex</span>
+                    <span class="insignia-pago-badge"><i class="fas fa-qrcode"></i> Yape</span>
+                    <span class="insignia-pago-badge"><i class="fas fa-mobile-alt"></i> Plin</span>
+                    <span class="insignia-pago-badge"><i class="fas fa-university"></i> BCP / BBVA</span>
+                    <span class="insignia-pago-badge"><i class="fas fa-money-bill-wave"></i> PagoEfectivo</span>
+                </div>
+            </div>
+        </div>
+
+        <div class="creditos-pie">
+            <div class="contenedor">
+                <p>&copy; 2026 TechStore Perú S.A.C. - RUC: 20608945123. Especialistas en Hardware Gamer. Todos los derechos reservados.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Script principal -->
+    
+</body>
+</html>
+

@@ -1,0 +1,373 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TechStore | Ofertas Especiales y Combos Gamer</title>
+    <!-- Fuentes de Google -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700;800&display=swap" rel="stylesheet">
+    <!-- Iconos FontAwesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <!-- Hoja de estilos -->
+    <link rel="stylesheet" href="estilos.css">
+</head>
+<body>
+
+        <!-- Encabezado y navegacion -->
+    <header id="cabecera">
+        <!-- Barra superior institucional -->
+        <div class="barra-superior-util">
+            <div class="contenedor contenedor-util">
+                <div class="util-izquierda">
+                    <span class="item-util"><i class="fas fa-map-marker-alt"></i> Tienda Lima: <strong>CC Cyberplaza Tienda 2A-102, Av. Garcilaso de la Vega 1348</strong></span>
+                    <span class="item-util"><i class="fas fa-phone-alt"></i> Cotizaciones: <strong>929-207-945 / 991-439-162</strong></span>
+                </div>
+                <div class="util-derecha">
+                    <span class="item-util util-horario"><i class="fas fa-clock"></i> Lun - Sáb: 9:00 AM - 8:00 PM</span>
+                    <a href="../servicios/index.html" class="enlace-util"><i class="fas fa-shield-alt"></i> Garantía Oficial</a>
+                    <a href="../contacto/index.html#reclamaciones" class="enlace-util"><i class="fas fa-book"></i> Libro de Reclamaciones</a>
+                    <a href="../login/index.html" class="enlace-util util-destacado"><i class="fas fa-user-circle"></i> Mi Cuenta / Ingresar</a>
+                </div>
+            </div>
+        </div>
+
+        <!-- Barra de navegacion principal -->
+        <div class="contenedor barra-navegacion">
+            <h1 class="logotipo">
+                <a href="../index.html">
+                    <i class="fas fa-gamepad"></i> Tech<span class="acento">Store</span>
+                </a>
+            </h1>
+
+            <!-- Control menu responsive -->
+            <input type="checkbox" id="checkmenu">
+
+            <nav id="menu" aria-label="Navegación principal">
+                <ul class="lista-menu">
+                    <li class="elemento-menu"><a href="../index.html" class="enlace-menu"><i class="fas fa-home"></i> Inicio</a></li>
+                    
+                    <!-- Dropdown Productos -->
+                    <li class="elemento-menu item-con-sub">
+                        <a href="../productos/index.html" class="enlace-menu">
+                            <i class="fas fa-laptop"></i> Productos <i class="fas fa-chevron-down flecha-sub"></i>
+                        </a>
+                        <ul class="submenu-desplegable">
+                            <li><a href="../productos/index.html#laptops"><i class="fas fa-laptop"></i> Laptops Gamer</a></li>
+                            <li><a href="../productos/index.html#pcs"><i class="fas fa-desktop"></i> PCs Ensambladas</a></li>
+                            <li><a href="../productos/index.html#monitores"><i class="fas fa-tv"></i> Monitores eSports</a></li>
+                            <li><a href="../productos/index.html#perifericos"><i class="fas fa-keyboard"></i> Periféricos Gamer</a></li>
+                        </ul>
+                    </li>
+
+                    <li class="elemento-menu"><a href="../comparativa/index.html" class="enlace-menu"><i class="fas fa-balance-scale"></i> Comparativa</a></li>
+                    <li class="elemento-menu"><a href="./index.html" class="enlace-menu activo"><i class="fas fa-fire"></i> Ofertas</a></li>
+                    <li class="elemento-menu"><a href="../servicios/index.html" class="enlace-menu"><i class="fas fa-tools"></i> Servicios</a></li>
+                    <li class="elemento-menu"><a href="../nosotros/index.html" class="enlace-menu"><i class="fas fa-users"></i> Nosotros</a></li>
+                    <li class="elemento-menu"><a href="../contacto/index.html" class="enlace-menu"><i class="fas fa-envelope"></i> Contacto</a></li>
+                    <li class="elemento-menu"><a href="../login/index.html" class="enlace-menu"><i class="fas fa-user"></i> Mi Cuenta</a></li>
+                </ul>
+            </nav>
+
+            <div class="acciones-cabecera">
+                <a href="../login/index.html" class="boton-ingresar-nav">
+                    <i class="fas fa-user-circle"></i> Ingresar
+                </a>
+                
+                <label for="checkmenu" class="boton-hamburguesa" aria-label="Abrir menú"><i class="fas fa-bars"></i></label>
+            </div>
+        </div>
+    </header>
+
+    <main>
+
+        <!-- Banner principal -->
+        <section class="portada">
+            <div class="contenedor">
+                <div class="etiqueta-hero" style="border-color: rgba(247, 37, 133, 0.4); color: var(--color-secundario); background: rgba(247, 37, 133, 0.1);">
+                    <i class="fas fa-fire"></i> Promociones de Temporada 2026
+                </div>
+                <h2 class="titulo-portada">
+                    Combos Gamer y <span class="acento-rosa">Precios de Liquidación</span>
+                </h2>
+                <p class="texto-portada">
+                    Aprovecha paquetes completos con todo incluido: PC armada, monitor de alta tasa de refresco y periféricos con descuentos de hasta el 25%.
+                </p>
+            </div>
+        </section>
+
+        <!-- Banner de oferta -->
+        <section class="seccion" style="padding-top: 0;">
+            <div class="contenedor">
+                <div class="banner-oferta-relampago">
+                    <span class="badge-tag" style="background-color: #000; color: #fff; margin-bottom: 15px;">
+                        <i class="fas fa-stopwatch"></i> TIEMPO LIMITADO
+                    </span>
+                    <h3 class="titulo-banner-oferta">Cyber Weekend Gamer - Descuento Directo</h3>
+                    <p style="font-size: 1.1rem; max-width: 650px; margin: 0 auto 25px auto; opacity: 0.95;">
+                        Por la compra de cualquier PC Gamer de la serie BattleStation, llévate el ensamble, optimización de Windows y envío gratis a todo el Perú.
+                    </p>
+                    <a href="../contacto/index.html" class="boton boton-principal" style="background: #ffffff; color: #0a111a; font-weight: bold;">
+                        <i class="fas fa-gift"></i> Reclamar Promoción por Contacto
+                    </a>
+                </div>
+
+                <div class="encabezado-seccion">
+                    <h2 class="titulo-seccion">Combos y Bundles Gamer Exclusivos</h2>
+                    <p class="subtitulo-seccion">Equipamiento completo listo para conectar, jugar y transmitir en streaming.</p>
+                </div>
+
+                <!-- Combos gamer -->
+                <div class="cuadricula-productos">
+
+                    <!-- Combo 1 -->
+                    <article class="tarjeta-producto">
+                        <figure class="figura-producto">
+                            <img src="../img/pc-gamer.jpg" alt="Combo PC Master Race" class="imagen-producto">
+                            <figcaption class="etiqueta-categoria">Combo Completo</figcaption>
+                            <span class="etiqueta-descuento-flotante">-25% OFF</span>
+                        </figure>
+                        <div class="cuerpo-producto">
+                            <h3 class="nombre-producto">Pack Setup Master Race</h3>
+                            <p class="detalle-producto">
+                                PC Ryzen 7 7800X3D + RTX 4070 Ti Super + Monitor Samsung Odyssey G7 32" + Teclado Corsair K70 PRO + Mouse Logitech G PRO X.
+                            </p>
+                            <div class="precio-contenedor">
+                                <span class="precio-producto">S/ 11,499.00</span>
+                                <span class="precio-anterior">S/ 12,800.00</span>
+                            </div>
+                            <div class="acciones-tarjeta">
+                                <a href="../contacto/index.html" class="boton boton-outline-blanco" style="text-align: center;"><i class="fas fa-file-invoice"></i> Cotizar</a>
+                                <a href="../contacto/index.html" class="boton boton-principal" style="text-align: center;"><i class="fas fa-shopping-cart"></i> Comprar</a>
+                            </div>
+                        </div>
+                    </article>
+
+                    <!-- Combo 2 -->
+                    <article class="tarjeta-producto">
+                        <figure class="figura-producto">
+                            <img src="../img/laptop-rog.jpg" alt="Combo Laptop ROG Mobile" class="imagen-producto">
+                            <figcaption class="etiqueta-categoria">Pack Portátil</figcaption>
+                            <span class="etiqueta-descuento-flotante">-18% OFF</span>
+                        </figure>
+                        <div class="cuerpo-producto">
+                            <h3 class="nombre-producto">Pack ROG On-The-Go</h3>
+                            <p class="detalle-producto">
+                                Laptop ASUS ROG Strix G16 (i7/RTX 4060) + Mochila oficial ROG Armor + Base enfriadora RGB + Mouse Logitech G PRO X.
+                            </p>
+                            <div class="precio-contenedor">
+                                <span class="precio-producto">S/ 6,249.00</span>
+                                <span class="precio-anterior">S/ 6,890.00</span>
+                            </div>
+                            <div class="acciones-tarjeta">
+                                <a href="../contacto/index.html" class="boton boton-outline-blanco" style="text-align: center;"><i class="fas fa-file-invoice"></i> Cotizar</a>
+                                <a href="../contacto/index.html" class="boton boton-principal" style="text-align: center;"><i class="fas fa-shopping-cart"></i> Comprar</a>
+                            </div>
+                        </div>
+                    </article>
+
+                    <!-- Combo 3 -->
+                    <article class="tarjeta-producto">
+                        <figure class="figura-producto">
+                            <img src="../img/periferico-microfono-quadcast.jpg" alt="Kit Streaming y Contenido" class="imagen-producto">
+                            <figcaption class="etiqueta-categoria">Kit Streaming</figcaption>
+                            <span class="etiqueta-descuento-flotante">-20% OFF</span>
+                        </figure>
+                        <div class="cuerpo-producto">
+                            <h3 class="nombre-producto">Kit Creador & Streamer</h3>
+                            <p class="detalle-producto">
+                                Micrófono HyperX QuadCast S RGB + Auriculares HyperX Cloud III Wireless + Teclado Corsair K70 + Mouse Logitech G PRO X.
+                            </p>
+                            <div class="precio-contenedor">
+                                <span class="precio-producto">S/ 2,149.00</span>
+                                <span class="precio-anterior">S/ 2,450.00</span>
+                            </div>
+                            <div class="acciones-tarjeta">
+                                <a href="../contacto/index.html" class="boton boton-outline-blanco" style="text-align: center;"><i class="fas fa-file-invoice"></i> Cotizar</a>
+                                <a href="../contacto/index.html" class="boton boton-principal" style="text-align: center;"><i class="fas fa-shopping-cart"></i> Comprar</a>
+                            </div>
+                        </div>
+                    </article>
+
+                    <!-- Combo 4 -->
+                    <article class="tarjeta-producto">
+                        <figure class="figura-producto">
+                            <img src="../img/monitor-samsung-odyssey.jpg" alt="Pack Dual Monitor eSports" class="imagen-producto">
+                            <figcaption class="etiqueta-categoria">Pack Monitores</figcaption>
+                            <span class="etiqueta-descuento-flotante">-15% OFF</span>
+                        </figure>
+                        <div class="cuerpo-producto">
+                            <h3 class="nombre-producto">Dúo Monitores Gamer Pro</h3>
+                            <p class="detalle-producto">
+                                Samsung Odyssey G7 32" Curvo 240Hz + BenQ ZOWIE XL2546K 24.5" eSports + Brazo neumático doble reforzado.
+                            </p>
+                            <div class="precio-contenedor">
+                                <span class="precio-producto">S/ 4,499.00</span>
+                                <span class="precio-anterior">S/ 5,100.00</span>
+                            </div>
+                            <div class="acciones-tarjeta">
+                                <a href="../contacto/index.html" class="boton boton-outline-blanco" style="text-align: center;"><i class="fas fa-file-invoice"></i> Cotizar</a>
+                                <a href="../contacto/index.html" class="boton boton-principal" style="text-align: center;"><i class="fas fa-shopping-cart"></i> Comprar</a>
+                            </div>
+                        </div>
+                    </article>
+
+                    <!-- Combo 5: HP Omen -->
+                    <article class="tarjeta-producto">
+                        <figure class="figura-producto">
+                            <img src="../img/laptop-hp.jpg" alt="Pack HP Omen Transcend" class="imagen-producto">
+                            <figcaption class="etiqueta-categoria">Pack Laptop IA</figcaption>
+                            <span class="etiqueta-descuento-flotante">-14% OFF</span>
+                        </figure>
+                        <div class="cuerpo-producto">
+                            <h3 class="nombre-producto">Pack HP Omen AI Edition</h3>
+                            <p class="detalle-producto">
+                                Laptop HP Omen (Intel Core Ultra 7/RTX 4060) + Mochila Omen Armor + Headset HyperX Cloud II + Mouse Inalámbrico.
+                            </p>
+                            <div class="precio-contenedor">
+                                <span class="precio-producto">S/ 6,899.00</span>
+                                <span class="precio-anterior">S/ 7,650.00</span>
+                            </div>
+                            <div class="acciones-tarjeta">
+                                <a href="../contacto/index.html" class="boton boton-outline-blanco" style="text-align: center;"><i class="fas fa-file-invoice"></i> Cotizar</a>
+                                <a href="../contacto/index.html" class="boton boton-principal" style="text-align: center;"><i class="fas fa-shopping-cart"></i> Comprar</a>
+                            </div>
+                        </div>
+                    </article>
+
+                    <!-- Combo 6: Acer Nitro -->
+                    <article class="tarjeta-producto">
+                        <figure class="figura-producto">
+                            <img src="../img/laptop-acer.jpg" alt="Pack Acer Nitro Starter" class="imagen-producto">
+                            <figcaption class="etiqueta-categoria">Pack Starter</figcaption>
+                            <span class="etiqueta-descuento-flotante">-16% OFF</span>
+                        </figure>
+                        <div class="cuerpo-producto">
+                            <h3 class="nombre-producto">Pack Acer Nitro Starter</h3>
+                            <p class="detalle-producto">
+                                Laptop Acer Nitro V 15 (Core i7 13va/RTX 4050) + Mochila impermeable + Mouse Gamer RGB 7200DPI + Mousepad XXL.
+                            </p>
+                            <div class="precio-contenedor">
+                                <span class="precio-producto">S/ 4,199.00</span>
+                                <span class="precio-anterior">S/ 4,800.00</span>
+                            </div>
+                            <div class="acciones-tarjeta">
+                                <a href="../contacto/index.html" class="boton boton-outline-blanco" style="text-align: center;"><i class="fas fa-file-invoice"></i> Cotizar</a>
+                                <a href="../contacto/index.html" class="boton boton-principal" style="text-align: center;"><i class="fas fa-shopping-cart"></i> Comprar</a>
+                            </div>
+                        </div>
+                    </article>
+
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- Pie de pagina comercial peruano -->
+    <footer id="pie-pagina">
+        <!-- Banner Oficial de Libro de Reclamaciones (Normativa INDECOPI / Ley N° 29571) -->
+        <div class="banner-reclamaciones">
+            <div class="contenedor contenedor-reclamaciones">
+                <div class="info-reclamaciones-bloque">
+                    <div class="icono-reclamaciones-caja">
+                        <i class="fas fa-book-open"></i>
+                    </div>
+                    <div>
+                        <h4 class="titular-reclamaciones">Libro de Reclamaciones Virtual</h4>
+                        <p class="desc-reclamaciones">Conforme a lo establecido en el Código de Protección y Defensa del Consumidor (Ley N° 29571). RUC: 20608945123 - TechStore Perú S.A.C.</p>
+                    </div>
+                </div>
+                <a href="../contacto/index.html#reclamaciones" class="boton-reclamaciones">
+                    <i class="fas fa-file-signature"></i> Hoja de Reclamación Virtual
+                </a>
+            </div>
+        </div>
+
+        <div class="contenedor">
+            <div class="cuadricula-pie">
+                <!-- Columna 1: Identidad Corporativa -->
+                <div class="columna-pie">
+                    <h3 class="titulo-pie"><i class="fas fa-gamepad"></i> Tech<span class="acento">Store</span></h3>
+                    <p class="texto-pie">
+                        Especialistas en hardware gamer de alto rendimiento, computadoras ensambladas a medida y distribución autorizada de componentes con garantía oficial en Lima y todo el Perú.
+                    </p>
+                    <p class="texto-pie" style="font-size: 0.82rem; color: var(--color-texto-apagado);">
+                        <strong>Razón Social:</strong> TechStore Perú S.A.C.<br>
+                        <strong>RUC:</strong> 20608945123 | Tienda Formal Registrada
+                    </p>
+                    <div class="redes-sociales">
+                        <a href="#" class="enlace-red" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#" class="enlace-red" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                        <a href="#" class="enlace-red" aria-label="YouTube"><i class="fab fa-youtube"></i></a>
+                        <a href="#" class="enlace-red" aria-label="TikTok"><i class="fab fa-tiktok"></i></a>
+                    </div>
+                </div>
+
+                <!-- Columna 2: Navegación del Catálogo -->
+                <div class="columna-pie">
+                    <h3 class="titulo-pie">Líneas de Productos</h3>
+                    <ul class="lista-pie">
+                        <li><a href="../productos/index.html#laptops"><i class="fas fa-chevron-right"></i> Laptops Gamer</a></li>
+                        <li><a href="../productos/index.html#pcs"><i class="fas fa-desktop"></i> PCs de Escritorio Ensambladas</a></li>
+                        <li><a href="../productos/index.html#monitores"><i class="fas fa-tv"></i> Monitores eSports 144Hz+</a></li>
+                        <li><a href="../productos/index.html#perifericos"><i class="fas fa-keyboard"></i> Periféricos de Precisión</a></li>
+                        <li><a href="./index.html"><i class="fas fa-chevron-right"></i> Promociones y Descuentos</a></li>
+                    </ul>
+                </div>
+
+                <!-- Columna 3: Información y Confianza -->
+                <div class="columna-pie">
+                    <h3 class="titulo-pie">Servicio y Garantía</h3>
+                    <ul class="lista-pie">
+                        <li><a href="../servicios/index.html"><i class="fas fa-chevron-right"></i> Servicio Técnico y Ensamble</a></li>
+                        <li><a href="../comparativa/index.html"><i class="fas fa-chevron-right"></i> Comparador de Rendimiento</a></li>
+                        <li><a href="../nosotros/index.html"><i class="fas fa-chevron-right"></i> Sobre TechStore Perú</a></li>
+                        <li><a href="../login/index.html"><i class="fas fa-chevron-right"></i> Portal de Clientes / Mi Cuenta</a></li>
+                        <li><a href="../contacto/index.html"><i class="fas fa-chevron-right"></i> Cotizaciones Corporativas</a></li>
+                    </ul>
+                </div>
+
+                <!-- Columna 4: Tienda Física y Ubicación con Mapa -->
+                <div class="columna-pie">
+                    <h3 class="titulo-pie">Tienda Física en Lima</h3>
+                    <p class="texto-pie"><i class="fas fa-map-marker-alt acento"></i> CC Cyberplaza Tienda 2A-102, Av. Garcilaso de la Vega 1348, Lima Centro</p>
+                    <p class="texto-pie"><i class="fas fa-phone-alt acento"></i> (01) 234-5678 / 929-207-945 / 991-439-162</p>
+                    <p class="texto-pie"><i class="fas fa-envelope acento"></i> ventas@techstore.pe</p>
+                    <p class="texto-pie"><i class="fas fa-clock acento"></i> Lun - Sáb: 9:00 AM - 8:00 PM</p>
+                    
+                    <!-- Mapa Embebido Semántico -->
+                    <div class="mapa-pie-contenedor">
+                        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3901.9686008882046!2d-77.03780332405052!3d-12.054366688183017!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x9105c8c697858c85%3A0x67399a9a0899127!2sCentro%20Comercial%20Cyberplaza!5e0!3m2!1ses!2spe!4v1710000000000!5m2!1ses!2spe" width="100%" height="130" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade" title="Ubicación Tienda TechStore - CC Cyberplaza Lima"></iframe>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Métodos de Pago Aceptados en Perú -->
+            <div class="metodos-pago-pie">
+                <div class="titulo-pagos-pie">Métodos de Pago 100% Seguros Aceptados en Perú</div>
+                <div class="insignias-pago-grid">
+                    <span class="insignia-pago-badge"><i class="fab fa-cc-visa"></i> Visa</span>
+                    <span class="insignia-pago-badge"><i class="fab fa-cc-mastercard"></i> Mastercard</span>
+                    <span class="insignia-pago-badge"><i class="fab fa-cc-amex"></i> Amex</span>
+                    <span class="insignia-pago-badge"><i class="fas fa-qrcode"></i> Yape</span>
+                    <span class="insignia-pago-badge"><i class="fas fa-mobile-alt"></i> Plin</span>
+                    <span class="insignia-pago-badge"><i class="fas fa-university"></i> BCP / BBVA</span>
+                    <span class="insignia-pago-badge"><i class="fas fa-money-bill-wave"></i> PagoEfectivo</span>
+                </div>
+            </div>
+        </div>
+
+        <div class="creditos-pie">
+            <div class="contenedor">
+                <p>&copy; 2026 TechStore Perú S.A.C. - RUC: 20608945123. Especialistas en Hardware Gamer. Todos los derechos reservados.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Script principal -->
+    
+</body>
+</html>
+

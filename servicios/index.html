@@ -1,0 +1,510 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TechStore | Servicios y Soporte Técnico Especializado</title>
+    <!-- Fuentes de Google -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700;800&display=swap" rel="stylesheet">
+    <!-- Iconos FontAwesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <!-- Hoja de estilos -->
+    <link rel="stylesheet" href="estilos.css">
+</head>
+<body>
+
+        <!-- Encabezado y navegacion -->
+    <header id="cabecera">
+        <!-- Barra superior institucional -->
+        <div class="barra-superior-util">
+            <div class="contenedor contenedor-util">
+                <div class="util-izquierda">
+                    <span class="item-util"><i class="fas fa-map-marker-alt"></i> Tienda Lima: <strong>CC Cyberplaza Tienda 2A-102, Av. Garcilaso de la Vega 1348</strong></span>
+                    <span class="item-util"><i class="fas fa-phone-alt"></i> Cotizaciones: <strong>929-207-945 / 991-439-162</strong></span>
+                </div>
+                <div class="util-derecha">
+                    <span class="item-util util-horario"><i class="fas fa-clock"></i> Lun - Sáb: 9:00 AM - 8:00 PM</span>
+                    <a href="./index.html" class="enlace-util"><i class="fas fa-shield-alt"></i> Garantía Oficial</a>
+                    <a href="../contacto/index.html#reclamaciones" class="enlace-util"><i class="fas fa-book"></i> Libro de Reclamaciones</a>
+                    <a href="../login/index.html" class="enlace-util util-destacado"><i class="fas fa-user-circle"></i> Mi Cuenta / Ingresar</a>
+                </div>
+            </div>
+        </div>
+
+        <!-- Barra de navegacion principal -->
+        <div class="contenedor barra-navegacion">
+            <h1 class="logotipo">
+                <a href="../index.html">
+                    <i class="fas fa-gamepad"></i> Tech<span class="acento">Store</span>
+                </a>
+            </h1>
+
+            <!-- Control menu responsive -->
+            <input type="checkbox" id="checkmenu">
+
+            <nav id="menu" aria-label="Navegación principal">
+                <ul class="lista-menu">
+                    <li class="elemento-menu"><a href="../index.html" class="enlace-menu"><i class="fas fa-home"></i> Inicio</a></li>
+                    
+                    <!-- Dropdown Productos -->
+                    <li class="elemento-menu item-con-sub">
+                        <a href="../productos/index.html" class="enlace-menu">
+                            <i class="fas fa-laptop"></i> Productos <i class="fas fa-chevron-down flecha-sub"></i>
+                        </a>
+                        <ul class="submenu-desplegable">
+                            <li><a href="../productos/index.html#laptops"><i class="fas fa-laptop"></i> Laptops Gamer</a></li>
+                            <li><a href="../productos/index.html#pcs"><i class="fas fa-desktop"></i> PCs Ensambladas</a></li>
+                            <li><a href="../productos/index.html#monitores"><i class="fas fa-tv"></i> Monitores eSports</a></li>
+                            <li><a href="../productos/index.html#perifericos"><i class="fas fa-keyboard"></i> Periféricos Gamer</a></li>
+                        </ul>
+                    </li>
+
+                    <li class="elemento-menu"><a href="../comparativa/index.html" class="enlace-menu"><i class="fas fa-balance-scale"></i> Comparativa</a></li>
+                    <li class="elemento-menu"><a href="../ofertas/index.html" class="enlace-menu"><i class="fas fa-fire"></i> Ofertas</a></li>
+                    <li class="elemento-menu"><a href="./index.html" class="enlace-menu activo"><i class="fas fa-tools"></i> Servicios</a></li>
+                    <li class="elemento-menu"><a href="../nosotros/index.html" class="enlace-menu"><i class="fas fa-users"></i> Nosotros</a></li>
+                    <li class="elemento-menu"><a href="../contacto/index.html" class="enlace-menu"><i class="fas fa-envelope"></i> Contacto</a></li>
+                    <li class="elemento-menu"><a href="../login/index.html" class="enlace-menu"><i class="fas fa-user"></i> Mi Cuenta</a></li>
+                </ul>
+            </nav>
+
+            <div class="acciones-cabecera">
+                <a href="../login/index.html" class="boton-ingresar-nav">
+                    <i class="fas fa-user-circle"></i> Ingresar
+                </a>
+                
+                <label for="checkmenu" class="boton-hamburguesa" aria-label="Abrir menú"><i class="fas fa-bars"></i></label>
+            </div>
+        </div>
+    </header>
+
+    <main>
+
+        <!-- Banner principal -->
+        <section class="portada">
+            <div class="contenedor">
+                <div class="etiqueta-hero">
+                    <i class="fas fa-wrench"></i> Taller y Laboratorio Especializado
+                </div>
+                <h2 class="titulo-portada">
+                    Servicios Técnicos de <span class="acento">Alto Nivel</span>
+                </h2>
+                <p class="texto-portada">
+                    No solo vendemos hardware: lo ensamblamos con arte, lo optimizamos para máxima velocidad y garantizamos su estabilidad térmica y operativa.
+                </p>
+            </div>
+        </section>
+
+        <!-- Lista de servicios -->
+        <section class="seccion">
+            <div class="contenedor">
+                <div class="encabezado-seccion">
+                    <h2 class="titulo-seccion">Nuestros Servicios Principales</h2>
+                    <p class="subtitulo-seccion">Soluciones a medida tanto para equipos nuevos como para repotenciaciones.</p>
+                </div>
+
+                <div class="cuadricula-servicios">
+
+                    <!-- Servicio 1 -->
+                    <div class="tarjeta-servicio">
+                        <i class="fas fa-microchip icono-servicio"></i>
+                        <h3 style="font-size: 1.25rem; margin-bottom: 8px;">Ensamble de PC Gamer a Medida</h3>
+                        <p style="color: var(--color-texto-apagado); font-size: 0.9rem;">
+                            Montaje riguroso de componentes, ordenamiento milimétrico de cables (cable management) y pruebas de flujo de aire.
+                        </p>
+                        <ul class="lista-caracteristicas-servicio">
+                            <li><i class="fas fa-check"></i> Pruebas de estrés térmico 24h</li>
+                            <li><i class="fas fa-check"></i> Actualización de BIOS oficial</li>
+                            <li><i class="fas fa-check"></i> Gestión estética de cables RGB</li>
+                        </ul>
+                        <div style="font-size: 1.15rem; font-weight: bold; color: var(--color-primario); margin-bottom: 12px;">Desde S/ 120.00</div>
+                        <a href="../contacto/index.html" class="boton boton-principal">Agendar Ensamble</a>
+                    </div>
+
+                    <!-- Servicio 2 -->
+                    <div class="tarjeta-servicio">
+                        <i class="fas fa-fan icono-servicio" style="color: var(--color-secundario);"></i>
+                        <h3 style="font-size: 1.25rem; margin-bottom: 8px;">Mantenimiento Preventivo Gamer</h3>
+                        <p style="color: var(--color-texto-apagado); font-size: 0.9rem;">
+                            Limpieza profunda con aire ionizado, lubricación de ventiladores y cambio de pasta térmica de alto rendimiento.
+                        </p>
+                        <ul class="lista-caracteristicas-servicio">
+                            <li><i class="fas fa-check"></i> Pasta térmica Thermal Grizzly / Noctua</li>
+                            <li><i class="fas fa-check"></i> Desmontaje y lavado de radiadores</li>
+                            <li><i class="fas fa-check"></i> Reducción de hasta 15°C en carga</li>
+                        </ul>
+                        <div style="font-size: 1.15rem; font-weight: bold; color: var(--color-primario); margin-bottom: 12px;">Desde S/ 90.00</div>
+                        <a href="../contacto/index.html" class="boton boton-principal">Solicitar Limpieza</a>
+                    </div>
+
+                    <!-- Servicio 3 -->
+                    <div class="tarjeta-servicio">
+                        <i class="fas fa-bolt icono-servicio" style="color: var(--color-exito);"></i>
+                        <h3 style="font-size: 1.25rem; margin-bottom: 8px;">Actualización de Componentes (Upgrades)</h3>
+                        <p style="color: var(--color-texto-apagado); font-size: 0.9rem;">
+                            Repotenciación de memoria RAM, instalación de unidades NVMe SSD de alta velocidad y migración de tarjetas gráficas.
+                        </p>
+                        <ul class="lista-caracteristicas-servicio">
+                            <li><i class="fas fa-check"></i> Clonación completa de sistema sin pérdidas</li>
+                            <li><i class="fas fa-check"></i> Verificación de compatibilidad y fuente</li>
+                            <li><i class="fas fa-check"></i> Asesoría de cuellos de botella</li>
+                        </ul>
+                        <div style="font-size: 1.15rem; font-weight: bold; color: var(--color-primario); margin-bottom: 12px;">Desde S/ 60.00</div>
+                        <a href="../contacto/index.html" class="boton boton-principal">Consultar Upgrade</a>
+                    </div>
+
+                    <!-- Servicio 4 -->
+                    <div class="tarjeta-servicio">
+                        <i class="fas fa-laptop-medical icono-servicio"></i>
+                        <h3 style="font-size: 1.25rem; margin-bottom: 8px;">Diagnóstico y Reparación de Laptops</h3>
+                        <p style="color: var(--color-texto-apagado); font-size: 0.9rem;">
+                            Diagnóstico especializado de placas madre, cambio de pantallas, teclados gamer y baterías originales.
+                        </p>
+                        <ul class="lista-caracteristicas-servicio">
+                            <li><i class="fas fa-check"></i> Diagnóstico en menos de 24 horas</li>
+                            <li><i class="fas fa-check"></i> Repuestos originales con garantía</li>
+                            <li><i class="fas fa-check"></i> Calibración de sistema de refrigeración</li>
+                        </ul>
+                        <div style="font-size: 1.15rem; font-weight: bold; color: var(--color-primario); margin-bottom: 12px;">Diagnóstico S/ 40.00</div>
+                        <a href="../contacto/index.html" class="boton boton-principal">Revisar Laptop</a>
+                    </div>
+
+                    <!-- Servicio 5 -->
+                    <div class="tarjeta-servicio">
+                        <i class="fas fa-sliders-h icono-servicio"></i>
+                        <h3 style="font-size: 1.25rem; margin-bottom: 8px;">Optimización y Tuning de Software</h3>
+                        <p style="color: var(--color-texto-apagado); font-size: 0.9rem;">
+                            Instalación limpia de Windows 11 Pro, configuración de perfiles XMP/EXPO, drivers certificados y optimización para baja latencia.
+                        </p>
+                        <ul class="lista-caracteristicas-servicio">
+                            <li><i class="fas fa-check"></i> Eliminación de bloatware y telemetría</li>
+                            <li><i class="fas fa-check"></i> Configuración de latencias de audio y red</li>
+                            <li><i class="fas fa-check"></i> Maximizador de FPS para eSports</li>
+                        </ul>
+                        <div style="font-size: 1.15rem; font-weight: bold; color: var(--color-primario); margin-bottom: 12px;">Desde S/ 80.00</div>
+                        <a href="../contacto/index.html" class="boton boton-principal">Optimizar PC</a>
+                    </div>
+
+                    <!-- Servicio 6 -->
+                    <div class="tarjeta-servicio">
+                        <i class="fas fa-tint icono-servicio" style="color: var(--color-secundario);"></i>
+                        <h3 style="font-size: 1.25rem; margin-bottom: 8px;">Refrigeración Líquida Custom Loop</h3>
+                        <p style="color: var(--color-texto-apagado); font-size: 0.9rem;">
+                            Diseño y montaje de circuitos de refrigeración líquida personalizada con tubos rígidos de acrílico o PETG.
+                        </p>
+                        <ul class="lista-caracteristicas-servicio">
+                            <li><i class="fas fa-check"></i> Doblado de tubos de precisión milimétrica</li>
+                            <li><i class="fas fa-check"></i> Bloques de agua para CPU y GPU</li>
+                            <li><i class="fas fa-check"></i> Pruebas de hermeticidad con aire a presión</li>
+                        </ul>
+                        <div style="font-size: 1.15rem; font-weight: bold; color: var(--color-primario); margin-bottom: 12px;">Cotización a Medida</div>
+                        <a href="../contacto/index.html" class="boton boton-peligro">Cotizar Custom Loop</a>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+
+        <!-- Seccion de Insumos y Materiales de Laboratorio -->
+        <section class="seccion" id="materiales-insumos">
+            <div class="contenedor">
+                <div class="encabezado-seccion">
+                    <span class="badge-stock" style="margin-bottom: 12px;"><i class="fas fa-shield-alt"></i> Control de Calidad y Rendimiento</span>
+                    <h2 class="titulo-seccion">Insumos y Materiales Certificados de Laboratorio</h2>
+                    <p class="subtitulo-seccion">En TechStore empleamos únicamente consumibles de grado industrial, compuestos térmicos premium y componentes certificados para garantizar la máxima durabilidad y temperaturas mínimas en cada servicio.</p>
+                </div>
+
+                <!-- Cuadricula de Familias de Insumos -->
+                <div class="cuadricula-valores" style="margin-bottom: 40px;">
+                    <div class="tarjeta-valor">
+                        <div style="font-size: 2rem; color: var(--color-primario); margin-bottom: 15px;"><i class="fas fa-temperature-low"></i></div>
+                        <h3 style="font-size: 1.2rem; margin-bottom: 8px;">Compuestos Térmicos Premium</h3>
+                        <p style="color: var(--color-texto-apagado); font-size: 0.9rem; line-height: 1.6;">Pastas térmicas nano-cerámicas y metal líquido de alta conductividad térmica (hasta 73 W/mK) sin degradación tras miles de horas de uso continuo.</p>
+                    </div>
+                    <div class="tarjeta-valor">
+                        <div style="font-size: 2rem; color: var(--color-secundario); margin-bottom: 15px;"><i class="fas fa-layer-group"></i></div>
+                        <h3 style="font-size: 1.2rem; margin-bottom: 8px;">Thermal Pads de Grado Industrial</h3>
+                        <p style="color: var(--color-texto-apagado); font-size: 0.9rem; line-height: 1.6;">Almohadillas térmicas de silicona no conductora con espesores milimétricos calibrados (0.5 mm a 2.0 mm) para memorias VRAM GDDR6X y VRMs.</p>
+                    </div>
+                    <div class="tarjeta-valor">
+                        <div style="font-size: 2rem; color: var(--color-advertencia); margin-bottom: 15px;"><i class="fas fa-spray-can"></i></div>
+                        <h3 style="font-size: 1.2rem; margin-bottom: 8px;">Químicos Dieléctricos de Precisión</h3>
+                        <p style="color: var(--color-texto-apagado); font-size: 0.9rem; line-height: 1.6;">Alcohol isopropílico al 99.8% puro, removedores de flux orgánico y limpiadores de contactos de secado rápido que no dejan residuos capacitivos.</p>
+                    </div>
+                    <div class="tarjeta-valor">
+                        <div style="font-size: 2rem; color: var(--color-exito); margin-bottom: 15px;"><i class="fas fa-network-wired"></i></div>
+                        <h3 style="font-size: 1.2rem; margin-bottom: 8px;">Cableado y Blindaje Magnético</h3>
+                        <p style="color: var(--color-texto-apagado); font-size: 0.9rem; line-height: 1.6;">Extensiones malladas 16AWG Paracord resistentes a picos de amperaje PCIe 5.0 12V-2x6 y filtros antipolvo con marco magnético reutilizables.</p>
+                    </div>
+                </div>
+
+                <!-- Tabla Tecnica Detallada de Materiales -->
+                <div class="contenedor-tabla">
+                    <table class="tabla-comparativa">
+                        <caption><i class="fas fa-clipboard-check"></i> Ficha Técnica de Materiales y Consumibles Utilizados en Taller</caption>
+                        <colgroup>
+                            <col class="col-categoria">
+                            <col class="col-insumo">
+                            <col class="col-marca">
+                            <col class="col-especificacion">
+                            <col class="col-aplicacion">
+                            <col class="col-vida-util">
+                        </colgroup>
+                        <thead>
+                            <tr>
+                                <th>Categoría</th>
+                                <th>Insumo / Material</th>
+                                <th>Marca y Referencia Oficial</th>
+                                <th>Especificación Técnica Principal</th>
+                                <th>Aplicación en Taller Técnico</th>
+                                <th>Tolerancia / Vida Ãštil</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td rowspan="3" class="celda-categoria">Disipación Térmica</td>
+                                <td class="celda-destacada"><i class="fas fa-microchip" style="color: var(--color-primario); margin-right: 6px;"></i> Pasta Térmica Extrema</td>
+                                <td>Thermal Grizzly Kryonaut Extreme</td>
+                                <td>Conductividad 14.2 W/mK | Rango -250°C a +350°C</td>
+                                <td>CPUs Intel Core i9 / Ryzen 9 y GPUs RTX 4080/4090</td>
+                                <td>Hasta 3 años sin curado</td>
+                            </tr>
+                            <tr>
+                                <td class="celda-destacada"><i class="fas fa-microchip" style="color: var(--color-primario); margin-right: 6px;"></i> Pasta Térmica Balanceada</td>
+                                <td>Arctic MX-6 High Performance</td>
+                                <td>Conductividad 7.5 W/mK | No conductora de electricidad</td>
+                                <td>Mantenimiento general en PCs gama media y laptops gamer</td>
+                                <td>Garantía de rendimiento 8 años</td>
+                            </tr>
+                            <tr class="fila-resaltada">
+                                <td class="celda-destacada"><i class="fas fa-bolt" style="color: var(--color-secundario); margin-right: 6px;"></i> Metal Líquido Ultra</td>
+                                <td>Thermal Grizzly Conductonaut</td>
+                                <td>Conductividad 73.0 W/mK | Aleación Ga/In/Sn</td>
+                                <td>Delid extremo y coldplates de cobre 100% niquelado</td>
+                                <td>Rendimiento térmico superior</td>
+                            </tr>
+                            <tr>
+                                <td rowspan="2" class="celda-categoria">Pads y Masillas</td>
+                                <td class="celda-destacada"><i class="fas fa-th-large" style="color: var(--color-primario); margin-right: 6px;"></i> Almohadillas Térmicas VRAM</td>
+                                <td>Gelid Solutions GP-Ultimate</td>
+                                <td>Conductividad 15.0 W/mK | Dureza 60-70 Shore 00</td>
+                                <td>Reemplazo de pads en memorias VRAM GDDR6X y fases VRM</td>
+                                <td>Compresión elástica óptima</td>
+                            </tr>
+                            <tr>
+                                <td class="celda-destacada"><i class="fas fa-fill-drip" style="color: var(--color-primario); margin-right: 6px;"></i> Masilla Térmica Viscosa</td>
+                                <td>K5-PRO Viscous Thermal Paste</td>
+                                <td>Conductividad 5.3 W/mK | Espesor variable 0.1 a 3.0 mm</td>
+                                <td>Disipación en componentes de altura dispar (laptops Apple/Asus)</td>
+                                <td>No se seca ni se derrama</td>
+                            </tr>
+                            <tr>
+                                <td rowspan="3" class="celda-categoria">Limpieza y Desengrase</td>
+                                <td class="celda-destacada"><i class="fas fa-tint" style="color: var(--color-primario); margin-right: 6px;"></i> Solvente Dieléctrico Puro</td>
+                                <td>Alcohol Isopropílico 99.8% Grado USP</td>
+                                <td>Pureza â‰¥ 99.8% | Residuo seco &lt; 0.001% | Dieléctrico</td>
+                                <td>Desengrase profundo de matrices de silicio y zócalos LGA/AM5</td>
+                                <td>Secado instantáneo</td>
+                            </tr>
+                            <tr>
+                                <td class="celda-destacada"><i class="fas fa-spray-can" style="color: var(--color-primario); margin-right: 6px;"></i> Limpiador de Contactos</td>
+                                <td>CRC QD® Electronic Cleaner</td>
+                                <td>Aerosol no conductor | Compatible con plásticos sensibles</td>
+                                <td>Limpieza de ranuras PCIe x16, bancos DIMM DDR5 y conectores M.2</td>
+                                <td>Cero residuos conductores</td>
+                            </tr>
+                            <tr>
+                                <td class="celda-destacada"><i class="fas fa-broom" style="color: var(--color-primario); margin-right: 6px;"></i> Purificador de Superficie</td>
+                                <td>ArctiClean 1 &amp; 2 Thermal Purifier</td>
+                                <td>Fórmula 2 pasos: Emulsión cítrica + Flash surface purifier</td>
+                                <td>Remoción química de pastas resecas e inhibición de corrosión</td>
+                                <td>Acabado espejo en cobre</td>
+                            </tr>
+                            <tr>
+                                <td rowspan="2" class="celda-categoria">Protección y Cableado</td>
+                                <td class="celda-destacada"><i class="fas fa-plug" style="color: var(--color-primario); margin-right: 6px;"></i> Extensiones Sleeved</td>
+                                <td>CableMod PRO Series ModMesh 16AWG</td>
+                                <td>Calibre 16AWG puro | Peines de aluminio anodizado cerrados</td>
+                                <td>Distribución de potencia 12VHPWR / 12V-2x6 y EPS 8 pines</td>
+                                <td>Soporta picos de hasta 600W</td>
+                            </tr>
+                            <tr>
+                                <td class="celda-destacada"><i class="fas fa-wind" style="color: var(--color-primario); margin-right: 6px;"></i> Filtros Antipolvo Magnéticos</td>
+                                <td>SilverStone Ultra-Fine PVC Mesh</td>
+                                <td>Malla microperforada de 0.2 mm | Marco magnético flexible</td>
+                                <td>Protección de tomas de aire frontales e inferiores en gabinetes</td>
+                                <td>Lavables e inoxidables</td>
+                            </tr>
+                        </tbody>
+                        <tfoot>
+                            <tr>
+                                <td colspan="6"><i class="fas fa-info-circle"></i> Todos los insumos cuentan con certificación internacional de no toxicidad RoHS y se aplican siguiendo protocolos antiestáticos ESD certificados (ANSI/ESD S20.20).</td>
+                            </tr>
+                        </tfoot>
+                    </table>
+                </div>
+            </div>
+        </section>
+
+        <!-- Preguntas frecuentes -->
+        <section class="seccion seccion-oscura">
+            <div class="contenedor">
+                <div class="encabezado-seccion">
+                    <h2 class="titulo-seccion">Preguntas Frecuentes de Soporte</h2>
+                    <p class="subtitulo-seccion">Respuestas claras sobre nuestros tiempos, garantías y procedimientos.</p>
+                </div>
+
+                <div class="lista-faq">
+                    <div class="item-faq abierto">
+                        <div class="pregunta-faq">
+                            <span>¿Cuánto tiempo toma ensamblar y configurar una PC gamer completa?</span>
+                            <i class="fas fa-chevron-down"></i>
+                        </div>
+                        <div class="respuesta-faq">
+                            El proceso completo toma entre 24 y 48 horas hábiles. Esto incluye el ensamblado meticuloso, cable management, actualización de BIOS a la versión más estable, instalación del sistema operativo y 6 horas continuas de pruebas de estrés (benchmarks) para asegurar que no existan fallas.
+                        </div>
+                    </div>
+
+                    <div class="item-faq">
+                        <div class="pregunta-faq">
+                            <span>¿Qué garantía ofrecen en el ensamble y componentes?</span>
+                            <i class="fas fa-chevron-down"></i>
+                        </div>
+                        <div class="respuesta-faq">
+                            Cada componente conserva su garantía oficial directa del fabricante (entre 1 a 3 años según la marca). Además, TechStore brinda 1 año de soporte técnico y mano de obra gratuita para cualquier reajuste o mantenimiento derivado del ensamble.
+                        </div>
+                    </div>
+
+                    <div class="item-faq">
+                        <div class="pregunta-faq">
+                            <span>¿Puedo llevar mis propios componentes para que ustedes los armen?</span>
+                            <i class="fas fa-chevron-down"></i>
+                        </div>
+                        <div class="respuesta-faq">
+                            ¡Por supuesto! Ofrecemos el servicio de ensamble para clientes que hayan adquirido piezas por separado. Antes de iniciar, realizamos una inspección visual y verificamos la compatibilidad de todos los elementos para garantizar que tu sistema funcione a la perfección.
+                        </div>
+                    </div>
+
+                    <div class="item-faq">
+                        <div class="pregunta-faq">
+                            <span>¿Hacen envíos de PCs ensambladas a provincias fuera de Lima?</span>
+                            <i class="fas fa-chevron-down"></i>
+                        </div>
+                        <div class="respuesta-faq">
+                            Sí, despachamos a todo el territorio peruano mediante empresas de transporte certificadas con seguro de carga. Utilizamos embalaje reforzado con espuma especial expandible Instapak dentro del gabinete para proteger la tarjeta gráfica y la refrigeración durante el traslado.
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- Pie de pagina comercial peruano -->
+    <footer id="pie-pagina">
+        <!-- Banner Oficial de Libro de Reclamaciones (Normativa INDECOPI / Ley N° 29571) -->
+        <div class="banner-reclamaciones">
+            <div class="contenedor contenedor-reclamaciones">
+                <div class="info-reclamaciones-bloque">
+                    <div class="icono-reclamaciones-caja">
+                        <i class="fas fa-book-open"></i>
+                    </div>
+                    <div>
+                        <h4 class="titular-reclamaciones">Libro de Reclamaciones Virtual</h4>
+                        <p class="desc-reclamaciones">Conforme a lo establecido en el Código de Protección y Defensa del Consumidor (Ley N° 29571). RUC: 20608945123 - TechStore Perú S.A.C.</p>
+                    </div>
+                </div>
+                <a href="../contacto/index.html#reclamaciones" class="boton-reclamaciones">
+                    <i class="fas fa-file-signature"></i> Hoja de Reclamación Virtual
+                </a>
+            </div>
+        </div>
+
+        <div class="contenedor">
+            <div class="cuadricula-pie">
+                <!-- Columna 1: Identidad Corporativa -->
+                <div class="columna-pie">
+                    <h3 class="titulo-pie"><i class="fas fa-gamepad"></i> Tech<span class="acento">Store</span></h3>
+                    <p class="texto-pie">
+                        Especialistas en hardware gamer de alto rendimiento, computadoras ensambladas a medida y distribución autorizada de componentes con garantía oficial en Lima y todo el Perú.
+                    </p>
+                    <p class="texto-pie" style="font-size: 0.82rem; color: var(--color-texto-apagado);">
+                        <strong>Razón Social:</strong> TechStore Perú S.A.C.<br>
+                        <strong>RUC:</strong> 20608945123 | Tienda Formal Registrada
+                    </p>
+                    <div class="redes-sociales">
+                        <a href="#" class="enlace-red" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#" class="enlace-red" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                        <a href="#" class="enlace-red" aria-label="YouTube"><i class="fab fa-youtube"></i></a>
+                        <a href="#" class="enlace-red" aria-label="TikTok"><i class="fab fa-tiktok"></i></a>
+                    </div>
+                </div>
+
+                <!-- Columna 2: Navegación del Catálogo -->
+                <div class="columna-pie">
+                    <h3 class="titulo-pie">Líneas de Productos</h3>
+                    <ul class="lista-pie">
+                        <li><a href="../productos/index.html#laptops"><i class="fas fa-chevron-right"></i> Laptops Gamer</a></li>
+                        <li><a href="../productos/index.html#pcs"><i class="fas fa-desktop"></i> PCs de Escritorio Ensambladas</a></li>
+                        <li><a href="../productos/index.html#monitores"><i class="fas fa-tv"></i> Monitores eSports 144Hz+</a></li>
+                        <li><a href="../productos/index.html#perifericos"><i class="fas fa-keyboard"></i> Periféricos de Precisión</a></li>
+                        <li><a href="../ofertas/index.html"><i class="fas fa-chevron-right"></i> Promociones y Descuentos</a></li>
+                    </ul>
+                </div>
+
+                <!-- Columna 3: Información y Confianza -->
+                <div class="columna-pie">
+                    <h3 class="titulo-pie">Servicio y Garantía</h3>
+                    <ul class="lista-pie">
+                        <li><a href="./index.html"><i class="fas fa-chevron-right"></i> Servicio Técnico y Ensamble</a></li>
+                        <li><a href="../comparativa/index.html"><i class="fas fa-chevron-right"></i> Comparador de Rendimiento</a></li>
+                        <li><a href="../nosotros/index.html"><i class="fas fa-chevron-right"></i> Sobre TechStore Perú</a></li>
+                        <li><a href="../login/index.html"><i class="fas fa-chevron-right"></i> Portal de Clientes / Mi Cuenta</a></li>
+                        <li><a href="../contacto/index.html"><i class="fas fa-chevron-right"></i> Cotizaciones Corporativas</a></li>
+                    </ul>
+                </div>
+
+                <!-- Columna 4: Tienda Física y Ubicación con Mapa -->
+                <div class="columna-pie">
+                    <h3 class="titulo-pie">Tienda Física en Lima</h3>
+                    <p class="texto-pie"><i class="fas fa-map-marker-alt acento"></i> CC Cyberplaza Tienda 2A-102, Av. Garcilaso de la Vega 1348, Lima Centro</p>
+                    <p class="texto-pie"><i class="fas fa-phone-alt acento"></i> (01) 234-5678 / 929-207-945 / 991-439-162</p>
+                    <p class="texto-pie"><i class="fas fa-envelope acento"></i> soporte@techstore.pe</p>
+                    <p class="texto-pie"><i class="fas fa-clock acento"></i> Lun - Sáb: 9:00 AM - 8:00 PM</p>
+                    
+                    <!-- Mapa Embebido Semántico -->
+                    <div class="mapa-pie-contenedor">
+                        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3901.9686008882046!2d-77.03780332405052!3d-12.054366688183017!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x9105c8c697858c85%3A0x67399a9a0899127!2sCentro%20Comercial%20Cyberplaza!5e0!3m2!1ses!2spe!4v1710000000000!5m2!1ses!2spe" width="100%" height="130" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade" title="Ubicación Tienda TechStore - CC Cyberplaza Lima"></iframe>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Métodos de Pago Aceptados en Perú -->
+            <div class="metodos-pago-pie">
+                <div class="titulo-pagos-pie">Métodos de Pago 100% Seguros Aceptados en Perú</div>
+                <div class="insignias-pago-grid">
+                    <span class="insignia-pago-badge"><i class="fab fa-cc-visa"></i> Visa</span>
+                    <span class="insignia-pago-badge"><i class="fab fa-cc-mastercard"></i> Mastercard</span>
+                    <span class="insignia-pago-badge"><i class="fab fa-cc-amex"></i> Amex</span>
+                    <span class="insignia-pago-badge"><i class="fas fa-qrcode"></i> Yape</span>
+                    <span class="insignia-pago-badge"><i class="fas fa-mobile-alt"></i> Plin</span>
+                    <span class="insignia-pago-badge"><i class="fas fa-university"></i> BCP / BBVA</span>
+                    <span class="insignia-pago-badge"><i class="fas fa-money-bill-wave"></i> PagoEfectivo</span>
+                </div>
+            </div>
+        </div>
+
+        <div class="creditos-pie">
+            <div class="contenedor">
+                <p>&copy; 2026 TechStore Perú S.A.C. - RUC: 20608945123. Especialistas en Hardware Gamer. Todos los derechos reservados.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Script principal -->
+    
+</body>
+</html>
+
