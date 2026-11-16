@@ -1124,35 +1124,7 @@ window.addEventListener("click", function(event) {
 // NUEVAS FUNCIONALIDADES DINÁMICAS DEL AVANCE 3
 // ==========================================================================
 
-// 1. FUNCION PARA CAMBIAR EL COLOR DE ACENTO Y BOTONES EN UN SOLO TOQUE
-function cambiarColorTema(colorPrimario, colorHover, nombre) {
-    document.documentElement.style.setProperty('--color-primario', colorPrimario);
-    if (colorHover) {
-        document.documentElement.style.setProperty('--color-primario-hover', colorHover);
-    }
-    try {
-        localStorage.setItem('techstore_color_primario', colorPrimario);
-        if (colorHover) {
-            localStorage.setItem('techstore_color_hover', colorHover);
-        }
-    } catch (e) {}
-    
-    mostrarToast("🎨 Color del sitio actualizado a " + (nombre || "personalizado"), "exito");
-}
 
-// Cargar el color guardado al iniciar la pagina
-function cargarColorTemaGuardado() {
-    try {
-        let colorGuardado = localStorage.getItem('techstore_color_primario');
-        let hoverGuardado = localStorage.getItem('techstore_color_hover');
-        if (colorGuardado) {
-            document.documentElement.style.setProperty('--color-primario', colorGuardado);
-        }
-        if (hoverGuardado) {
-            document.documentElement.style.setProperty('--color-primario-hover', hoverGuardado);
-        }
-    } catch (e) {}
-}
 
 // 2. SISTEMA DE NOTIFICACIONES TOAST FLOTANTES (REEMPLAZA EL ALERT BLOQUEANTE)
 function mostrarToast(mensaje, tipo) {

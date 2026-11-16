@@ -1,15 +1,15 @@
 /* // variables de color para cambiar facil en la exposicion */
 /* ==========================================================================
-   PALETA DE COLORES Y VARIABLES GLOBALES (MODIFICA AQUÍ EN UN TOQUE)
-   Cambia cualquiera de estos valores y todo el sitio (botones, acentos y luces)
-   se actualizará automáticamente en un solo paso:
+   PALETA DE COLORES Y VARIABLES GLOBALES (MODIFICA AQUÍ DIRECTAMENTE)
+   Para cambiar el color de los botones o acentos, simplemente cambia el código
+   hexadecimal del michi (#) en la variable --color-primario:
    ========================================================================== */
 :root {
-    /* Color Principal de Botones, Acentos y Enlaces (Cambia aquí para personalizar) */
-    --color-primario: #00b4d8;
-    --color-primario-hover: #90e0ef;
+    /* Color Principal de Botones y Acentos (Cambia el código # aquí) */
+    --color-primario: #00b4d8;          /* Ejemplo: #00b4d8 (Cian), #ff0055 (Fucsia), #8b5cf6 (Morado) */
+    --color-primario-hover: #90e0ef;    /* Color del botón al pasar el mouse por encima */
 
-    /* Color Secundario y Acentos Morados */
+    /* Color Secundario */
     --color-secundario: #8b5cf6;
     --color-secundario-hover: #a78bfa;
 
@@ -41,6 +41,7 @@
     --radio-borde: 8px;
     --transicion-rapida: 0.25s ease;
 }
+
 
 
 /* // reseteo general de margenes y caja */
@@ -786,41 +787,7 @@ textarea.formulario-control {
    MEJORAS DINÁMICAS: SELECTOR DE TEMA, TOASTS Y APARTADO DE COMPRA
    ========================================================================== */
 
-/* Selector de tema en un toque */
-.selector-tema-contenedor {
-    display: flex;
-    align-items: center;
-    gap: 6px;
-    background: rgba(255, 255, 255, 0.05);
-    padding: 4px 10px;
-    border-radius: 20px;
-    border: 1px solid var(--color-borde);
-    margin: 0 10px;
-}
-.selector-tema-titulo {
-    font-size: 11px;
-    color: var(--color-texto-apagado);
-    margin-right: 2px;
-    font-weight: 600;
-}
-.punto-tema {
-    width: 15px;
-    height: 15px;
-    border-radius: 50%;
-    border: 2px solid rgba(255, 255, 255, 0.3);
-    cursor: pointer;
-    transition: transform 0.2s ease, border-color 0.2s ease;
-    padding: 0;
-}
-.punto-tema:hover, .punto-tema:focus {
-    transform: scale(1.35);
-    border-color: #ffffff;
-    outline: none;
-}
-.tema-cian { background-color: #00b4d8; }
-.tema-morado { background-color: #8b5cf6; }
-.tema-verde { background-color: #10b981; }
-.tema-rojo { background-color: #ef4444; }
+
 
 /* Contenedor y diseño de Notificaciones Toast Flotantes */
 #contenedor-toast {
