@@ -3,511 +3,219 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>TechStore | Inicio - Especialistas en Hardware Gamer</title>
-    <!-- Fuentes de Google -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700;800&display=swap" rel="stylesheet">
-    <!-- Iconos FontAwesome -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
-    <!-- Hoja de estilos -->
-    <link rel="stylesheet" href="estilos.css">
+    <title>TechStore | Inicio</title>
+    <link rel="stylesheet" href="css/estilos.css">
 </head>
 <body>
 
-        <!-- Encabezado y navegacion -->
-    <header id="cabecera">
-        <!-- Barra superior institucional -->
-        <div class="barra-superior-util">
-            <div class="contenedor contenedor-util">
-                <div class="util-izquierda">
-                    <span class="item-util"><i class="fas fa-map-marker-alt"></i> Tienda Lima: <strong>CC Cyberplaza Tienda 2A-102, Av. Garcilaso de la Vega 1348</strong></span>
-                    <span class="item-util"><i class="fas fa-phone-alt"></i> Cotizaciones: <strong>929-207-945 / 991-439-162</strong></span>
-                </div>
-                <div class="util-derecha">
-                    <span class="item-util util-horario"><i class="fas fa-clock"></i> Lun - Sáb: 9:00 AM - 8:00 PM</span>
-                    <a href="./servicios/index.html" class="enlace-util"><i class="fas fa-shield-alt"></i> Garantía Oficial</a>
-                    <a href="./contacto/index.html#reclamaciones" class="enlace-util"><i class="fas fa-book"></i> Libro de Reclamaciones</a>
-                    <a href="./login/index.html" class="enlace-util util-destacado"><i class="fas fa-user-circle"></i> Mi Cuenta / Ingresar</a>
-                </div>
+    <header id="cabecera-principal">
+        <div class="contenedor barra-superior">
+            <div class="logo">
+                <a href="index.html">Tech<span class="acento">Store</span></a>
             </div>
-        </div>
 
-        <!-- Barra de navegacion principal -->
-        <div class="contenedor barra-navegacion">
-            <h1 class="logotipo">
-                <a href="./index.html">
-                    <i class="fas fa-gamepad"></i> Tech<span class="acento">Store</span>
-                </a>
-            </h1>
+            <button class="boton-menu" onclick="toggleMenu()">☰</button>
 
-            <!-- Control menu responsive -->
-            <input type="checkbox" id="checkmenu">
-
-            <nav id="menu" aria-label="Navegación principal">
-                <ul class="lista-menu">
-                    <li class="elemento-menu"><a href="./index.html" class="enlace-menu activo"><i class="fas fa-home"></i> Inicio</a></li>
-                    
-                    <!-- Dropdown Productos -->
-                    <li class="elemento-menu item-con-sub">
-                        <a href="./productos/index.html" class="enlace-menu">
-                            <i class="fas fa-laptop"></i> Productos <i class="fas fa-chevron-down flecha-sub"></i>
-                        </a>
-                        <ul class="submenu-desplegable">
-                            <li><a href="./productos/index.html#laptops"><i class="fas fa-laptop"></i> Laptops Gamer</a></li>
-                            <li><a href="./productos/index.html#pcs"><i class="fas fa-desktop"></i> PCs Ensambladas</a></li>
-                            <li><a href="./productos/index.html#monitores"><i class="fas fa-tv"></i> Monitores eSports</a></li>
-                            <li><a href="./productos/index.html#perifericos"><i class="fas fa-keyboard"></i> Periféricos Gamer</a></li>
-                        </ul>
-                    </li>
-
-                    <li class="elemento-menu"><a href="./comparativa/index.html" class="enlace-menu"><i class="fas fa-balance-scale"></i> Comparativa</a></li>
-                    <li class="elemento-menu"><a href="./ofertas/index.html" class="enlace-menu"><i class="fas fa-fire"></i> Ofertas</a></li>
-                    <li class="elemento-menu"><a href="./servicios/index.html" class="enlace-menu"><i class="fas fa-tools"></i> Servicios</a></li>
-                    <li class="elemento-menu"><a href="./nosotros/index.html" class="enlace-menu"><i class="fas fa-users"></i> Nosotros</a></li>
-                    <li class="elemento-menu"><a href="./contacto/index.html" class="enlace-menu"><i class="fas fa-envelope"></i> Contacto</a></li>
-                    <li class="elemento-menu"><a href="./login/index.html" class="enlace-menu"><i class="fas fa-user"></i> Mi Cuenta</a></li>
+            <nav id="menu-navegacion" class="menu-navegacion">
+                <ul class="nav-lista">
+                    <li class="nav-item"><a href="index.html" class="nav-enlace activo">Inicio</a></li>
+                    <li class="nav-item"><a href="productos.html" class="nav-enlace">Productos</a></li>
+                    <li class="nav-item"><a href="ofertas.html" class="nav-enlace">Ofertas</a></li>
+                    <li class="nav-item"><a href="servicios.html" class="nav-enlace">Servicios</a></li>
+                    <li class="nav-item"><a href="comparativa.html" class="nav-enlace">Comparativa</a></li>
+                    <li class="nav-item"><a href="nosotros.html" class="nav-enlace">Nosotros</a></li>
+                    <li class="nav-item"><a href="contacto.html" class="nav-enlace">Contacto</a></li>
+                    <li class="nav-item" id="estado-sesion"><a href="login.html" class="nav-enlace">Ingresar</a></li>
                 </ul>
             </nav>
 
-            <div class="acciones-cabecera">
-                <a href="./login/index.html" class="boton-ingresar-nav">
-                    <i class="fas fa-user-circle"></i> Ingresar
-                </a>
-                
-                <label for="checkmenu" class="boton-hamburguesa" aria-label="Abrir menú"><i class="fas fa-bars"></i></label>
-            </div>
+            <button class="boton-carrito-nav" onclick="abrirModalCarrito()">
+                Carrito <span id="contador-carrito" class="contador-carrito">0</span>
+            </button>
         </div>
     </header>
 
     <main>
-
-        <!-- Banner principal -->
         <section class="portada">
             <div class="contenedor">
-                <div class="etiqueta-hero">
-                    <i class="fas fa-bolt"></i> Nueva Generación de Hardware 2026
-                </div>
-                <h2 class="titulo-portada">
-                    Potencia Extrema para tu <span class="acento">Setup Gamer</span>
-                </h2>
-                <p class="texto-portada">
-                    Laptops gamer de alta gama, componentes de última generación y estaciones de batalla armadas a medida con garantía oficial en todo el Perú.
-                </p>
-                <div class="botones-portada">
-                    <a href="./productos/index.html" class="boton boton-principal">
-                        <i class="fas fa-th-large"></i> Explorar Catálogo
-                    </a>
-                    <a href="./ofertas/index.html" class="boton boton-peligro">
-                        <i class="fas fa-tags"></i> Ver Ofertas Especiales
-                    </a>
-                    <a href="./contacto/index.html" class="boton boton-secundario">
-                        <i class="fas fa-file-invoice-dollar"></i> Cotizar Ahora
-                    </a>
-                </div>
-
-                <!-- Estadisticas -->
-                <div class="cifras-hero">
-                    <div class="cifra-item">
-                        <div class="cifra-numero">+1,500</div>
-                        <div class="cifra-etiqueta">PCs Ensambladas</div>
-                    </div>
-                    <div class="cifra-item">
-                        <div class="cifra-numero">100%</div>
-                        <div class="cifra-etiqueta">Garantía Oficial</div>
-                    </div>
-                    <div class="cifra-item">
-                        <div class="cifra-numero">24/7</div>
-                        <div class="cifra-etiqueta">Soporte Especializado</div>
-                    </div>
-                    <div class="cifra-item">
-                        <div class="cifra-numero">Lima y Provincias</div>
-                        <div class="cifra-etiqueta">Envíos Rápidos</div>
-                    </div>
+                <h1>Bienvenido a TechStore</h1>
+                <p>Equipos de alta gama para gaming, desarrollo de software y diseño profesional con garantía oficial.</p>
+                <div>
+                    <a href="productos.html" class="boton boton-primario">Ver Catálogo</a>
+                    <a href="contacto.html" class="boton boton-secundario">Cotizar Equipo</a>
                 </div>
             </div>
         </section>
 
-        <!-- Productos destacados -->
         <section class="seccion">
             <div class="contenedor">
-                <div class="encabezado-seccion">
-                    <h2 class="titulo-seccion">Lo Más Vendido</h2>
-                    <p class="subtitulo-seccion">Equipos seleccionados con máxima potencia y tecnología de punta.</p>
-                </div>
-
-                <div class="cuadricula-productos">
-
-                    <!-- Producto 1 -->
-                    <article class="tarjeta-producto" data-categoria="laptops">
-                        <figure class="figura-producto">
-                            <img src="img/laptop-rog.jpg" alt="Laptop ASUS ROG Strix G16" class="imagen-producto">
-                            <figcaption class="etiqueta-categoria">Laptop Gamer</figcaption>
-                            <span class="etiqueta-descuento-flotante">-15%</span>
-                        </figure>
-                        <div class="cuerpo-producto">
-                            <span class="marca-tarjeta">ASUS ROG</span>
-                            <span class="badge-stock stock-disponible"><i class="fas fa-check-circle"></i> Con Stock</span>
-                            <h3 class="nombre-producto">ASUS ROG Strix G16</h3>
-                            <p class="detalle-producto">Intel Core i7-13650HX, 16GB DDR5, SSD 1TB, RTX 4060 8GB, Pantalla 165Hz.</p>
-                            <div class="precio-contenedor">
-                                <span class="precio-producto">S/. 5,899.00</span>
-                                <del class="precio-anterior">S/. 6,499.00</del>
-                            </div>
-                            <div class="acciones-tarjeta">
-                                <a href="./contacto/index.html" class="boton boton-outline-blanco" style="text-align: center;"><i class="fas fa-file-invoice"></i> Cotizar</a>
-                                <a href="./contacto/index.html" class="boton boton-principal" style="text-align: center;"><i class="fas fa-shopping-cart"></i> Comprar</a>
-                            </div>
-                        </div>
-                    </article>
-
-                    <!-- Producto 2 -->
-                    <article class="tarjeta-producto" data-categoria="computadoras">
-                        <figure class="figura-producto">
-                            <img src="img/pc-gamer.jpg" alt="PC BattleStation Extreme" class="imagen-producto">
-                            <figcaption class="etiqueta-categoria">PC Escritorio</figcaption>
-                        </figure>
-                        <div class="cuerpo-producto">
-                            <span class="marca-tarjeta">AMD RYZEN / NVIDIA</span>
-                            <span class="badge-stock stock-disponible"><i class="fas fa-check-circle"></i> Con Stock</span>
-                            <h3 class="nombre-producto">PC BattleStation Extreme</h3>
-                            <p class="detalle-producto">Ryzen 7 7800X3D, 32GB RAM DDR5, RTX 4070 Ti Super 16GB, Refrigeración Líquida 360mm.</p>
-                            <div class="precio-contenedor">
-                                <span class="precio-producto">S/. 8,450.00</span>
-                                <del class="precio-anterior">S/. 8,990.00</del>
-                            </div>
-                            <div class="acciones-tarjeta">
-                                <a href="./contacto/index.html" class="boton boton-outline-blanco" style="text-align: center;"><i class="fas fa-file-invoice"></i> Cotizar</a>
-                                <a href="./contacto/index.html" class="boton boton-principal" style="text-align: center;"><i class="fas fa-shopping-cart"></i> Comprar</a>
-                            </div>
-                        </div>
-                    </article>
-
-                    <!-- Producto 3 -->
-                    <article class="tarjeta-producto" data-categoria="monitores">
-                        <figure class="figura-producto">
-                            <img src="img/monitor-samsung-odyssey.jpg" alt="Samsung Odyssey G7 32 pulgadas Curvo" class="imagen-producto">
-                            <figcaption class="etiqueta-categoria">Monitores</figcaption>
-                            <span class="etiqueta-descuento-flotante">-10%</span>
-                        </figure>
-                        <div class="cuerpo-producto">
-                            <span class="marca-tarjeta">SAMSUNG ODYSSEY</span>
-                            <span class="badge-stock stock-disponible"><i class="fas fa-check-circle"></i> Con Stock</span>
-                            <h3 class="nombre-producto">Samsung Odyssey G7 32" Curvo</h3>
-                            <p class="detalle-producto">Resolución WQHD 2560x1440, panel QLED 240Hz 1ms, curvatura 1000R, HDR600 y FreeSync Premium.</p>
-                            <div class="precio-contenedor">
-                                <span class="precio-producto">S/. 2,899.00</span>
-                                <del class="precio-anterior">S/. 3,199.00</del>
-                            </div>
-                            <div class="acciones-tarjeta">
-                                <a href="./contacto/index.html" class="boton boton-outline-blanco" style="text-align: center;"><i class="fas fa-file-invoice"></i> Cotizar</a>
-                                <a href="./contacto/index.html" class="boton boton-principal" style="text-align: center;"><i class="fas fa-shopping-cart"></i> Comprar</a>
-                            </div>
-                        </div>
-                    </article>
-
-                    <!-- Producto 4 -->
-                    <article class="tarjeta-producto" data-categoria="accesorios">
-                        <figure class="figura-producto">
-                            <img src="img/teclado-mecanico.jpg" alt="Corsair K70 RGB PRO OPX Mecánico" class="imagen-producto">
-                            <figcaption class="etiqueta-categoria">Periféricos</figcaption>
-                            <span class="etiqueta-descuento-flotante">-10%</span>
-                        </figure>
-                        <div class="cuerpo-producto">
-                            <span class="marca-tarjeta">CORSAIR GAMING</span>
-                            <span class="badge-stock stock-disponible"><i class="fas fa-check-circle"></i> Con Stock</span>
-                            <h3 class="nombre-producto">Corsair K70 RGB PRO OPX</h3>
-                            <p class="detalle-producto">Switches óptico-mecánicos OPX lineales, procesamiento AXON a 8000Hz, chasis de aluminio pulido.</p>
-                            <div class="precio-contenedor">
-                                <span class="precio-producto">S/. 629.00</span>
-                                <del class="precio-anterior">S/. 699.00</del>
-                            </div>
-                            <div class="acciones-tarjeta">
-                                <a href="./contacto/index.html" class="boton boton-outline-blanco" style="text-align: center;"><i class="fas fa-file-invoice"></i> Cotizar</a>
-                                <a href="./contacto/index.html" class="boton boton-principal" style="text-align: center;"><i class="fas fa-shopping-cart"></i> Comprar</a>
-                            </div>
-                        </div>
-                    </article>
-
-                    <!-- Producto 5 -->
-                    <article class="tarjeta-producto" data-categoria="laptops">
-                        <figure class="figura-producto">
-                            <img src="img/laptop-msi.jpg" alt="MSI Katana HX 15" class="imagen-producto">
-                            <figcaption class="etiqueta-categoria">Laptop Gamer</figcaption>
-                            <span class="etiqueta-descuento-flotante">-10%</span>
-                        </figure>
-                        <div class="cuerpo-producto">
-                            <span class="marca-tarjeta">MSI GAMING</span>
-                            <span class="badge-stock stock-disponible"><i class="fas fa-check-circle"></i> Con Stock</span>
-                            <h3 class="nombre-producto">MSI Katana HX 15</h3>
-                            <p class="detalle-producto">Core i7-14650HX, 16GB DDR5, SSD 1TB, RTX 4070 8GB, 15.6" QHD 165Hz.</p>
-                            <div class="precio-contenedor">
-                                <span class="precio-producto">S/. 6,899.00</span>
-                                <del class="precio-anterior">S/. 7,499.00</del>
-                            </div>
-                            <div class="acciones-tarjeta">
-                                <a href="./contacto/index.html" class="boton boton-outline-blanco" style="text-align: center;"><i class="fas fa-file-invoice"></i> Cotizar</a>
-                                <a href="./contacto/index.html" class="boton boton-principal" style="text-align: center;"><i class="fas fa-shopping-cart"></i> Comprar</a>
-                            </div>
-                        </div>
-                    </article>
-
-                    <!-- Producto 6 -->
-                    <article class="tarjeta-producto" data-categoria="laptops">
-                        <figure class="figura-producto">
-                            <img src="img/laptop-hp.jpg" alt="HP Omen Transcend 14" class="imagen-producto">
-                            <figcaption class="etiqueta-categoria">Laptop Gamer</figcaption>
-                            <span class="etiqueta-descuento-flotante">-8%</span>
-                        </figure>
-                        <div class="cuerpo-producto">
-                            <span class="marca-tarjeta">HP OMEN</span>
-                            <span class="badge-stock stock-disponible"><i class="fas fa-check-circle"></i> Con Stock</span>
-                            <h3 class="nombre-producto">HP Omen Transcend 14</h3>
-                            <p class="detalle-producto">Intel Core Ultra 7 con IA, 16GB LPDDR5X, SSD 1TB, RTX 4060 8GB, Teclado HyperX.</p>
-                            <div class="precio-contenedor">
-                                <span class="precio-producto">S/. 6,499.00</span>
-                                <del class="precio-anterior">S/. 6,999.00</del>
-                            </div>
-                            <div class="acciones-tarjeta">
-                                <a href="./contacto/index.html" class="boton boton-outline-blanco" style="text-align: center;"><i class="fas fa-file-invoice"></i> Cotizar</a>
-                                <a href="./contacto/index.html" class="boton boton-principal" style="text-align: center;"><i class="fas fa-shopping-cart"></i> Comprar</a>
-                            </div>
-                        </div>
-                    </article>
-
-                </div>
-
-                <div style="text-align: center; margin-top: 40px;">
-                    <a href="./productos/index.html" class="boton boton-outline-blanco">
-                        Ver Todos los Productos (Catálogo Completo) <i class="fas fa-arrow-right"></i>
-                    </a>
-                </div>
+                <h2 class="titulo-seccion">Productos Destacados</h2>
+                <p class="subtitulo-seccion">Una selección de nuestros equipos más solicitados.</p>
+                <div id="contenedor-productos" class="caja-productos"></div>
             </div>
         </section>
 
-        <!-- Beneficios -->
-        <section class="seccion seccion-oscura">
+        <section class="seccion" style="background-color: #122135;">
             <div class="contenedor">
-                <div class="encabezado-seccion">
-                    <h2 class="titulo-seccion">¿Por qué Elegir TechStore?</h2>
-                    <p class="subtitulo-seccion">Seguridad, garantía oficial y el mejor servicio técnico del país.</p>
-                </div>
-
-                <div class="cuadricula-beneficios">
-                    <div class="caja-beneficio">
-                        <i class="fas fa-shield-alt icono-beneficio"></i>
-                        <h3 class="titulo-beneficio">Garantía Oficial de 2 Años</h3>
-                        <p class="texto-beneficio">Todos nuestros equipos cuentan con garantía directa de marcas líderes como ASUS, MSI, Intel y AMD.</p>
+                <h2 class="titulo-seccion">¿Por qué elegirnos?</h2>
+                <p class="subtitulo-seccion">Compromiso y respaldo en cada una de tus compras.</p>
+                <div class="caja-beneficios">
+                    <div class="caja-item">
+                        <h3>Garantía Oficial</h3>
+                        <p>Todos nuestros componentes y equipos cuentan con respaldo directo de fábrica hasta por 2 años.</p>
                     </div>
-
-                    <div class="caja-beneficio">
-                        <i class="fas fa-truck-fast icono-beneficio"></i>
-                        <h3 class="titulo-beneficio">Envíos Seguros a Todo el Perú</h3>
-                        <p class="texto-beneficio">Despachos asegurados a Lima Metropolitana en 24 horas y a todas las provincias con empaque anti-impacto.</p>
+                    <div class="caja-item">
+                        <h3>Envíos Seguros</h3>
+                        <p>Despachamos pedidos a todo el Perú con embalaje de seguridad y seguimiento en tiempo real.</p>
                     </div>
-
-                    <div class="caja-beneficio">
-                        <i class="fas fa-microchip icono-beneficio"></i>
-                        <h3 class="titulo-beneficio">Ensamble y Asesoría Técnica</h3>
-                        <p class="texto-beneficio">Te ayudamos a elegir la configuración óptima según tu presupuesto sin cuellos de botella.</p>
+                    <div class="caja-item">
+                        <h3>Asesoría Especializada</h3>
+                        <p>Te ayudamos a elegir o configurar el hardware adecuado para tu presupuesto y necesidades.</p>
                     </div>
                 </div>
             </div>
         </section>
-
-        <!-- Proceso de ensamble y calidad -->
-        <section class="seccion seccion-oscura">
-            <div class="contenedor">
-                <div class="encabezado-seccion">
-                    <h2 class="titulo-seccion">Proceso de Ensamble y Calidad</h2>
-                    <p class="subtitulo-seccion">Cada estación de batalla es testeada minuciosamente antes de la entrega.</p>
-                </div>
-
-                <div class="cuadricula-beneficios" style="grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));">
-                    <div class="caja-beneficio">
-                        <i class="fas fa-search icono-beneficio"></i>
-                        <h3 class="titulo-beneficio">1. Selección de Hardware</h3>
-                        <p class="texto-beneficio">Verificamos 100% de compatibilidad entre procesador, placa madre, memoria RAM y fuente de poder.</p>
-                    </div>
-
-                    <div class="caja-beneficio">
-                        <i class="fas fa-tools icono-beneficio"></i>
-                        <h3 class="titulo-beneficio">2. Ensamble Profesional</h3>
-                        <p class="texto-beneficio">Gestión ordenada de cables (cable management), pasta térmica de alto rendimiento y flujo de aire óptimo.</p>
-                    </div>
-
-                    <div class="caja-beneficio">
-                        <i class="fas fa-tachometer-alt icono-beneficio"></i>
-                        <h3 class="titulo-beneficio">3. Pruebas de Estrés</h3>
-                        <p class="texto-beneficio">Sometemos la CPU y GPU a benchmarks continuos para garantizar estabilidad y temperaturas seguras.</p>
-                    </div>
-
-                    <div class="caja-beneficio">
-                        <i class="fas fa-shield-alt icono-beneficio"></i>
-                        <h3 class="titulo-beneficio">4. Embalaje y Garantía</h3>
-                        <p class="texto-beneficio">Empaque reforzado de alta seguridad, cajas originales de cada componente y póliza de garantía física y digital.</p>
-                    </div>
-                </div>
-
-                <div style="text-align: center; margin-top: 35px;">
-                    <a href="./servicios/index.html" class="boton boton-principal">
-                        <i class="fas fa-wrench"></i> Conoce Nuestros Servicios Técnicos
-                    </a>
-                </div>
-            </div>
-        </section>
-
-        <!-- Marcas oficiales aliadas -->
-        <section id="marcas" class="seccion seccion-marcas">
-            <div class="contenedor">
-                <div class="encabezado-seccion-marcas">
-                    <span class="subtitulo-marcas"><i class="fas fa-certificate acento"></i> Distribuidores y Ensambladores Autorizados</span>
-                    <h2 class="titulo-seccion-marcas">Marcas Líderes con Garantía Oficial en el Perú</h2>
-                </div>
-                <div class="cuadricula-marcas">
-                    <a href="./productos/index.html" class="tarjeta-marca-item">
-                        <i class="fas fa-shield-alt"></i>
-                        <span class="nombre-marca-item">ASUS ROG</span>
-                    </a>
-                    <a href="./productos/index.html" class="tarjeta-marca-item">
-                        <i class="fas fa-dragon"></i>
-                        <span class="nombre-marca-item">MSI Gaming</span>
-                    </a>
-                    <a href="./productos/index.html" class="tarjeta-marca-item">
-                        <i class="fas fa-bolt"></i>
-                        <span class="nombre-marca-item">Gigabyte AORUS</span>
-                    </a>
-                    <a href="./productos/index.html" class="tarjeta-marca-item">
-                        <i class="fas fa-microchip"></i>
-                        <span class="nombre-marca-item">Intel Core Ultra</span>
-                    </a>
-                    <a href="./productos/index.html" class="tarjeta-marca-item">
-                        <i class="fas fa-fire"></i>
-                        <span class="nombre-marca-item">AMD Ryzen</span>
-                    </a>
-                    <a href="./productos/index.html" class="tarjeta-marca-item">
-                        <i class="fas fa-memory"></i>
-                        <span class="nombre-marca-item">Corsair</span>
-                    </a>
-                    <a href="./productos/index.html" class="tarjeta-marca-item">
-                        <i class="fas fa-headset"></i>
-                        <span class="nombre-marca-item">Razer</span>
-                    </a>
-                    <a href="./productos/index.html" class="tarjeta-marca-item">
-                        <i class="fas fa-hdd"></i>
-                        <span class="nombre-marca-item">Kingston FURY</span>
-                    </a>
-                    <a href="./productos/index.html" class="tarjeta-marca-item">
-                        <i class="fas fa-fan"></i>
-                        <span class="nombre-marca-item">DeepCool</span>
-                    </a>
-                </div>
-            </div>
-        </section>
-
     </main>
 
-    <!-- Pie de pagina comercial peruano -->
     <footer id="pie-pagina">
-        <!-- Banner Oficial de Libro de Reclamaciones (Normativa INDECOPI / Ley N° 29571) -->
-        <div class="banner-reclamaciones">
-            <div class="contenedor contenedor-reclamaciones">
-                <div class="info-reclamaciones-bloque">
-                    <div class="icono-reclamaciones-caja">
-                        <i class="fas fa-book-open"></i>
-                    </div>
-                    <div>
-                        <h4 class="titular-reclamaciones">Libro de Reclamaciones Virtual</h4>
-                        <p class="desc-reclamaciones">Conforme a lo establecido en el Código de Protección y Defensa del Consumidor (Ley N° 29571). RUC: 20608945123 - TechStore Perú S.A.C.</p>
-                    </div>
-                </div>
-                <a href="./contacto/index.html#reclamaciones" class="boton-reclamaciones">
-                    <i class="fas fa-file-signature"></i> Hoja de Reclamación Virtual
-                </a>
-            </div>
-        </div>
-
         <div class="contenedor">
-            <div class="cuadricula-pie">
-                <!-- Columna 1: Identidad Corporativa -->
-                <div class="columna-pie">
-                    <h3 class="titulo-pie"><i class="fas fa-gamepad"></i> Tech<span class="acento">Store</span></h3>
-                    <p class="texto-pie">
-                        Especialistas en hardware gamer de alto rendimiento, computadoras ensambladas a medida y distribución autorizada de componentes con garantía oficial en Lima y todo el Perú.
-                    </p>
-                    <p class="texto-pie" style="font-size: 0.82rem; color: var(--color-texto-apagado);">
-                        <strong>Razón Social:</strong> TechStore Perú S.A.C.<br>
-                        <strong>RUC:</strong> 20608945123 | Tienda Formal Registrada
-                    </p>
-                    <div class="redes-sociales">
-                        <a href="#" class="enlace-red" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
-                        <a href="#" class="enlace-red" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
-                        <a href="#" class="enlace-red" aria-label="YouTube"><i class="fab fa-youtube"></i></a>
-                        <a href="#" class="enlace-red" aria-label="TikTok"><i class="fab fa-tiktok"></i></a>
-                    </div>
+            <div class="pie-columnas">
+                <div class="pie-columna">
+                    <h3>TechStore</h3>
+                    <p>Tienda peruana especializada en computación gamer, estaciones de trabajo y periféricos de alto nivel.</p>
                 </div>
-
-                <!-- Columna 2: Navegación del Catálogo -->
-                <div class="columna-pie">
-                    <h3 class="titulo-pie">Líneas de Productos</h3>
-                    <ul class="lista-pie">
-                        <li><a href="./productos/index.html#laptops"><i class="fas fa-chevron-right"></i> Laptops Gamer</a></li>
-                        <li><a href="./productos/index.html#pcs"><i class="fas fa-desktop"></i> PCs de Escritorio Ensambladas</a></li>
-                        <li><a href="./productos/index.html#monitores"><i class="fas fa-tv"></i> Monitores eSports 144Hz+</a></li>
-                        <li><a href="./productos/index.html#perifericos"><i class="fas fa-keyboard"></i> Periféricos de Precisión</a></li>
-                        <li><a href="./ofertas/index.html"><i class="fas fa-chevron-right"></i> Promociones y Descuentos</a></li>
+                <div class="pie-columna">
+                    <h3>Enlaces Rápidos</h3>
+                    <ul>
+                        <li><a href="productos.html">Catálogo Completo</a></li>
+                        <li><a href="ofertas.html">Promociones</a></li>
+                        <li><a href="servicios.html">Servicio Técnico</a></li>
+                        <li><a href="comparativa.html">Tabla Comparativa</a></li>
                     </ul>
                 </div>
-
-                <!-- Columna 3: Información y Confianza -->
-                <div class="columna-pie">
-                    <h3 class="titulo-pie">Servicio y Garantía</h3>
-                    <ul class="lista-pie">
-                        <li><a href="./servicios/index.html"><i class="fas fa-chevron-right"></i> Servicio Técnico y Ensamble</a></li>
-                        <li><a href="./comparativa/index.html"><i class="fas fa-chevron-right"></i> Comparador de Rendimiento</a></li>
-                        <li><a href="./nosotros/index.html"><i class="fas fa-chevron-right"></i> Sobre TechStore Perú</a></li>
-                        <li><a href="./login/index.html"><i class="fas fa-chevron-right"></i> Portal de Clientes / Mi Cuenta</a></li>
-                        <li><a href="./contacto/index.html"><i class="fas fa-chevron-right"></i> Cotizaciones Corporativas</a></li>
-                    </ul>
-                </div>
-
-                <!-- Columna 4: Tienda Física y Ubicación con Mapa -->
-                <div class="columna-pie">
-                    <h3 class="titulo-pie">Tienda Física en Lima</h3>
-                    <p class="texto-pie"><i class="fas fa-map-marker-alt acento"></i> CC Cyberplaza Tienda 2A-102, Av. Garcilaso de la Vega 1348, Lima Centro</p>
-                    <p class="texto-pie"><i class="fas fa-phone-alt acento"></i> (01) 234-5678 / 929-207-945 / 991-439-162</p>
-                    <p class="texto-pie"><i class="fas fa-envelope acento"></i> ventas@techstore.pe</p>
-                    <p class="texto-pie"><i class="fas fa-clock acento"></i> Lun - Sáb: 9:00 AM - 8:00 PM</p>
-                    
-                    <!-- Mapa Embebido Semántico -->
-                    <div class="mapa-pie-contenedor">
-                        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3901.9686008882046!2d-77.03780332405052!3d-12.054366688183017!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x9105c8c697858c85%3A0x67399a9a0899127!2sCentro%20Comercial%20Cyberplaza!5e0!3m2!1ses!2spe!4v1710000000000!5m2!1ses!2spe" width="100%" height="130" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade" title="Ubicación Tienda TechStore - CC Cyberplaza Lima"></iframe>
-                    </div>
+                <div class="pie-columna">
+                    <h3>Contacto</h3>
+                    <p>Dirección: Av. Arequipa 2450, Lima</p>
+                    <p>Teléfono: (01) 456-7890 / 987654321</p>
+                    <p>Correo: ventas@techstore.pe</p>
                 </div>
             </div>
-
-            <!-- Métodos de Pago Aceptados en Perú -->
-            <div class="metodos-pago-pie">
-                <div class="titulo-pagos-pie">Métodos de Pago 100% Seguros Aceptados en Perú</div>
-                <div class="insignias-pago-grid">
-                    <span class="insignia-pago-badge"><i class="fab fa-cc-visa"></i> Visa</span>
-                    <span class="insignia-pago-badge"><i class="fab fa-cc-mastercard"></i> Mastercard</span>
-                    <span class="insignia-pago-badge"><i class="fab fa-cc-amex"></i> Amex</span>
-                    <span class="insignia-pago-badge"><i class="fas fa-qrcode"></i> Yape</span>
-                    <span class="insignia-pago-badge"><i class="fas fa-mobile-alt"></i> Plin</span>
-                    <span class="insignia-pago-badge"><i class="fas fa-university"></i> BCP / BBVA</span>
-                    <span class="insignia-pago-badge"><i class="fas fa-money-bill-wave"></i> PagoEfectivo</span>
-                </div>
-            </div>
-        </div>
-
-        <div class="creditos-pie">
-            <div class="contenedor">
-                <p>&copy; 2026 TechStore Perú S.A.C. - RUC: 20608945123. Especialistas en Hardware Gamer. Todos los derechos reservados.</p>
+            <div class="pie-inferior">
+                <p>&copy; 2026 TechStore - Proyecto Final de Programación Web.</p>
             </div>
         </div>
     </footer>
 
-    <!-- Script principal -->
+    <!-- Ventana Modal de Detalle -->
+    <div id="modal-detalle" class="fondo-modal">
+        <div class="ventana-modal">
+            <button class="boton-cerrar-modal" onclick="cerrarModalDetalle()">&times;</button>
+            <div id="modal-detalle-contenido"></div>
+        </div>
+    </div>
+
+    <!-- Ventana Modal de Carrito -->
+    <div id="modal-carrito" class="fondo-modal">
+        <div class="ventana-modal">
+            <button class="boton-cerrar-modal" onclick="cerrarModalCarrito()">&times;</button>
+            <h3 class="modal-titulo">Carrito de Compras</h3>
+            <div id="lista-carrito"></div>
+            <div id="total-carrito" class="total-carrito">Total: S/ 0.00</div>
+            <div class="acciones-modal">
+                <button class="boton boton-secundario" onclick="cerrarModalCarrito()">Seguir comprando</button>
+                <button class="boton boton-primario" onclick="procesarCompra()">Procesar Compra</button>
+            </div>
+        </div>
+    </div>
+    <!-- Ventana Modal de Inicio de Sesion o Registro de Cuenta -->
+    <div id="modal-sesion" class="fondo-modal">
+        <div class="ventana-modal" style="max-width: 440px;">
+            <button class="boton-cerrar-modal" onclick="cerrarModalSesion()">&times;</button>
+            
+            <!-- Selector de Pestanas: Iniciar Sesion o Crear Cuenta -->
+            <div style="display: flex; gap: 8px; margin-bottom: 16px; border-bottom: 1px solid var(--color-borde); padding-bottom: 12px;">
+                <button type="button" id="tab-login" onclick="mostrarModalLogin()" class="boton boton-primario" style="flex: 1; padding: 8px 12px; font-size: 14px;">Iniciar Sesión</button>
+                <button type="button" id="tab-registro" onclick="mostrarModalRegistro()" class="boton boton-secundario" style="flex: 1; padding: 8px 12px; font-size: 14px;">Crear Cuenta</button>
+            </div>
+
+            <div id="modal-alerta-sesion" class="alerta-mensaje alerta-info" style="display: none; font-size: 13px; margin-bottom: 15px;"></div>
+
+            <!-- Vista 1: Iniciar Sesion (Cuenta Previa o Credenciales) -->
+            <div id="vista-modal-login">
+                <!-- Subvista 1A: Si ya tiene cuenta creada anteriormente -->
+                <div id="caja-cuenta-previa" style="display: none; background: rgba(0, 180, 216, 0.08); border: 1px solid var(--color-borde); border-radius: var(--radio-borde); padding: 16px; margin-bottom: 14px; text-align: center;">
+                    <img src="img/icono-usuario.png" alt="Cuenta Anterior" style="width: 40px; height: 40px; object-fit: contain; margin-bottom: 6px;">
+                    <p style="font-size: 12px; color: var(--color-texto-apagado); margin-bottom: 2px;">Cuenta registrada en este equipo:</p>
+                    <h4 id="nombre-cuenta-previa" style="color: var(--color-blanco); font-size: 15px; margin-bottom: 2px;">Usuario</h4>
+                    <p id="correo-cuenta-previa" style="color: var(--color-primario); font-size: 12px; margin-bottom: 12px;">correo@techstore.pe</p>
+                    
+                    <div class="formulario-grupo" style="text-align: left; margin-bottom: 10px;">
+                        <label for="modal-clave-previa" style="font-size: 13px;">Contraseña *</label>
+                        <input type="password" id="modal-clave-previa" class="formulario-control" placeholder="Ingresa tu contraseña">
+                    </div>
+                    <div id="modal-alerta-login-previa" class="alerta-mensaje alerta-error" style="display: none; font-size: 13px; margin-bottom: 10px;"></div>
+                    <button type="button" onclick="iniciarConCuentaPrevia()" class="boton boton-primario" style="width: 100%; margin-bottom: 10px;">Iniciar Sesión</button>
+                    <div style="font-size: 12px;">
+                        <a href="javascript:void(0)" onclick="mostrarLoginManual()" style="color: var(--color-primario); text-decoration: none;">Ingresar con otro usuario o correo</a>
+                    </div>
+                </div>
+
+                <!-- Subvista 1B: Formulario manual de login -->
+                <form id="form-modal-login" style="display: none;" onsubmit="return validarLoginModal(event)">
+                    <div class="formulario-grupo">
+                        <label for="modal-txt-usuario" style="font-size: 13px;">Usuario o Correo Electrónico *</label>
+                        <input type="text" id="modal-txt-usuario" class="formulario-control" placeholder="Ej. admin o tu correo">
+                    </div>
+                    <div class="formulario-grupo">
+                        <label for="modal-txt-clave" style="font-size: 13px;">Contraseña *</label>
+                        <input type="password" id="modal-txt-clave" class="formulario-control" placeholder="Tu contraseña">
+                    </div>
+                    <div id="modal-alerta-login" class="alerta-mensaje alerta-error" style="display: none; font-size: 13px; margin-bottom: 12px;"></div>
+                    <button type="submit" class="boton boton-primario" style="width: 100%; margin-top: 5px;">Iniciar Sesión</button>
+                    <div id="enlace-volver-previa" style="display: none; text-align: center; margin-top: 10px; font-size: 12px;">
+                        <a href="javascript:void(0)" onclick="mostrarModalCuentaPrevia()" style="color: var(--color-texto-apagado); text-decoration: none;">Volver a cuenta detectada</a>
+                    </div>
+                </form>
+            </div>
+
+            <!-- Vista 2: Formulario de Crear Cuenta -->
+            <form id="form-modal-registro" style="display: none;" onsubmit="return registrarUsuarioModal(event)">
+                <div class="formulario-grupo" style="margin-bottom: 10px;">
+                    <label for="modal-reg-nombre" style="font-size: 13px;">Nombre y Apellidos *</label>
+                    <input type="text" id="modal-reg-nombre" class="formulario-control" placeholder="Ej. Carlos Ramos" oninput="this.value = this.value.replace(/[^a-zA-ZáéíóúÁÉÍÓÚñÑ\s]/g, '')">
+                </div>
+
+                <div class="formulario-grupo" style="margin-bottom: 10px;">
+                    <label for="modal-reg-telefono" style="font-size: 13px;">Número de Teléfono (9 dígitos) *</label>
+                    <input type="text" id="modal-reg-telefono" maxlength="9" class="formulario-control" placeholder="987654321" oninput="this.value = this.value.replace(/[^0-9]/g, '')">
+                </div>
+
+                <div class="formulario-grupo" style="margin-bottom: 10px;">
+                    <label for="modal-reg-correo" style="font-size: 13px;">Correo Electrónico *</label>
+                    <input type="email" id="modal-reg-correo" class="formulario-control" placeholder="carlos@techstore.pe">
+                </div>
+
+                <div class="formulario-grupo" style="margin-bottom: 12px;">
+                    <label for="modal-reg-clave" style="font-size: 13px;">Contraseña *</label>
+                    <input type="password" id="modal-reg-clave" class="formulario-control" placeholder="Mínimo 6 caracteres">
+                </div>
+
+                <div id="modal-alerta-registro" class="alerta-mensaje alerta-error" style="display: none; font-size: 13px; margin-bottom: 12px;"></div>
+
+                <button type="submit" class="boton boton-primario" style="width: 100%; margin-top: 5px;">Crear Cuenta e Iniciar</button>
+            </form>
+        </div>
+    </div>
+
+
+
+
+    <script src="js/datos.js"></script>
+    <script src="js/app.js"></script>
+    <script>
+        window.addEventListener("DOMContentLoaded", function() {
+            cargarProductos(4);
+        });
+    </script>
 </body>
 </html>
