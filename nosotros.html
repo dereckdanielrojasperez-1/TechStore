@@ -29,6 +29,15 @@
                 </ul>
             </nav>
 
+            
+            <div class="selector-tema-contenedor" title="Cambiar color de acento y botones en un toque">
+                <span class="selector-tema-titulo">Color:</span>
+                <button type="button" class="punto-tema tema-cian" onclick="cambiarColorTema('#00b4d8', '#90e0ef', 'Cian Neón')" title="Cian Neón"></button>
+                <button type="button" class="punto-tema tema-morado" onclick="cambiarColorTema('#8b5cf6', '#a78bfa', 'Morado Cyber')" title="Morado Cyber"></button>
+                <button type="button" class="punto-tema tema-verde" onclick="cambiarColorTema('#10b981', '#34d399', 'Verde Gamer')" title="Verde Gamer"></button>
+                <button type="button" class="punto-tema tema-rojo" onclick="cambiarColorTema('#ef4444', '#f87171', 'Rojo Dragón')" title="Rojo Dragón"></button>
+            </div>
+
             <button class="boton-carrito-nav" onclick="abrirModalCarrito()">
                 Carrito <span id="contador-carrito" class="contador-carrito">0</span>
             </button>
@@ -207,5 +216,116 @@
 
     <script src="js/datos.js"></script>
     <script src="js/app.js"></script>
+
+    <!-- Apartado de Compra / Modal de Checkout y Confirmación de Pedido -->
+    <div id="modal-checkout" class="fondo-modal">
+        <div class="ventana-modal" style="max-width: 500px;">
+            <button class="boton-cerrar-modal" onclick="cerrarModalCheckout()">&times;</button>
+            <h3 class="modal-titulo">Finalizar Compra</h3>
+            
+            <div id="checkout-contenido">
+                <div class="resumen-compra-caja">
+                    <h4 style="color: var(--color-blanco); font-size: 14px; margin-bottom: 8px;">Resumen del Pedido</h4>
+                    <div id="checkout-lista-items" style="max-height: 120px; overflow-y: auto; margin-bottom: 8px;"></div>
+                    <div class="resumen-fila">
+                        <span style="color: var(--color-texto-apagado);">Subtotal:</span>
+                        <span id="checkout-subtotal" style="color: var(--color-texto);">S/ 0.00</span>
+                    </div>
+                    <div class="resumen-fila">
+                        <span style="color: var(--color-texto-apagado);">Envío:</span>
+                        <span style="color: var(--color-exito); font-weight: bold;">GRATIS</span>
+                    </div>
+                    <div class="resumen-fila total">
+                        <span>Total a Pagar:</span>
+                        <span id="checkout-total">S/ 0.00</span>
+                    </div>
+                </div>
+
+                <form id="formulario-checkout" onsubmit="confirmarPedidoCheckout(event)">
+                    <div class="formulario-grupo" style="margin-bottom: 8px;">
+                        <label for="chk-nombre" style="font-size: 12px;">Nombre del Destinatario *</label>
+                        <input type="text" id="chk-nombre" class="formulario-control" required placeholder="Nombres y Apellidos" oninput="this.value = this.value.replace(/[^a-zA-ZáéíóúÁÉÍÓÚñÑ ]/g, '')">
+                    </div>
+
+                    <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 8px; margin-bottom: 8px;">
+                        <div class="formulario-grupo">
+                            <label for="chk-telefono" style="font-size: 12px;">Teléfono (9 dígitos) *</label>
+                            <input type="text" id="chk-telefono" maxlength="9" class="formulario-control" required placeholder="987654321" oninput="this.value = this.value.replace(/[^0-9]/g, '')">
+                        </div>
+                        <div class="formulario-grupo">
+                            <label for="chk-metodo-envio" style="font-size: 12px;">Tipo de Entrega</label>
+                            <select id="chk-metodo-envio" class="formulario-control">
+                                <option value="domicilio">Envío a Domicilio (Lima)</option>
+                                <option value="tienda">Recojo en Tienda (Cyberplaza)</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <div class="formulario-grupo" style="margin-bottom: 8px;">
+                        <label for="chk-direccion" style="font-size: 12px;">Dirección de Entrega *</label>
+                        <input type="text" id="chk-direccion" class="formulario-control" required placeholder="Av. / Calle, Nro, Distrito">
+                    </div>
+
+                    <div class="formulario-grupo" style="margin-bottom: 12px;">
+                        <label style="font-size: 12px; margin-bottom: 4px; display: block;">Método de Pago *</label>
+                        <div class="metodos-pago-grid">
+                            <label class="opcion-pago activa">
+                                <input type="radio" name="metodo_pago" value="Tarjeta Visa/Mastercard" checked> 💳 Tarjeta
+                            </label>
+                            <label class="opcion-pago">
+                                <input type="radio" name="metodo_pago" value="Yape / Plin"> 📱 Yape / Plin
+                            </label>
+                            <label class="opcion-pago">
+                                <input type="radio" name="metodo_pago" value="Transferencia BCP"> 🏦 BCP / BBVA
+                            </label>
+                            <label class="opcion-pago">
+                                <input type="radio" name="metodo_pago" value="PagoEfectivo"> 💵 PagoEfectivo
+                            </label>
+                        </div>
+                    </div>
+
+                    <div class="acciones-modal">
+                        <button type="button" class="boton boton-secundario" onclick="cerrarModalCheckout()">Cancelar</button>
+                        <button type="submit" class="boton boton-primario">Confirmar y Pagar</button>
+                    </div>
+                </form>
+            </div>
+
+            <div id="checkout-exito" style="display: none; text-align: center; padding: 15px 0;">
+                <div style="font-size: 48px; margin-bottom: 10px;">🎉</div>
+                <h4 style="color: var(--color-exito); font-size: 20px; margin-bottom: 6px;">¡Compra Exitosa!</h4>
+                <p style="color: var(--color-texto-apagado); font-size: 13px; margin-bottom: 15px;">Tu pedido ha sido recibido y está siendo preparado por nuestro equipo técnico.</p>
+                
+                <div class="resumen-compra-caja" style="text-align: left; font-size: 13px;">
+                    <div class="resumen-fila">
+                        <strong style="color: var(--color-blanco);">Código de Pedido:</strong>
+                        <span id="ticket-codigo" style="color: var(--color-primario); font-weight: bold;">#PED-2026-0000</span>
+                    </div>
+                    <div class="resumen-fila">
+                        <strong style="color: var(--color-blanco);">Fecha:</strong>
+                        <span id="ticket-fecha" style="color: var(--color-texto);">--/--/----</span>
+                    </div>
+                    <div class="resumen-fila">
+                        <strong style="color: var(--color-blanco);">Cliente:</strong>
+                        <span id="ticket-cliente" style="color: var(--color-texto);">Cliente</span>
+                    </div>
+                    <div class="resumen-fila">
+                        <strong style="color: var(--color-blanco);">Método:</strong>
+                        <span id="ticket-metodo" style="color: var(--color-texto);">Tarjeta</span>
+                    </div>
+                    <div class="resumen-fila total">
+                        <span>Total Pagado:</span>
+                        <span id="ticket-total">S/ 0.00</span>
+                    </div>
+                </div>
+
+                <button class="boton boton-primario" style="width: 100%;" onclick="cerrarModalCheckout()">Finalizar y Volver a la Tienda</button>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Contenedor para Notificaciones Flotantes Toast -->
+    <div id="contenedor-toast"></div>
+
 </body>
 </html>

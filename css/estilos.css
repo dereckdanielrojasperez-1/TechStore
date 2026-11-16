@@ -1,20 +1,47 @@
 /* // variables de color para cambiar facil en la exposicion */
+/* ==========================================================================
+   PALETA DE COLORES Y VARIABLES GLOBALES (MODIFICA AQUÍ EN UN TOQUE)
+   Cambia cualquiera de estos valores y todo el sitio (botones, acentos y luces)
+   se actualizará automáticamente en un solo paso:
+   ========================================================================== */
 :root {
-    --color-fondo: #0d1b2a;
-    --color-fondo-secundario: #1b263b;
-    --color-fondo-tarjeta: #1b263b;
-    --color-borde: #415a77;
+    /* Color Principal de Botones, Acentos y Enlaces (Cambia aquí para personalizar) */
     --color-primario: #00b4d8;
     --color-primario-hover: #90e0ef;
-    --color-peligro: #e63946;
-    --color-peligro-hover: #ff4d5a;
-    --color-texto: #e0e1dd;
-    --color-texto-apagado: #a0b2c6;
+
+    /* Color Secundario y Acentos Morados */
+    --color-secundario: #8b5cf6;
+    --color-secundario-hover: #a78bfa;
+
+    /* Fondos del Sitio */
+    --color-fondo: #0a1128;
+    --color-fondo-secundario: #111d38;
+    --color-fondo-tarjeta: #15223e;
+    --color-fondo-tarjeta-hover: #1c2e52;
+
+    /* Bordes y Líneas */
+    --color-borde: #2a3d66;
+    --color-borde-activo: #00b4d8;
+
+    /* Textos */
+    --color-texto: #e2e8f0;
+    --color-texto-apagado: #94a3b8;
     --color-blanco: #ffffff;
-    --fuente-principal: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
-    --radio-borde: 6px;
-    --transicion-rapida: 0.2s ease;
+
+    /* Estados del Sistema */
+    --color-exito: #10b981;
+    --color-exito-hover: #34d399;
+    --color-peligro: #ef4444;
+    --color-peligro-hover: #f87171;
+    --color-alerta: #f59e0b;
+
+    /* Sombras y Efectos de Iluminación */
+    --sombra-tarjeta: 0 4px 15px rgba(0, 0, 0, 0.4);
+    --sombra-hover: 0 10px 25px rgba(0, 180, 216, 0.25);
+    --radio-borde: 8px;
+    --transicion-rapida: 0.25s ease;
 }
+
 
 /* // reseteo general de margenes y caja */
 * {
@@ -753,4 +780,161 @@ textarea.formulario-control {
     .acciones-modal .boton {
         width: 100%;
     }
+}
+
+/* ==========================================================================
+   MEJORAS DINÁMICAS: SELECTOR DE TEMA, TOASTS Y APARTADO DE COMPRA
+   ========================================================================== */
+
+/* Selector de tema en un toque */
+.selector-tema-contenedor {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    background: rgba(255, 255, 255, 0.05);
+    padding: 4px 10px;
+    border-radius: 20px;
+    border: 1px solid var(--color-borde);
+    margin: 0 10px;
+}
+.selector-tema-titulo {
+    font-size: 11px;
+    color: var(--color-texto-apagado);
+    margin-right: 2px;
+    font-weight: 600;
+}
+.punto-tema {
+    width: 15px;
+    height: 15px;
+    border-radius: 50%;
+    border: 2px solid rgba(255, 255, 255, 0.3);
+    cursor: pointer;
+    transition: transform 0.2s ease, border-color 0.2s ease;
+    padding: 0;
+}
+.punto-tema:hover, .punto-tema:focus {
+    transform: scale(1.35);
+    border-color: #ffffff;
+    outline: none;
+}
+.tema-cian { background-color: #00b4d8; }
+.tema-morado { background-color: #8b5cf6; }
+.tema-verde { background-color: #10b981; }
+.tema-rojo { background-color: #ef4444; }
+
+/* Contenedor y diseño de Notificaciones Toast Flotantes */
+#contenedor-toast {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    z-index: 10000;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    pointer-events: none;
+}
+.toast {
+    background-color: var(--color-fondo-secundario);
+    color: var(--color-texto);
+    border: 1px solid var(--color-borde);
+    border-left: 5px solid var(--color-primario);
+    padding: 12px 18px;
+    border-radius: var(--radio-borde);
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.5);
+    font-size: 14px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    min-width: 280px;
+    max-width: 380px;
+    pointer-events: auto;
+    animation: toastEntrada 0.35s cubic-bezier(0.18, 0.89, 0.32, 1.28) forwards;
+    transition: opacity 0.3s ease, transform 0.3s ease;
+}
+.toast.toast-exito {
+    border-left-color: var(--color-exito);
+}
+.toast.toast-error {
+    border-left-color: var(--color-peligro);
+}
+.toast.toast-alerta {
+    border-left-color: var(--color-alerta);
+}
+@keyframes toastEntrada {
+    from {
+        opacity: 0;
+        transform: translateX(60px);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+@keyframes pulsoBadge {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.4); background-color: var(--color-primario-hover); }
+    100% { transform: scale(1); }
+}
+.animar-pulso {
+    animation: pulsoBadge 0.35s ease;
+}
+
+/* Efecto dinámico en tarjetas */
+.tarjeta {
+    transition: transform var(--transicion-rapida), box-shadow var(--transicion-rapida), border-color var(--transicion-rapida);
+}
+.tarjeta:hover {
+    transform: translateY(-8px);
+    box-shadow: var(--sombra-hover);
+    border-color: var(--color-primario);
+}
+.tarjeta-imagen {
+    transition: transform 0.3s ease;
+}
+.tarjeta:hover .tarjeta-imagen {
+    transform: scale(1.06);
+}
+
+/* Apartado de Compra / Checkout */
+.resumen-compra-caja {
+    background: rgba(0, 0, 0, 0.25);
+    border: 1px solid var(--color-borde);
+    border-radius: var(--radio-borde);
+    padding: 15px;
+    margin-bottom: 15px;
+}
+.resumen-fila {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 8px;
+    font-size: 13px;
+}
+.resumen-fila.total {
+    border-top: 1px solid var(--color-borde);
+    padding-top: 10px;
+    margin-top: 8px;
+    font-size: 16px;
+    font-weight: bold;
+    color: var(--color-primario);
+}
+.metodos-pago-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 8px;
+    margin-bottom: 12px;
+}
+.opcion-pago {
+    border: 1px solid var(--color-borde);
+    padding: 8px 10px;
+    border-radius: var(--radio-borde);
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    cursor: pointer;
+    transition: border-color 0.2s, background 0.2s;
+    font-size: 12px;
+}
+.opcion-pago:hover, .opcion-pago.activa {
+    border-color: var(--color-primario);
+    background: rgba(0, 180, 216, 0.1);
 }

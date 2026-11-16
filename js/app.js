@@ -156,7 +156,16 @@ function agregarCarrito(indice) {
     agregarAlArregloCarrito(indice);
     guardarCarritoEnStorage();
     actualizarContadorCarrito();
-    alert("Se agrego '" + nombres[indice] + "' al carrito de compras.");
+    
+    // Animación de pulso en el botón del carrito
+    let contador = document.getElementById("contador-carrito");
+    if (contador) {
+        contador.classList.remove("animar-pulso");
+        void contador.offsetWidth;
+        contador.classList.add("animar-pulso");
+    }
+    
+    mostrarToast("🛒 Se agregó '" + nombres[indice] + "' al carrito.", "exito");
 }
 
 // funcion para eliminar un producto del carrito
@@ -199,30 +208,19 @@ function actualizarContadorCarrito() {
 // funcion para procesar y finalizar la compra
 function procesarCompra() {
     if (carrito.length === 0) {
-        alert("El carrito esta vacio. Agrega productos antes de procesar tu compra.");
+        mostrarToast("El carrito está vacío. Agrega productos antes de procesar.", "alerta");
         return;
     }
 
     let sesion = sessionStorage.getItem("usuarioLogueado");
     if (!sesion) {
         cerrarModalCarrito();
-        abrirModalSesion("Para completar tu compra, por favor inicia sesion o selecciona la cuenta que hayas usado.");
+        abrirModalSesion("Para completar tu compra, por favor inicia sesión o selecciona la cuenta que hayas usado.");
         return;
     }
 
-    let nombreUsuario = "Cliente";
-    try {
-        let datos = JSON.parse(sesion);
-        nombreUsuario = datos.nombre || datos.usuario || "Cliente";
-    } catch (e) {
-        nombreUsuario = sesion;
-    }
-
-    alert("¡Gracias por tu compra, " + nombreUsuario + "! Tu pedido ha sido procesado exitosamente.");
-    carrito = [];
-    guardarCarritoEnStorage();
-    actualizarContadorCarrito();
     cerrarModalCarrito();
+    abrirModalCheckout();
 }
 
 // funcion para obtener o inicializar la lista de usuarios registrados
@@ -1120,3 +1118,194 @@ window.addEventListener("click", function(event) {
         cerrarModalDetalle();
     }
 });
+
+
+// ==========================================================================
+// NUEVAS FUNCIONALIDADES DINÁMICAS DEL AVANCE 3
+// ==========================================================================
+
+// 1. FUNCION PARA CAMBIAR EL COLOR DE ACENTO Y BOTONES EN UN SOLO TOQUE
+function cambiarColorTema(colorPrimario, colorHover, nombre) {
+    document.documentElement.style.setProperty('--color-primario', colorPrimario);
+    if (colorHover) {
+        document.documentElement.style.setProperty('--color-primario-hover', colorHover);
+    }
+    try {
+        localStorage.setItem('techstore_color_primario', colorPrimario);
+        if (colorHover) {
+            localStorage.setItem('techstore_color_hover', colorHover);
+        }
+    } catch (e) {}
+    
+    mostrarToast("🎨 Color del sitio actualizado a " + (nombre || "personalizado"), "exito");
+}
+
+// Cargar el color guardado al iniciar la pagina
+function cargarColorTemaGuardado() {
+    try {
+        let colorGuardado = localStorage.getItem('techstore_color_primario');
+        let hoverGuardado = localStorage.getItem('techstore_color_hover');
+        if (colorGuardado) {
+            document.documentElement.style.setProperty('--color-primario', colorGuardado);
+        }
+        if (hoverGuardado) {
+            document.documentElement.style.setProperty('--color-primario-hover', hoverGuardado);
+        }
+    } catch (e) {}
+}
+
+// 2. SISTEMA DE NOTIFICACIONES TOAST FLOTANTES (REEMPLAZA EL ALERT BLOQUEANTE)
+function mostrarToast(mensaje, tipo) {
+    let contenedor = document.getElementById("contenedor-toast");
+    if (!contenedor) {
+        contenedor = document.createElement("div");
+        contenedor.id = "contenedor-toast";
+        document.body.appendChild(contenedor);
+    }
+
+    let toast = document.createElement("div");
+    toast.className = "toast toast-" + (tipo || "exito");
+    
+    let icono = "✅";
+    if (tipo === "error") icono = "❌";
+    if (tipo === "alerta") icono = "⚠️";
+    if (tipo === "info") icono = "ℹ️";
+
+    toast.innerHTML = '<span>' + icono + '</span> <span>' + mensaje + '</span>';
+    contenedor.appendChild(toast);
+
+    setTimeout(function() {
+        toast.style.opacity = "0";
+        toast.style.transform = "translateX(50px)";
+        setTimeout(function() {
+            if (toast.parentNode) {
+                toast.parentNode.removeChild(toast);
+            }
+        }, 300);
+    }, 2500);
+}
+
+// 3. APARTADO DE COMPRA / MODAL DE CHECKOUT Y CONFIRMACIÓN DE PEDIDO
+function abrirModalCheckout() {
+    if (carrito.length === 0) {
+        mostrarToast("El carrito está vacío. Agrega productos antes de comprar.", "alerta");
+        return;
+    }
+
+    let modal = document.getElementById("modal-checkout");
+    if (!modal) return;
+
+    let listaItems = document.getElementById("checkout-lista-items");
+    let subtotalElem = document.getElementById("checkout-subtotal");
+    let totalElem = document.getElementById("checkout-total");
+    
+    let total = 0;
+    let htmlItems = "";
+    for (let i = 0; i < carrito.length; i++) {
+        let idx = carrito[i];
+        total += precios[idx];
+        htmlItems += '<div class="resumen-fila" style="padding: 3px 0; border-bottom: 1px dashed rgba(255,255,255,0.1);">' +
+            '<span>' + nombres[idx] + '</span>' +
+            '<span style="font-weight: bold; color: var(--color-primario);">S/ ' + precios[idx].toFixed(2) + '</span>' +
+        '</div>';
+    }
+
+    if (listaItems) listaItems.innerHTML = htmlItems;
+    if (subtotalElem) subtotalElem.innerText = "S/ " + total.toFixed(2);
+    if (totalElem) totalElem.innerText = "S/ " + total.toFixed(2);
+
+    // Autocompletar datos del usuario activo si existe
+    let sesion = sessionStorage.getItem("usuarioLogueado");
+    let inputNombre = document.getElementById("chk-nombre");
+    let inputTelefono = document.getElementById("chk-telefono");
+    if (sesion) {
+        try {
+            let u = JSON.parse(sesion);
+            if (inputNombre && u.nombre) inputNombre.value = u.nombre;
+            if (inputTelefono && u.telefono) inputTelefono.value = u.telefono;
+        } catch (e) {}
+    }
+
+    let bloqueContenido = document.getElementById("checkout-contenido");
+    let bloqueExito = document.getElementById("checkout-exito");
+    if (bloqueContenido) bloqueContenido.style.display = "block";
+    if (bloqueExito) bloqueExito.style.display = "none";
+
+    modal.style.display = "flex";
+}
+
+function cerrarModalCheckout() {
+    let modal = document.getElementById("modal-checkout");
+    if (modal) modal.style.display = "none";
+}
+
+function confirmarPedidoCheckout(event) {
+    if (event) event.preventDefault();
+
+    let inputNombre = document.getElementById("chk-nombre");
+    let inputTelefono = document.getElementById("chk-telefono");
+    let inputDireccion = document.getElementById("chk-direccion");
+    let metodoSeleccionado = document.querySelector('input[name="metodo_pago"]:checked');
+
+    let nombre = inputNombre ? inputNombre.value.trim() : "Cliente";
+    let telefono = inputTelefono ? inputTelefono.value.trim() : "";
+    let direccion = inputDireccion ? inputDireccion.value.trim() : "";
+    let metodo = metodoSeleccionado ? metodoSeleccionado.value : "Tarjeta";
+
+    if (telefono.length !== 9) {
+        mostrarToast("El celular debe tener exactamente 9 dígitos numéricos.", "error");
+        if (inputTelefono) inputTelefono.focus();
+        return;
+    }
+
+    let total = 0;
+    for (let i = 0; i < carrito.length; i++) {
+        total += precios[carrito[i]];
+    }
+
+    let codigo = "PED-2026-" + Math.floor(1000 + Math.random() * 9000);
+    let fechaHoy = new Date().toLocaleDateString('es-PE', { day: '2-digit', month: '2-digit', year: 'numeric', hour: '2-digit', minute: '2-digit' });
+
+    let ticketCodigo = document.getElementById("ticket-codigo");
+    let ticketFecha = document.getElementById("ticket-fecha");
+    let ticketCliente = document.getElementById("ticket-cliente");
+    let ticketMetodo = document.getElementById("ticket-metodo");
+    let ticketTotal = document.getElementById("ticket-total");
+
+    if (ticketCodigo) ticketCodigo.innerText = "#" + codigo;
+    if (ticketFecha) ticketFecha.innerText = fechaHoy;
+    if (ticketCliente) ticketCliente.innerText = nombre + " (" + telefono + ")";
+    if (ticketMetodo) ticketMetodo.innerText = metodo + " | " + direccion;
+    if (ticketTotal) ticketTotal.innerText = "S/ " + total.toFixed(2);
+
+    carrito = [];
+    guardarCarritoEnStorage();
+    actualizarContadorCarrito();
+
+    let bloqueContenido = document.getElementById("checkout-contenido");
+    let bloqueExito = document.getElementById("checkout-exito");
+    if (bloqueContenido) bloqueContenido.style.display = "none";
+    if (bloqueExito) bloqueExito.style.display = "block";
+
+    mostrarToast("¡Compra completada con éxito! Pedido #" + codigo, "exito");
+}
+
+// 4. BUSCADOR EN TIEMPO REAL PARA EL CATÁLOGO DE PRODUCTOS
+function buscarProductosEnTiempoReal() {
+    let input = document.getElementById("buscador-productos");
+    if (!input) return;
+    let texto = input.value.toLowerCase().trim();
+    let tarjetas = document.querySelectorAll("#contenedor-productos .tarjeta");
+    
+    tarjetas.forEach(function(t) {
+        let titulo = t.querySelector(".tarjeta-titulo") ? t.querySelector(".tarjeta-titulo").innerText.toLowerCase() : "";
+        let detalle = t.querySelector(".tarjeta-detalle") ? t.querySelector(".tarjeta-detalle").innerText.toLowerCase() : "";
+        let categoria = t.querySelector(".tarjeta-categoria") ? t.querySelector(".tarjeta-categoria").innerText.toLowerCase() : "";
+        
+        if (titulo.indexOf(texto) !== -1 || detalle.indexOf(texto) !== -1 || categoria.indexOf(texto) !== -1) {
+            t.style.display = "flex";
+        } else {
+            t.style.display = "none";
+        }
+    });
+}
