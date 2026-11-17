@@ -1,3 +1,15 @@
+// funcion auxiliar para resolver rutas de imagenes segun la profundidad de carpeta
+function obtenerPrefijoRuta() {
+    let ruta = window.location.pathname.replace(/\\/g, '/');
+    let subcarpetas = ['/productos/', '/comparativa/', '/ofertas/', '/servicios/', '/nosotros/', '/contacto/', '/login/'];
+    for (let i = 0; i < subcarpetas.length; i++) {
+        if (ruta.indexOf(subcarpetas[i]) !== -1) {
+            return '../';
+        }
+    }
+    return '';
+}
+
 // funcion para abrir y cerrar el menu en celulares
 function toggleMenu() {
     let menu = document.getElementById("menu-navegacion");
@@ -45,7 +57,7 @@ function cargarProductos(limite, categoriaFiltro) {
         tarjeta.innerHTML = 
             '<div class="tarjeta-figura">' +
                 '<span class="tarjeta-categoria">' + categorias[idx] + '</span>' +
-                '<img src="' + imagenes[idx] + '" alt="' + nombres[idx] + '" class="tarjeta-imagen">' +
+                '<img src="' + obtenerPrefijoRuta() + imagenes[idx] + '" alt="' + nombres[idx] + '" class="tarjeta-imagen">' +
             '</div>' +
             '<div class="tarjeta-cuerpo">' +
                 '<h3 class="tarjeta-titulo">' + nombres[idx] + '</h3>' +
@@ -80,7 +92,7 @@ function abrirModalDetalle(indice) {
 
     cuerpo.innerHTML = 
         '<div style="text-align: center; margin-bottom: 15px;">' +
-            '<img src="' + imagenes[indice] + '" alt="' + nombres[indice] + '" style="max-height: 180px; max-width: 100%; object-fit: contain;">' +
+            '<img src="' + obtenerPrefijoRuta() + imagenes[indice] + '" alt="' + nombres[indice] + '" style="max-height: 180px; max-width: 100%; object-fit: contain;">' +
         '</div>' +
         '<h3 style="color: #ffffff; margin-bottom: 10px;">' + nombres[indice] + '</h3>' +
         '<p style="color: #00b4d8; font-size: 13px; font-weight: bold; margin-bottom: 8px;">Categoría: ' + categorias[indice] + '</p>' +
