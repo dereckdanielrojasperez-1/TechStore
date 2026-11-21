@@ -46,11 +46,11 @@
         <section class="seccion">
             <div class="contenedor">
                 <div class="caja-filtros">
-                    <div>
+                    <div class="filtro-titulo">
                         <span style="font-weight: bold; color: #ffffff;">Filtrar catálogo:</span>
                     </div>
                     <div class="campo-filtro">
-                        <label for="filtro-categoria" style="color: #a0b2c6; margin-right: 8px;">Categoría:</label>
+                        <label for="filtro-categoria">Categoría:</label>
                         <select id="filtro-categoria" onchange="filtrarCategoria()">
                             <option value="todas">Todas las categorías</option>
                             <option value="Laptops">Laptops</option>
@@ -58,11 +58,11 @@
                             <option value="Monitores">Monitores</option>
                             <option value="Accesorios">Accesorios</option>
                         </select>
-                    
-                    <div class="campo-filtro" style="margin-left: auto;">
-                        <label for="buscador-productos" style="color: #a0b2c6; margin-right: 8px;">Buscar:</label>
-                        <input type="text" id="buscador-productos" placeholder="Buscar por nombre o modelo..." class="formulario-control" style="width: 260px; padding: 6px 12px; font-size: 13px;" oninput="buscarProductosEnTiempoReal()">
-                    </div></div>
+                    </div>
+                    <div class="campo-filtro campo-buscador">
+                        <label for="buscador-productos">Buscar:</label>
+                        <input type="text" id="buscador-productos" placeholder="Buscar por nombre o modelo..." class="formulario-control" oninput="buscarProductosEnTiempoReal()">
+                    </div>
                 </div>
 
                 <div id="contenedor-productos" class="caja-productos"></div>

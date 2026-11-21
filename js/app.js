@@ -878,20 +878,12 @@ window.addEventListener("DOMContentLoaded", function() {
     let contenedor = document.getElementById("contenedor-productos");
     if (contenedor) {
         let ruta = window.location.pathname.toLowerCase();
-        let esInicio = ruta.indexOf("index.html") !== -1 || ruta.endsWith("/") || ruta.endsWith("\\");
-        if (esInicio) {
-            cargarProductos(4, "todas");
-        } else {
+        let esPaginaProductos = ruta.indexOf("productos") !== -1;
+        if (esPaginaProductos) {
             cargarProductos(null, "todas");
+        } else {
+            cargarProductos(8, "todas");
         }
-    }
-    let rutaActual = window.location.pathname.toLowerCase();
-    let esPaginaInicio = rutaActual.indexOf("index.html") !== -1 || rutaActual.endsWith("/") || rutaActual.endsWith("\\") || rutaActual === "";
-    let sesionIniciada = sessionStorage.getItem("usuarioLogueado");
-    if (esPaginaInicio && !sesionIniciada) {
-        setTimeout(function() {
-            abrirModalSesion();
-        }, 300);
     }
 });
 window.addEventListener("click", function(event) {
