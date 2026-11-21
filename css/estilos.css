@@ -257,7 +257,7 @@ a:hover {
 }
 
 /* // estilos de los botones y transiciones */
-.boton {
+.boton, a.boton {
     display: inline-block;
     padding: 10px 18px;
     border-radius: 4px;
@@ -266,31 +266,39 @@ a:hover {
     font-size: 14px;
     font-weight: bold;
     text-align: center;
-    transition: transform var(--transicion-rapida), background-color var(--transicion-rapida);
+    text-decoration: none;
+    transition: transform var(--transicion-rapida), background-color var(--transicion-rapida), color var(--transicion-rapida), box-shadow var(--transicion-rapida);
 }
 
-.boton:hover {
-    transform: translateY(-5px);
+.boton:hover, a.boton:hover {
+    transform: translateY(-2px);
 }
 
-.boton-primario {
+.boton-primario, a.boton-primario {
     background-color: var(--color-primario);
-    color: var(--color-fondo);
+    color: var(--color-fondo) !important;
+    text-decoration: none;
 }
 
-.boton-primario:hover {
+.boton-primario:hover, a.boton-primario:hover, .boton-primario:focus, a.boton-primario:focus {
     background-color: var(--color-primario-hover);
+    color: var(--color-fondo) !important;
+    text-decoration: none;
+    box-shadow: 0 0 20px rgba(0, 180, 216, 0.45);
 }
 
-.boton-secundario {
+.boton-secundario, a.boton-secundario {
     background-color: transparent;
     border: 1px solid var(--color-primario);
-    color: var(--color-primario);
+    color: var(--color-primario) !important;
+    text-decoration: none;
 }
 
-.boton-secundario:hover {
+.boton-secundario:hover, a.boton-secundario:hover, .boton-secundario:focus, a.boton-secundario:focus {
     background-color: var(--color-primario);
-    color: var(--color-fondo);
+    color: var(--color-fondo) !important;
+    text-decoration: none;
+    box-shadow: 0 0 20px rgba(0, 180, 216, 0.3);
 }
 
 .boton-peligro {
@@ -999,8 +1007,10 @@ textarea.formulario-control {
 .boton-primario:hover::after, .btn-destacado:hover::after {
     left: 130%;
 }
-.boton-primario:hover {
-    box-shadow: 0 0 25px rgba(0, 210, 255, 0.4);
+.boton-primario:hover, a.boton-primario:hover {
+    color: var(--color-fondo) !important;
+    background-color: var(--color-primario-hover);
+    box-shadow: 0 0 25px rgba(0, 180, 216, 0.4);
     transform: translateY(-2px);
 }
 
@@ -1066,4 +1076,29 @@ html, body {
         padding: 10px;
         border-radius: 50%;
     }
+}
+
+
+/* Reglas de especificidad reforzada para botones en enlaces <a> */
+a.boton-primario, 
+a.boton-primario:visited {
+    color: var(--color-fondo) !important;
+    background-color: var(--color-primario);
+}
+a.boton-primario:hover, 
+a.boton-primario:active, 
+a.boton-primario:focus {
+    color: var(--color-fondo) !important;
+    background-color: var(--color-primario-hover);
+}
+a.boton-secundario, 
+a.boton-secundario:visited {
+    color: var(--color-primario) !important;
+    background-color: transparent;
+}
+a.boton-secundario:hover, 
+a.boton-secundario:active, 
+a.boton-secundario:focus {
+    color: var(--color-fondo) !important;
+    background-color: var(--color-primario);
 }
