@@ -177,7 +177,7 @@ function agregarCarrito(indice) {
         contador.classList.add("animar-pulso");
     }
     
-    mostrarToast("🛒 Se agregó '" + nombres[indice] + "' al carrito.", "exito");
+    mostrarToast("Se agregó '" + nombres[indice] + "' al carrito.", "exito");
 }
 
 // funcion para eliminar un producto del carrito
@@ -1150,9 +1150,9 @@ function mostrarToast(mensaje, tipo) {
     let toast = document.createElement("div");
     toast.className = "toast toast-" + (tipo || "exito");
     
-    let icono = "✅";
-    if (tipo === "error") icono = "❌";
-    if (tipo === "alerta") icono = "⚠️";
+    let icono = "";
+    if (tipo === "error") icono = "";
+    if (tipo === "alerta") icono = "";
     if (tipo === "info") icono = "ℹ️";
 
     toast.innerHTML = '<span>' + icono + '</span> <span>' + mensaje + '</span>';

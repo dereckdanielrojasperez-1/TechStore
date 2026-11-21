@@ -369,7 +369,7 @@ document.addEventListener('DOMContentLoaded', function() {
     bar.id = 'techstore-inspector-bar';
     bar.innerHTML = 
         '<div class="techstore-inspector-toggle" onclick="toggleInspectorModal()">' +
-            '<span class="inspector-icon">⚙️</span>' +
+            '' +
             '<span class="inspector-label">Base de Datos / Sustentación</span>' +
         '</div>';
     document.body.appendChild(bar);
@@ -382,15 +382,15 @@ document.addEventListener('DOMContentLoaded', function() {
     modal.innerHTML = 
         '<div class="inspector-modal-panel">' +
             '<div class="inspector-modal-header">' +
-                '<h3>🗄️ Panel de Sustentación en Vivo & Inspector de Base de Datos</h3>' +
+                '<h3> Panel de Sustentación en Vivo & Inspector de Base de Datos</h3>' +
                 '<button type="button" class="inspector-btn-close" onclick="toggleInspectorModal()">&times;</button>' +
             '</div>' +
             '<div class="inspector-tabs">' +
-                '<button class="tab-btn activo" onclick="abrirPestanaInspector(\'tab-en-vivo\')">⚡ Cambios en Vivo</button>' +
-                '<button class="tab-btn" onclick="abrirPestanaInspector(\'tab-productos\')">📦 Productos & Stock</button>' +
-                '<button class="tab-btn" onclick="abrirPestanaInspector(\'tab-usuarios\')">👥 Usuarios (' + BDTechStore.obtenerUsuarios().length + ')</button>' +
-                '<button class="tab-btn" onclick="abrirPestanaInspector(\'tab-pedidos\')">🛒 Pedidos (' + BDTechStore.obtenerPedidos().length + ')</button>' +
-                '<button class="tab-btn" onclick="abrirPestanaInspector(\'tab-gestion\')">💾 Backup / Reset</button>' +
+                '<button class="tab-btn activo" onclick="abrirPestanaInspector(\'tab-en-vivo\')"> Cambios en Vivo</button>' +
+                '<button class="tab-btn" onclick="abrirPestanaInspector(\'tab-productos\')"> Productos & Stock</button>' +
+                '<button class="tab-btn" onclick="abrirPestanaInspector(\'tab-usuarios\')"> Usuarios (' + BDTechStore.obtenerUsuarios().length + ')</button>' +
+                '<button class="tab-btn" onclick="abrirPestanaInspector(\'tab-pedidos\')"> Pedidos (' + BDTechStore.obtenerPedidos().length + ')</button>' +
+                '<button class="tab-btn" onclick="abrirPestanaInspector(\'tab-gestion\')"> Backup / Reset</button>' +
             '</div>' +
             '<div class="inspector-body">' +
                 // PESTAÑA 1: CAMBIOS EN VIVO
@@ -401,10 +401,10 @@ document.addEventListener('DOMContentLoaded', function() {
                     '<div class="inspector-control-group">' +
                         '<h4>1. Color de Nombres de Productos (Línea de CSS :root):</h4>' +
                         '<div class="inspector-btn-row">' +
-                            '<button class="btn-color-pick" style="background:#00d2ff; color:#000;" onclick="cambiarColorTitulosEnVivo(\'#00d2ff\')">Cyan Original (#00d2ff)</button>' +
-                            '<button class="btn-color-pick" style="background:#00ff88; color:#000;" onclick="cambiarColorTitulosEnVivo(\'#00ff88\')">Verde Neón (#00ff88)</button>' +
-                            '<button class="btn-color-pick" style="background:#ff3366; color:#fff;" onclick="cambiarColorTitulosEnVivo(\'#ff3366\')">Rojo Gaming (#ff3366)</button>' +
-                            '<button class="btn-color-pick" style="background:#ffc53d; color:#000;" onclick="cambiarColorTitulosEnVivo(\'#ffc53d\')">Dorado (#ffc53d)</button>' +
+                            '<button class="btn-color-pick" style="background: #00b4d8; color: #0a1128;" onclick="cambiarColorTitulosEnVivo(\'#00d2ff\')">Cian TechStore (#00b4d8)</button>' +
+                            '<button class="btn-color-pick" style="background: #10b981; color: #ffffff;" onclick="cambiarColorTitulosEnVivo(\'#00ff88\')">Verde Esmeralda (#10b981)</button>' +
+                            '<button class="btn-color-pick" class="btn-inspector-danger" onclick="cambiarColorTitulosEnVivo(\'#ff3366\')">Morado TechStore (#8b5cf6)</button>' +
+                            '<button class="btn-color-pick" style="background: #e2e8f0; color: #0a1128;" onclick="cambiarColorTitulosEnVivo(\'#ffc53d\')">Blanco Suave (#e2e8f0)</button>' +
                         '</div>' +
                     '</div>' +
                     '<div class="inspector-control-group">' +
@@ -418,7 +418,7 @@ document.addEventListener('DOMContentLoaded', function() {
                     '</div>' +
                     '<div class="inspector-control-group">' +
                         '<h4>3. Inserción de Producto en Vivo (Manipulación del DOM y BD):</h4>' +
-                        '<button class="btn-accion-demo" onclick="agregarProductoDemoEnVivo()">+ Insertar Producto Demo en Tiempo Real</button>' +
+                        '<button class="btn-accion-demo" onclick="agregarProductoDemoEnVivo()">Insertar Producto Demo</button>' +
                         '<span id="msg-demo-prod" style="margin-left:10px; color:#00ff88; font-size:13px;"></span>' +
                     '</div>' +
                 '</div>' +
@@ -458,8 +458,8 @@ document.addEventListener('DOMContentLoaded', function() {
                     '<div class="inspector-gestion-box">' +
                         '<p>La base de datos emulada reside en el <code>localStorage</code> del navegador del cliente, simulando un motor relacional completo sin requerir servidores externos ni librerías pesadas.</p>' +
                         '<div class="inspector-btn-row" style="margin-top:15px;">' +
-                            '<button class="btn-accion-demo" onclick="BDTechStore.exportarJSON()">📥 Descargar Copia JSON</button>' +
-                            '<button class="btn-color-pick" style="background:#ff3366; color:#fff;" onclick="if(confirm(\'¿Restablecer toda la base de datos a los 32 productos y usuarios de fábrica?\')) BDTechStore.restablecerFabrica();">🔄 Restablecer Datos de Fábrica</button>' +
+                            '<button class="btn-accion-demo" onclick="BDTechStore.exportarJSON()"> Descargar Copia JSON</button>' +
+                            '<button class="btn-color-pick" class="btn-inspector-danger" onclick="if(confirm(\'¿Restablecer toda la base de datos a los 32 productos y usuarios de fábrica?\')) BDTechStore.restablecerFabrica();"> Restablecer Datos de Fábrica</button>' +
                         '</div>' +
                     '</div>' +
                 '</div>' +
@@ -524,7 +524,7 @@ window.agregarProductoDemoEnVivo = function() {
     actualizarTablasInspector();
     const msg = document.getElementById('msg-demo-prod');
     if (msg) {
-        msg.textContent = '¡Producto insertado en localStorage y listo!';
+        msg.textContent = 'Producto insertado en localStorage correctamente.';
         setTimeout(() => { msg.textContent = ''; }, 4000);
     }
     // Si la función cargarProductos existe en la página actual, recargarla
