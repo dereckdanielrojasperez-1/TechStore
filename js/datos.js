@@ -21,7 +21,7 @@ const PRODUCTOS_SEED = [
     },
     {
         id: "mon-01",
-        nombre: "Samsung Odyssey G7 32"",
+        nombre: "Samsung Odyssey G7 32 Pulgadas",
         categoria: "Monitores",
         precio: 2199.00,
         precioAnterior: 2499.00,
@@ -61,7 +61,7 @@ const PRODUCTOS_SEED = [
     },
     {
         id: "mon-02",
-        nombre: "LG UltraGear 34" Curvo",
+        nombre: "LG UltraGear 34 Pulgadas Curvo",
         categoria: "Monitores",
         precio: 2499.00,
         precioAnterior: 2799.00,
@@ -101,7 +101,7 @@ const PRODUCTOS_SEED = [
     },
     {
         id: "mon-03",
-        nombre: "ASUS ROG Swift OLED 27"",
+        nombre: "ASUS ROG Swift OLED 27 Pulgadas",
         categoria: "Monitores",
         precio: 3899.00,
         precioAnterior: 4299.00,
@@ -141,7 +141,7 @@ const PRODUCTOS_SEED = [
     },
     {
         id: "mon-04",
-        nombre: "BenQ ZOWIE XL2546K 24.5"",
+        nombre: "BenQ ZOWIE XL2546K 24.5 Pulgadas",
         categoria: "Monitores",
         precio: 1999.00,
         precioAnterior: 2199.00,
@@ -181,7 +181,7 @@ const PRODUCTOS_SEED = [
     },
     {
         id: "mon-05",
-        nombre: "Alienware 34" QD-OLED Curvo",
+        nombre: "Alienware 34 Pulgadas QD-OLED Curvo",
         categoria: "Monitores",
         precio: 4599.00,
         precioAnterior: 4999.00,
@@ -221,7 +221,7 @@ const PRODUCTOS_SEED = [
     },
     {
         id: "mon-06",
-        nombre: "Samsung Odyssey Neo G9 49"",
+        nombre: "Samsung Odyssey Neo G9 49 Pulgadas",
         categoria: "Monitores",
         precio: 6999.00,
         precioAnterior: 7799.00,
@@ -261,7 +261,7 @@ const PRODUCTOS_SEED = [
     },
     {
         id: "mon-07",
-        nombre: "Gigabyte M27Q X 27"",
+        nombre: "Gigabyte M27Q X 27 Pulgadas",
         categoria: "Monitores",
         precio: 1599.00,
         precioAnterior: 1799.00,
@@ -301,7 +301,7 @@ const PRODUCTOS_SEED = [
     },
     {
         id: "mon-08",
-        nombre: "AOC 24G2SP 24" Gaming",
+        nombre: "AOC 24G2SP 24 Pulgadas Gaming",
         categoria: "Monitores",
         precio: 699.00,
         precioAnterior: 799.00,
@@ -341,7 +341,7 @@ const PRODUCTOS_SEED = [
     },
     {
         id: "mon-09",
-        nombre: "ViewSonic OMNI 27" QHD Fast IPS",
+        nombre: "ViewSonic OMNI 27 Pulgadas QHD Fast IPS",
         categoria: "Monitores",
         precio: 1299.00,
         precioAnterior: 1449.00,
@@ -381,7 +381,7 @@ const PRODUCTOS_SEED = [
     },
     {
         id: "mon-10",
-        nombre: "MSI Optix 32" Curvo 165Hz",
+        nombre: "MSI Optix 32 Pulgadas Curvo 165Hz",
         categoria: "Monitores",
         precio: 1899.00,
         precioAnterior: 2099.00,
