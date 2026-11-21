@@ -1248,6 +1248,26 @@ function confirmarPedidoCheckout(event) {
     }
 
     let codigo = "PED-2026-" + Math.floor(1000 + Math.random() * 9000);
+    
+    // Integración con BDTechStore (Emulación de Base de Datos en LocalStorage)
+    if (typeof BDTechStore !== 'undefined') {
+        try {
+            let itemsBD = carrito.map(function(idx) {
+                return {
+                    id: (typeof PRODUCTOS_SEED !== 'undefined' && PRODUCTOS_SEED[idx]) ? PRODUCTOS_SEED[idx].id : ('prod-' + idx),
+                    nombre: nombres[idx],
+                    precio: precios[idx],
+                    cantidad: 1
+                };
+            });
+            let pedidoBD = BDTechStore.crearPedido({ nombre: nombre, celular: telefono, direccion: direccion }, itemsBD, metodo);
+            if (pedidoBD && pedidoBD.idPedido) {
+                codigo = pedidoBD.idPedido;
+            }
+        } catch(e) {
+            console.warn("Aviso BDTechStore:", e);
+        }
+    }
     let fechaHoy = new Date().toLocaleDateString('es-PE', { day: '2-digit', month: '2-digit', year: 'numeric', hour: '2-digit', minute: '2-digit' });
 
     let ticketCodigo = document.getElementById("ticket-codigo");
