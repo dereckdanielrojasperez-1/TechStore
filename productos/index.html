@@ -99,7 +99,7 @@
         </div>
     </footer>
 
-    <!-- Ventana Modal de Detalle -->
+    
     <div id="modal-detalle" class="fondo-modal">
         <div class="ventana-modal">
             <button class="boton-cerrar-modal" onclick="cerrarModalDetalle()">&times;</button>
@@ -107,7 +107,7 @@
         </div>
     </div>
 
-    <!-- Ventana Modal de Carrito -->
+    
     <div id="modal-carrito" class="fondo-modal">
         <div class="ventana-modal">
             <button class="boton-cerrar-modal" onclick="cerrarModalCarrito()">&times;</button>
@@ -120,12 +120,12 @@
             </div>
         </div>
     </div>
-    <!-- Ventana Modal de Inicio de Sesion o Registro de Cuenta -->
+    
     <div id="modal-sesion" class="fondo-modal">
         <div class="ventana-modal" style="max-width: 440px;">
             <button class="boton-cerrar-modal" onclick="cerrarModalSesion()">&times;</button>
             
-            <!-- Selector de Pestanas: Iniciar Sesion o Crear Cuenta -->
+            
             <div style="display: flex; gap: 8px; margin-bottom: 16px; border-bottom: 1px solid var(--color-borde); padding-bottom: 12px;">
                 <button type="button" id="tab-login" onclick="mostrarModalLogin()" class="boton boton-primario" style="flex: 1; padding: 8px 12px; font-size: 14px;">Iniciar Sesión</button>
                 <button type="button" id="tab-registro" onclick="mostrarModalRegistro()" class="boton boton-secundario" style="flex: 1; padding: 8px 12px; font-size: 14px;">Crear Cuenta</button>
@@ -133,9 +133,9 @@
 
             <div id="modal-alerta-sesion" class="alerta-mensaje alerta-info" style="display: none; font-size: 13px; margin-bottom: 15px;"></div>
 
-            <!-- Vista 1: Iniciar Sesion (Cuenta Previa o Credenciales) -->
+            
             <div id="vista-modal-login">
-                <!-- Subvista 1A: Si ya tiene cuenta creada anteriormente -->
+                
                 <div id="caja-cuenta-previa" style="display: none; background: rgba(0, 180, 216, 0.08); border: 1px solid var(--color-borde); border-radius: var(--radio-borde); padding: 16px; margin-bottom: 14px; text-align: center;">
                     <img src="../img/icono-usuario.png" alt="Cuenta Anterior" style="width: 40px; height: 40px; object-fit: contain; margin-bottom: 6px;">
                     <p style="font-size: 12px; color: var(--color-texto-apagado); margin-bottom: 2px;">Cuenta registrada en este equipo:</p>
@@ -153,7 +153,7 @@
                     </div>
                 </div>
 
-                <!-- Subvista 1B: Formulario manual de login -->
+                
                 <form id="form-modal-login" style="display: none;" onsubmit="return validarLoginModal(event)">
                     <div class="formulario-grupo">
                         <label for="modal-txt-usuario" style="font-size: 13px;">Usuario o Correo Electrónico *</label>
@@ -171,7 +171,7 @@
                 </form>
             </div>
 
-            <!-- Vista 2: Formulario de Crear Cuenta -->
+            
             <form id="form-modal-registro" style="display: none;" onsubmit="return registrarUsuarioModal(event)">
                 <div class="formulario-grupo" style="margin-bottom: 10px;">
                     <label for="modal-reg-nombre" style="font-size: 13px;">Nombre y Apellidos *</label>
@@ -212,7 +212,7 @@
         });
     </script>
 
-    <!-- Apartado de Compra / Modal de Checkout y Confirmación de Pedido -->
+    
     <div id="modal-checkout" class="fondo-modal">
         <div class="ventana-modal" style="max-width: 500px;">
             <button class="boton-cerrar-modal" onclick="cerrarModalCheckout()">&times;</button>
@@ -319,7 +319,7 @@
         </div>
     </div>
     
-    <!-- Contenedor para Notificaciones Flotantes Toast -->
+    
     <div id="contenedor-toast"></div>
 
 </body>

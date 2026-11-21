@@ -1,14 +1,5 @@
-/* ==========================================================================
-   TECHSTORE - MOTOR DE EMULACIÓN DE BASE DE DATOS Y PERSISTENCIA (BDTechStore)
-   Taller de Programación Web - Proyecto Final (Semanas 15 y 16)
-   Tecnología: JavaScript Vanilla (ES6+), Web Storage (localStorage + sessionStorage)
-   Sin frameworks externos - 100% Nativo
-   ========================================================================== */
-
 const BDTechStore = (function() {
     'use strict';
-
-    // Claves de almacenamiento en localStorage
     const CLAVES = {
         PRODUCTOS: 'techstore_db_productos',
         USUARIOS: 'techstore_db_usuarios',
@@ -16,10 +7,8 @@ const BDTechStore = (function() {
         COTIZACIONES: 'techstore_db_cotizaciones',
         RECLAMACIONES: 'techstore_db_reclamaciones',
         CARRITO: 'techstore_db_carrito',
-        SESION: 'techstore_sesion_activa' // en sessionStorage
+        SESION: 'techstore_sesion_activa' 
     };
-
-    // Usuarios predeterminados del sistema
     const USUARIOS_INICIALES = [
         {
             id: 'usr-admin',
@@ -40,36 +29,31 @@ const BDTechStore = (function() {
             password: 'cliente123*'
         }
     ];
-
-    // Inicialización de la base de datos local
     function inicializarBD() {
-        if (!localStorage.getItem(CLAVES.PRODUCTOS)) {
+        var prodsGuardados = null;
+        try {
+            prodsGuardados = JSON.parse(localStorage.getItem(CLAVES.PRODUCTOS));
+        } catch(e) {}
+        if (!prodsGuardados || !Array.isArray(prodsGuardados) || prodsGuardados.length < 40) {
             const catalogoBase = (typeof PRODUCTOS_SEED !== 'undefined') ? PRODUCTOS_SEED : [];
             localStorage.setItem(CLAVES.PRODUCTOS, JSON.stringify(catalogoBase));
         }
-
         if (!localStorage.getItem(CLAVES.USUARIOS)) {
             localStorage.setItem(CLAVES.USUARIOS, JSON.stringify(USUARIOS_INICIALES));
         }
-
         if (!localStorage.getItem(CLAVES.PEDIDOS)) {
             localStorage.setItem(CLAVES.PEDIDOS, JSON.stringify([]));
         }
-
         if (!localStorage.getItem(CLAVES.COTIZACIONES)) {
             localStorage.setItem(CLAVES.COTIZACIONES, JSON.stringify([]));
         }
-
         if (!localStorage.getItem(CLAVES.RECLAMACIONES)) {
             localStorage.setItem(CLAVES.RECLAMACIONES, JSON.stringify([]));
         }
-
         if (!localStorage.getItem(CLAVES.CARRITO)) {
             localStorage.setItem(CLAVES.CARRITO, JSON.stringify([]));
         }
     }
-
-    // --- MÓDULO DE PRODUCTOS (CRUD & STOCK) ---
     function obtenerProductos() {
         inicializarBD();
         try {
@@ -78,17 +62,14 @@ const BDTechStore = (function() {
             return [];
         }
     }
-
     function guardarProductos(productos) {
         localStorage.setItem(CLAVES.PRODUCTOS, JSON.stringify(productos));
         window.dispatchEvent(new CustomEvent('techstore_productos_actualizados', { detail: productos }));
     }
-
     function obtenerProductoPorId(id) {
         const productos = obtenerProductos();
         return productos.find(p => p.id === id) || null;
     }
-
     function agregarProducto(nuevoProducto) {
         const productos = obtenerProductos();
         if (!nuevoProducto.id) {
@@ -98,7 +79,6 @@ const BDTechStore = (function() {
         guardarProductos(productos);
         return nuevoProducto;
     }
-
     function actualizarProducto(id, datosActualizados) {
         const productos = obtenerProductos();
         const idx = productos.findIndex(p => p.id === id);
@@ -109,13 +89,11 @@ const BDTechStore = (function() {
         }
         return null;
     }
-
     function eliminarProducto(id) {
         let productos = obtenerProductos();
         productos = productos.filter(p => p.id !== id);
         guardarProductos(productos);
     }
-
     function descontarStock(id, cantidad) {
         const productos = obtenerProductos();
         const p = productos.find(item => item.id === id);
@@ -126,8 +104,6 @@ const BDTechStore = (function() {
         }
         return false;
     }
-
-    // --- MÓDULO DE USUARIOS Y AUTENTICACIÓN ---
     function obtenerUsuarios() {
         inicializarBD();
         try {
@@ -136,7 +112,6 @@ const BDTechStore = (function() {
             return [];
         }
     }
-
     function registrarUsuario(usuario) {
         const usuarios = obtenerUsuarios();
         const existe = usuarios.some(u => u.correo.toLowerCase() === usuario.correo.toLowerCase());
@@ -153,7 +128,6 @@ const BDTechStore = (function() {
         localStorage.setItem(CLAVES.USUARIOS, JSON.stringify(usuarios));
         return { exito: true, usuario: usuario };
     }
-
     function autenticar(correo, password) {
         const usuarios = obtenerUsuarios();
         const encontrado = usuarios.find(u => 
@@ -176,7 +150,6 @@ const BDTechStore = (function() {
         }
         return { exito: false, mensaje: 'Credenciales inválidas. Verifique correo y contraseña.' };
     }
-
     function obtenerSesionActiva() {
         try {
             const raw = sessionStorage.getItem(CLAVES.SESION);
@@ -185,13 +158,10 @@ const BDTechStore = (function() {
             return null;
         }
     }
-
     function cerrarSesion() {
         sessionStorage.removeItem(CLAVES.SESION);
         window.dispatchEvent(new CustomEvent('techstore_sesion_cambiada', { detail: null }));
     }
-
-    // --- MÓDULO DE PEDIDOS (TRANSACCIONES DE CHECKOUT) ---
     function obtenerPedidos() {
         inicializarBD();
         try {
@@ -200,21 +170,17 @@ const BDTechStore = (function() {
             return [];
         }
     }
-
     function crearPedido(datosCliente, itemsCarrito, metodoPago) {
         const pedidos = obtenerPedidos();
         const correlativo = String(pedidos.length + 1).padStart(4, '0');
         const idPedido = 'TS-2026-' + correlativo;
-
         let subtotal = 0;
         itemsCarrito.forEach(item => {
             subtotal += (item.precio * item.cantidad);
             descontarStock(item.id, item.cantidad);
         });
-
         const igv = subtotal * 0.18;
         const total = subtotal + igv;
-
         const nuevoPedido = {
             idPedido: idPedido,
             fecha: new Date().toLocaleString('es-PE'),
@@ -226,16 +192,12 @@ const BDTechStore = (function() {
             metodoPago: metodoPago || 'Yape / Plin',
             estado: 'Confirmado - En Preparación'
         };
-
         pedidos.unshift(nuevoPedido);
         localStorage.setItem(CLAVES.PEDIDOS, JSON.stringify(pedidos));
         limpiarCarrito();
-
         window.dispatchEvent(new CustomEvent('techstore_pedido_creado', { detail: nuevoPedido }));
         return nuevoPedido;
     }
-
-    // --- MÓDULO DE COTIZACIONES ---
     function obtenerCotizaciones() {
         inicializarBD();
         try {
@@ -244,7 +206,6 @@ const BDTechStore = (function() {
             return [];
         }
     }
-
     function guardarCotizacion(datos) {
         const cots = obtenerCotizaciones();
         const id = 'COT-' + String(cots.length + 1).padStart(4, '0');
@@ -253,8 +214,6 @@ const BDTechStore = (function() {
         localStorage.setItem(CLAVES.COTIZACIONES, JSON.stringify(cots));
         return nueva;
     }
-
-    // --- MÓDULO DE LIBRO DE RECLAMACIONES ---
     function obtenerReclamaciones() {
         inicializarBD();
         try {
@@ -263,7 +222,6 @@ const BDTechStore = (function() {
             return [];
         }
     }
-
     function guardarReclamacion(datos) {
         const reclamos = obtenerReclamaciones();
         const id = 'REC-2026-' + String(reclamos.length + 1).padStart(4, '0');
@@ -272,8 +230,6 @@ const BDTechStore = (function() {
         localStorage.setItem(CLAVES.RECLAMACIONES, JSON.stringify(reclamos));
         return nuevo;
     }
-
-    // --- MÓDULO DEL CARRITO PERSISTENTE ---
     function obtenerCarrito() {
         inicializarBD();
         try {
@@ -282,17 +238,13 @@ const BDTechStore = (function() {
             return [];
         }
     }
-
     function guardarCarrito(items) {
         localStorage.setItem(CLAVES.CARRITO, JSON.stringify(items));
         window.dispatchEvent(new CustomEvent('techstore_carrito_actualizado', { detail: items }));
     }
-
     function limpiarCarrito() {
         guardarCarrito([]);
     }
-
-    // --- RESTABLECER BASE DE DATOS A ESTADO DE FÁBRICA ---
     function restablecerFabrica() {
         localStorage.removeItem(CLAVES.PRODUCTOS);
         localStorage.removeItem(CLAVES.USUARIOS);
@@ -304,8 +256,6 @@ const BDTechStore = (function() {
         inicializarBD();
         window.location.reload();
     }
-
-    // --- EXPORTAR E IMPORTAR JSON ---
     function exportarJSON() {
         const copia = {
             version: 'Avance 3 - Base de Datos Emulada TechStore',
@@ -326,10 +276,7 @@ const BDTechStore = (function() {
         document.body.removeChild(a);
         URL.revokeObjectURL(url);
     }
-
-    // Inicializar al cargar script
     inicializarBD();
-
     return {
         CLAVES: CLAVES,
         inicializarBD: inicializarBD,
@@ -358,7 +305,4 @@ const BDTechStore = (function() {
         exportarJSON: exportarJSON
     };
 })();
-
-
-// Exportar BDTechStore al ámbito global de la ventana para inspección en consola y uso en scripts
 window.BDTechStore = BDTechStore;

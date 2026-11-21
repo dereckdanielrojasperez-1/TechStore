@@ -1,31 +1,8 @@
-/* ==========================================================================
-   TECHSTORE - SISTEMA DE ESTILOS MODULARES (CSS3 NATIVO)
-   Taller de Programación Web - Proyecto Final (Avance 3 y Semanas 15-16)
-   ==========================================================================
-   PANEL DE CONTROL EN VIVO - PROFESOR JESÚS ANTONIO PACAHUALA ARROYO
-   Para realizar cambios en tiempo real durante la sustentación:
-   
-   1. COLOR DE TÍTULOS DE PRODUCTOS:
-      Modifique el valor hexadecimal en la variable:
-      --color-titulo-producto: #00d2ff; (ej: #00ff88 para verde, #ff3366 para rojo)
-      
-   2. COLOR PRINCIPAL DE LA TIENDA Y BOTONES:
-      Modifique la variable:
-      --color-primario: #00d2ff;
-      
-   3. TAMAÑO DE FUENTE Y ZOOM GENERAL:
-      Modifique la variable:
-      --tamano-fuente-base: 16px; (ej: 18px o 20px para aumentar fuente)
-   ========================================================================== */
-
 :root {
-    /* --- VARIABLES CRÍTICAS PARA EVALUACIÓN EN VIVO --- */
-    --color-titulo-producto: #00d2ff;        /* <--- CAMBIAR AQUÍ EN VIVO PARA TÍTULOS */
-    --color-primario: #00d2ff;               /* Color de acento de la tienda */
-    --color-primario-hover: #00a8cc;         /* Hover de botones primarios */
-    --tamano-fuente-base: 16px;              /* Tamaño base escalable */
-
-    /* --- TOKENS DE DISEÑO CYBER INSPIRADOS EN WOLFVETERANO.COM --- */
+    --color-titulo-producto: #00d2ff;        
+    --color-primario: #00d2ff;               
+    --color-primario-hover: #00a8cc;         
+    --tamano-fuente-base: 16px;              
     --black: #05070a;
     --black-2: #0a0e14;
     --panel: #0e141c;
@@ -35,65 +12,40 @@
     --white: #ffffff;
     --white-soft: #dce4ec;
     --gray: #9aa8b6;
-
-    /* Chamfered Cyber Edges */
     --cut: polygon(16px 0, 100% 0, 100% calc(100% - 16px), calc(100% - 16px) 100%, 0 100%, 0 16px);
     --cut-sm: polygon(10px 0, 100% 0, 100% calc(100% - 10px), calc(100% - 10px) 100%, 0 100%, 0 10px);
     --sombra-cyber: 0 12px 30px rgba(0, 0, 0, 0.5), inset 0 0 0 1px var(--color-primario);
-
-    /* --- COLORES GENERALES DEL SISTEMA --- */
     --color-secundario: #8b5cf6;
     --color-secundario-hover: #a78bfa;
-
-    /* Fondos del Sitio */
     --color-fondo: #07090e;
     --color-fondo-secundario: #0e141c;
     --color-fondo-tarjeta: #131b26;
     --color-fondo-tarjeta-hover: #172230;
-
-    /* Bordes y Líneas */
     --color-borde: #1e2a38;
     --color-borde-activo: var(--color-primario);
-
-    /* Textos */
     --color-texto: #dce4ec;
     --color-texto-apagado: #9aa8b6;
     --color-blanco: #ffffff;
-
-    /* Estados del Sistema */
     --color-exito: #10b981;
     --color-exito-hover: #34d399;
     --color-peligro: #ef4444;
     --color-peligro-hover: #f87171;
-
-    /* Fuentes del Sistema (Sin librerías externas) */
     --fuente-principal: system-ui, -apple-system, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
     --fuente-mono: 'Consolas', 'Courier New', monospace;
-
-    /* Espaciados y Radios */
     --espacio-pequeno: 8px;
     --espacio-medio: 16px;
     --espacio-grande: 24px;
     --radio-borde: 8px;
-
-    /* Sombras y Transiciones */
     --sombra-tarjeta: 0 4px 16px rgba(0, 0, 0, 0.4);
     --sombra-hover: 0 10px 25px rgba(0, 210, 255, 0.25);
     --transicion-rapida: 0.2s ease;
     --transicion-suave: 0.3s cubic-bezier(0.4, 0, 0.2, 1);
 }
-
-
-
-
-/* // reseteo general de margenes y caja */
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
 }
-
-/* // estilos generales del cuerpo */
 body {
     background-color: var(--color-fondo);
     color: var(--color-texto);
@@ -102,26 +54,19 @@ body {
     line-height: 1.5;
     overflow-x: hidden;
 }
-
-/* // estilos para los enlaces */
 a {
     color: var(--color-primario);
     text-decoration: none;
     transition: color var(--transicion-rapida);
 }
-
 a:hover {
     color: var(--color-primario-hover);
 }
-
-/* // contenedor principal centrado */
 .contenedor {
     width: 90%;
     max-width: 1100px;
     margin: 0 auto;
 }
-
-/* // barra de navegacion superior */
 #cabecera-principal {
     background-color: var(--color-fondo-secundario);
     border-bottom: 2px solid var(--color-borde);
@@ -129,39 +74,31 @@ a:hover {
     top: 0;
     z-index: 100;
 }
-
 .barra-superior {
     display: flex;
     justify-content: space-between;
     align-items: center;
     padding: 15px 0;
 }
-
-/* // estilos del logotipo */
 .logo a {
     font-size: 24px;
     font-weight: bold;
     color: var(--color-blanco);
 }
-
 .acento {
     color: var(--color-primario);
 }
-
-/* // enlaces del menu de navegacion */
 .menu-navegacion {
     display: flex;
     align-items: center;
     gap: 12px;
 }
-
 .nav-lista {
     display: flex;
     list-style: none;
     gap: 8px;
     align-items: center;
 }
-
 .nav-enlace {
     color: var(--color-texto);
     padding: 8px 10px;
@@ -169,15 +106,12 @@ a:hover {
     font-size: 14px;
     white-space: nowrap;
 }
-
 .nav-enlace:hover,
 .nav-enlace.activo {
     background-color: var(--color-primario);
     color: var(--color-fondo);
     font-weight: bold;
 }
-
-/* // boton del carrito de compras */
 .boton-carrito-nav {
     background-color: var(--color-primario);
     color: var(--color-fondo);
@@ -192,11 +126,9 @@ a:hover {
     gap: 6px;
     transition: background-color var(--transicion-rapida);
 }
-
 .boton-carrito-nav:hover {
     background-color: var(--color-primario-hover);
 }
-
 .contador-carrito {
     background-color: var(--color-fondo);
     color: var(--color-blanco);
@@ -204,8 +136,6 @@ a:hover {
     padding: 2px 7px;
     font-size: 12px;
 }
-
-/* // boton hamburguesa para celulares */
 .boton-menu {
     display: none;
     background: transparent;
@@ -216,47 +146,37 @@ a:hover {
     border-radius: 4px;
     cursor: pointer;
 }
-
-/* // banner de portada */
 .portada {
     background-color: #16263d;
     padding: 50px 0;
     text-align: center;
     border-bottom: 1px solid var(--color-borde);
 }
-
 .portada h1, .portada h2 {
     color: var(--color-blanco);
     font-size: 32px;
     margin-bottom: 12px;
 }
-
 .portada p {
     color: var(--color-texto-apagado);
     max-width: 650px;
     margin: 0 auto 20px auto;
 }
-
-/* // secciones generales */
 .seccion {
     padding: 40px 0;
 }
-
 .titulo-seccion {
     color: var(--color-blanco);
     font-size: 26px;
     text-align: center;
     margin-bottom: 8px;
 }
-
 .subtitulo-seccion {
     color: var(--color-texto-apagado);
     text-align: center;
     margin-bottom: 30px;
     font-size: 15px;
 }
-
-/* // estilos de los botones y transiciones */
 .boton, a.boton {
     display: inline-block;
     padding: 10px 18px;
@@ -269,48 +189,39 @@ a:hover {
     text-decoration: none;
     transition: transform var(--transicion-rapida), background-color var(--transicion-rapida), color var(--transicion-rapida), box-shadow var(--transicion-rapida);
 }
-
 .boton:hover, a.boton:hover {
     transform: translateY(-2px);
 }
-
 .boton-primario, a.boton-primario {
     background-color: var(--color-primario);
     color: var(--color-fondo) !important;
     text-decoration: none;
 }
-
 .boton-primario:hover, a.boton-primario:hover, .boton-primario:focus, a.boton-primario:focus {
     background-color: var(--color-primario-hover);
     color: var(--color-fondo) !important;
     text-decoration: none;
     box-shadow: 0 0 20px rgba(0, 180, 216, 0.45);
 }
-
 .boton-secundario, a.boton-secundario {
     background-color: transparent;
     border: 1px solid var(--color-primario);
     color: var(--color-primario) !important;
     text-decoration: none;
 }
-
 .boton-secundario:hover, a.boton-secundario:hover, .boton-secundario:focus, a.boton-secundario:focus {
     background-color: var(--color-primario);
     color: var(--color-fondo) !important;
     text-decoration: none;
     box-shadow: 0 0 20px rgba(0, 180, 216, 0.3);
 }
-
 .boton-peligro {
     background-color: var(--color-peligro);
     color: var(--color-blanco);
 }
-
 .boton-peligro:hover {
     background-color: var(--color-peligro-hover);
 }
-
-/* // estos son los displays y la cuadricula de productos */
 .caja-filtros {
     margin-bottom: 25px;
     display: flex;
@@ -323,7 +234,6 @@ a:hover {
     border-radius: var(--radio-borde);
     border: 1px solid var(--color-borde);
 }
-
 .campo-filtro select {
     background-color: var(--color-fondo);
     color: var(--color-blanco);
@@ -333,14 +243,11 @@ a:hover {
     outline: none;
     font-size: 14px;
 }
-
 .caja-productos {
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
     gap: 20px;
 }
-
-/* // estilos de las tarjetas de productos */
 .tarjeta {
     background-color: var(--color-fondo-tarjeta);
     border: 1px solid var(--color-borde);
@@ -352,17 +259,14 @@ a:hover {
     transition: transform var(--transicion-rapida), border-color var(--transicion-rapida), box-shadow var(--transicion-rapida);
     animation: aparecer 0.4s ease-out;
 }
-
 .tarjeta:hover {
     transform: translateY(-5px);
     border-color: var(--color-primario);
     box-shadow: 0 6px 16px rgba(0, 180, 216, 0.2);
 }
-
 .tarjeta-resaltada {
     border-color: var(--color-primario);
 }
-
 .tarjeta-figura {
     width: 100%;
     height: 180px;
@@ -372,13 +276,11 @@ a:hover {
     justify-content: center;
     position: relative;
 }
-
 .tarjeta-imagen {
     max-width: 90%;
     max-height: 90%;
     object-fit: contain;
 }
-
 .tarjeta-categoria {
     position: absolute;
     top: 8px;
@@ -391,14 +293,12 @@ a:hover {
     border: 1px solid var(--color-primario);
     font-weight: bold;
 }
-
 .tarjeta-cuerpo {
     padding: 16px;
     display: flex;
     flex-direction: column;
     flex-grow: 1;
 }
-
 .tarjeta-titulo {
     font-size: 17px;
     color: var(--color-titulo-producto);
@@ -406,40 +306,33 @@ a:hover {
     font-weight: 700;
     transition: color 0.25s ease;
 }
-
 .tarjeta-detalle {
     font-size: 13px;
     color: var(--color-texto-apagado);
     margin-bottom: 12px;
     flex-grow: 1;
 }
-
 .tarjeta-precio {
     font-size: 20px;
     font-weight: bold;
     color: var(--color-primario);
     margin-bottom: 14px;
 }
-
 .tarjeta-acciones {
     display: flex;
     gap: 8px;
 }
-
 .tarjeta-acciones .boton {
     flex: 1;
     padding: 8px 5px;
     font-size: 12px;
 }
-
-/* // beneficios y servicios */
 .caja-beneficios,
 .caja-servicios {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
     gap: 20px;
 }
-
 .caja-item {
     background-color: var(--color-fondo-secundario);
     border: 1px solid var(--color-borde);
@@ -448,37 +341,30 @@ a:hover {
     text-align: center;
     transition: transform var(--transicion-rapida);
 }
-
 .caja-item:hover {
     transform: translateY(-5px);
     border-color: var(--color-primario);
 }
-
 .caja-item h3 {
     color: var(--color-primario);
     margin-bottom: 10px;
     font-size: 18px;
 }
-
 .caja-item p {
     color: var(--color-texto-apagado);
     font-size: 14px;
 }
-
-/* // estilos de la tabla comparativa */
 .tabla-contenedor {
     width: 100%;
     overflow-x: auto;
     margin-top: 15px;
 }
-
 .tabla-datos {
     width: 100%;
     border-collapse: collapse;
     background-color: var(--color-fondo-secundario);
     border: 1px solid var(--color-borde);
 }
-
 .tabla-datos caption {
     caption-side: top;
     text-align: left;
@@ -489,7 +375,6 @@ a:hover {
     border: 1px solid var(--color-borde);
     border-bottom: none;
 }
-
 .tabla-datos th,
 .tabla-datos td {
     padding: 12px;
@@ -497,22 +382,17 @@ a:hover {
     font-size: 14px;
     text-align: center;
 }
-
 .tabla-datos th {
     background-color: #27384f;
     color: var(--color-blanco);
 }
-
 .tabla-datos tbody tr:hover {
     background-color: #2c3e55;
 }
-
 .tabla-datos tfoot {
     background-color: var(--color-fondo);
     font-weight: bold;
 }
-
-/* // estilos de los formularios y cajas de texto */
 .formulario-caja {
     max-width: 600px;
     margin: 0 auto;
@@ -521,18 +401,15 @@ a:hover {
     border-radius: var(--radio-borde);
     padding: 25px;
 }
-
 .formulario-grupo {
     margin-bottom: 16px;
 }
-
 .formulario-grupo label {
     display: block;
     margin-bottom: 6px;
     font-size: 14px;
     color: var(--color-texto);
 }
-
 .formulario-control {
     width: 100%;
     padding: 10px;
@@ -544,22 +421,17 @@ a:hover {
     outline: none;
     transition: border-color var(--transicion-rapida), background-color var(--transicion-rapida);
 }
-
 .formulario-control:focus {
     border-color: var(--color-primario);
     background-color: #122135;
 }
-
 .formulario-control:hover {
     border-color: #718295;
 }
-
 textarea.formulario-control {
     resize: vertical;
     min-height: 100px;
 }
-
-/* // cuadricula para formularios dobles */
 .formulario-cuadricula {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
@@ -567,8 +439,6 @@ textarea.formulario-control {
     max-width: 980px;
     margin: 0 auto;
 }
-
-/* // mensajes de alerta y confirmacion */
 .alerta-mensaje {
     padding: 12px 16px;
     border-radius: var(--radio-borde);
@@ -577,26 +447,21 @@ textarea.formulario-control {
     line-height: 1.4;
     animation: aparecer 0.25s ease-out;
 }
-
 .alerta-exito {
     background-color: rgba(46, 204, 113, 0.15);
     border: 1px solid #2ecc71;
     color: #2ecc71;
 }
-
 .alerta-error {
     background-color: rgba(230, 57, 70, 0.15);
     border: 1px solid var(--color-peligro);
     color: #ff6b77;
 }
-
 .alerta-info {
     background-color: rgba(0, 180, 216, 0.15);
     border: 1px solid var(--color-primario);
     color: var(--color-primario);
 }
-
-/* // tarjeta de perfil cuando hay sesion activa */
 .tarjeta-perfil {
     background-color: var(--color-fondo-tarjeta);
     border: 1px solid var(--color-borde);
@@ -607,7 +472,6 @@ textarea.formulario-control {
     text-align: center;
     animation: aparecer 0.3s ease-out;
 }
-
 .avatar-perfil {
     width: 70px;
     height: 70px;
@@ -620,8 +484,6 @@ textarea.formulario-control {
     font-size: 32px;
     margin: 0 auto 16px auto;
 }
-
-/* // tarjeta de confirmacion de mensaje enviado */
 .tarjeta-mensaje-enviado {
     background-color: rgba(0, 180, 216, 0.08);
     border: 1px solid var(--color-borde);
@@ -631,8 +493,6 @@ textarea.formulario-control {
     font-size: 14px;
     animation: aparecer 0.25s ease-out;
 }
-
-/* // estilos de las ventanas modales flotantes */
 .fondo-modal {
     display: none;
     position: fixed;
@@ -646,7 +506,6 @@ textarea.formulario-control {
     align-items: center;
     animation: aparecer 0.2s ease-out;
 }
-
 .ventana-modal {
     background-color: var(--color-fondo-secundario);
     border: 1px solid var(--color-borde);
@@ -658,7 +517,6 @@ textarea.formulario-control {
     max-height: 85vh;
     overflow-y: auto;
 }
-
 .boton-cerrar-modal {
     position: absolute;
     top: 12px;
@@ -669,11 +527,9 @@ textarea.formulario-control {
     font-size: 22px;
     cursor: pointer;
 }
-
 .boton-cerrar-modal:hover {
     color: var(--color-blanco);
 }
-
 .modal-titulo {
     color: var(--color-blanco);
     font-size: 20px;
@@ -681,8 +537,6 @@ textarea.formulario-control {
     border-bottom: 1px solid var(--color-borde);
     padding-bottom: 8px;
 }
-
-/* // contenido dentro del modal de carrito */
 .item-carrito {
     display: flex;
     justify-content: space-between;
@@ -691,7 +545,6 @@ textarea.formulario-control {
     border-bottom: 1px solid #27384f;
     font-size: 14px;
 }
-
 .total-carrito {
     margin-top: 16px;
     font-size: 18px;
@@ -699,22 +552,18 @@ textarea.formulario-control {
     color: var(--color-primario);
     text-align: right;
 }
-
 .acciones-modal {
     margin-top: 20px;
     display: flex;
     justify-content: flex-end;
     gap: 10px;
 }
-
-/* // estilos del pie de pagina */
 #pie-pagina {
     background-color: #09131e;
     border-top: 2px solid var(--color-borde);
     padding: 40px 0 15px 0;
     margin-top: 40px;
 }
-
 .pie-columnas {
     display: flex;
     justify-content: space-between;
@@ -722,12 +571,10 @@ textarea.formulario-control {
     flex-wrap: wrap;
     margin-bottom: 30px;
 }
-
 .pie-columna {
     flex: 1;
     min-width: 220px;
 }
-
 .pie-columna h3 {
     color: var(--color-blanco);
     font-size: 17px;
@@ -735,18 +582,15 @@ textarea.formulario-control {
     border-bottom: 1px solid var(--color-borde);
     padding-bottom: 6px;
 }
-
 .pie-columna p,
 .pie-columna li {
     font-size: 14px;
     color: var(--color-texto-apagado);
     margin-bottom: 8px;
 }
-
 .pie-columna ul {
     list-style: none;
 }
-
 .pie-inferior {
     border-top: 1px solid var(--color-fondo-secundario);
     padding-top: 15px;
@@ -754,8 +598,6 @@ textarea.formulario-control {
     font-size: 13px;
     color: #718295;
 }
-
-/* // animacion de aparicion */
 @keyframes aparecer {
     from {
         opacity: 0;
@@ -766,13 +608,10 @@ textarea.formulario-control {
         transform: translateY(0);
     }
 }
-
-/* // reglas responsivas para celulares y tablets */
 @media (max-width: 992px) {
     .boton-menu {
         display: block;
     }
-
     .nav-lista {
         display: none;
         position: absolute;
@@ -785,63 +624,45 @@ textarea.formulario-control {
         border-bottom: 2px solid var(--color-borde);
         z-index: 150;
     }
-
     .nav-lista.activo,
     .menu-navegacion.activo .nav-lista,
     #menu-navegacion.activo .nav-lista {
         display: flex;
     }
-
     .nav-item {
         width: 100%;
         text-align: center;
     }
-
     .nav-enlace {
         display: block;
         padding: 10px;
     }
-
     .pie-columnas {
         flex-direction: column;
         gap: 20px;
     }
 }
-
 @media (max-width: 480px) {
     .portada h1, .portada h2 {
         font-size: 24px;
     }
-
     .portada p {
         font-size: 14px;
     }
-
     .caja-filtros {
         flex-direction: column;
         align-items: stretch;
     }
-
     .tarjeta-acciones {
         flex-direction: column;
     }
-
     .acciones-modal {
         flex-direction: column;
     }
-
     .acciones-modal .boton {
         width: 100%;
     }
 }
-
-/* ==========================================================================
-   MEJORAS DINÁMICAS: SELECTOR DE TEMA, TOASTS Y APARTADO DE COMPRA
-   ========================================================================== */
-
-
-
-/* Contenedor y diseño de Notificaciones Toast Flotantes */
 #contenedor-toast {
     position: fixed;
     top: 20px;
@@ -897,8 +718,6 @@ textarea.formulario-control {
 .animar-pulso {
     animation: pulsoBadge 0.35s ease;
 }
-
-/* Efecto dinámico en tarjetas */
 .tarjeta {
     transition: transform var(--transicion-rapida), box-shadow var(--transicion-rapida), border-color var(--transicion-rapida);
 }
@@ -913,8 +732,6 @@ textarea.formulario-control {
 .tarjeta:hover .tarjeta-imagen {
     transform: scale(1.06);
 }
-
-/* Apartado de Compra / Checkout */
 .resumen-compra-caja {
     background: rgba(0, 0, 0, 0.25);
     border: 1px solid var(--color-borde);
@@ -957,14 +774,6 @@ textarea.formulario-control {
     border-color: var(--color-primario);
     background: rgba(0, 180, 216, 0.1);
 }
-
-
-
-/* ==========================================================================
-   ESTILOS WOLFVETERANO: EYEBROW, BOTÓN CON DESTELLO (SHIMMER) Y CYBER CARDS
-   ========================================================================== */
-
-/* Eyebrow Label con acento */
 .eyebrow {
     font-family: var(--fuente-mono);
     font-size: 13px;
@@ -984,8 +793,6 @@ textarea.formulario-control {
     background: var(--color-primario);
     border-radius: 2px;
 }
-
-/* Efecto Destello (Shimmer Gleam) en Botones Primarios */
 .boton-primario, .btn-destacado {
     position: relative;
     overflow: hidden;
@@ -1013,8 +820,6 @@ textarea.formulario-control {
     box-shadow: 0 0 25px rgba(0, 180, 216, 0.4);
     transform: translateY(-2px);
 }
-
-/* Elevación de Tarjetas estilo Cyber Panel */
 .tarjeta {
     background: var(--panel);
     border: 1px solid var(--line);
@@ -1026,17 +831,11 @@ textarea.formulario-control {
     box-shadow: var(--sombra-cyber);
     border-color: var(--color-primario);
 }
-
-/* ==========================================================================
-   OPTIMIZACIONES RESPONSIVAS MULTIPLATAFORMA Y CONTRA DESBORDAMIENTO
-   ========================================================================== */
-
 html, body {
     max-width: 100%;
     overflow-x: hidden;
     font-size: var(--tamano-fuente-base);
 }
-
 @media (max-width: 992px) {
     .nav-toggle {
         display: block !important;
@@ -1052,7 +851,6 @@ html, body {
         display: flex !important;
     }
 }
-
 @media (max-width: 640px) {
     .contenedor {
         padding-left: 12px;
@@ -1077,9 +875,6 @@ html, body {
         border-radius: 50%;
     }
 }
-
-
-/* Reglas de especificidad reforzada para botones en enlaces <a> */
 a.boton-primario, 
 a.boton-primario:visited {
     color: var(--color-fondo) !important;
