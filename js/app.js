@@ -118,8 +118,13 @@ function abrirModalCarrito() {
                 '<button class="boton boton-peligro" style="padding: 4px 8px; font-size: 12px;" onclick="eliminarDelCarrito(' + i + ')">Quitar</button>';
             lista.appendChild(fila);
         }
+        let subtotal = sumaTotal / 1.18;
+        let igv = sumaTotal - subtotal;
         if (totalElem) {
-            totalElem.innerText = "Total: S/ " + sumaTotal.toFixed(2);
+            totalElem.innerHTML = 
+                '<div style="font-size: 13px; color: var(--color-texto-apagado); font-weight: normal; margin-bottom: 3px;">Subtotal: S/ ' + subtotal.toFixed(2) + '</div>' +
+                '<div style="font-size: 13px; color: var(--color-texto-apagado); font-weight: normal; margin-bottom: 6px;">IGV (18%): S/ ' + igv.toFixed(2) + '</div>' +
+                '<div style="color: var(--color-primario); font-size: 18px; font-weight: bold;">Total: S/ ' + sumaTotal.toFixed(2) + '</div>';
         }
     }
     modal.style.display = "flex";
@@ -140,7 +145,6 @@ function agregarCarrito(indice) {
         void contador.offsetWidth;
         contador.classList.add("animar-pulso");
     }
-    mostrarToast("Se agregó '" + nombres[indice] + "' al carrito.", "exito");
 }
 function eliminarDelCarrito(posicion) {
     carrito.splice(posicion, 1);
@@ -172,7 +176,10 @@ function actualizarContadorCarrito() {
 }
 function procesarCompra() {
     if (carrito.length === 0) {
-        mostrarToast("El carrito está vacío. Agrega productos antes de procesar.", "alerta");
+        let lista = document.getElementById("lista-carrito");
+        if (lista) {
+            lista.innerHTML = '<p style="color: var(--color-peligro); text-align: center; padding: 15px 0; font-weight: bold;">Tu carrito está vacío. Agrega productos del catálogo para continuar.</p>';
+        }
         return;
     }
     let sesion = sessionStorage.getItem("usuarioLogueado");
@@ -901,33 +908,12 @@ window.addEventListener("click", function(event) {
     }
 });
 function mostrarToast(mensaje, tipo) {
-    let contenedor = document.getElementById("contenedor-toast");
-    if (!contenedor) {
-        contenedor = document.createElement("div");
-        contenedor.id = "contenedor-toast";
-        document.body.appendChild(contenedor);
-    }
-    let toast = document.createElement("div");
-    toast.className = "toast toast-" + (tipo || "exito");
-    let icono = "";
-    if (tipo === "error") icono = "";
-    if (tipo === "alerta") icono = "";
-    if (tipo === "info") icono = "ℹ️";
-    toast.innerHTML = '<span>' + icono + '</span> <span>' + mensaje + '</span>';
-    contenedor.appendChild(toast);
-    setTimeout(function() {
-        toast.style.opacity = "0";
-        toast.style.transform = "translateX(50px)";
-        setTimeout(function() {
-            if (toast.parentNode) {
-                toast.parentNode.removeChild(toast);
-            }
-        }, 300);
-    }, 2500);
+    // Desactivado para mantener la interfaz academica limpia sin alertas invasivas
+    return;
 }
 function abrirModalCheckout() {
     if (carrito.length === 0) {
-        mostrarToast("El carrito está vacío. Agrega productos antes de comprar.", "alerta");
+        abrirModalCarrito();
         return;
     }
     let modal = document.getElementById("modal-checkout");
