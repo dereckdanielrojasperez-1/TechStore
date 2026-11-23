@@ -86,18 +86,30 @@
             </div>
         </section>
 
-        <!-- Sección Multimedia HTML5: Audio-Guía Oficial -->
+        <!-- Sección Multimedia HTML5: Video Institucional y Audio-Guía Oficial -->
         <section class="seccion seccion-multimedia" style="background-color: #0b111c; border-top: 1px solid var(--line); border-bottom: 1px solid var(--line);">
             <div class="contenedor">
                 <div style="text-align: center; margin-bottom: 25px;">
-                    <span class="eyebrow">Experiencia Multimedia</span>
-                    <h2 class="titulo-seccion">Audio-Guía Oficial TechStore</h2>
-                    <p class="subtitulo-seccion">Conoce los estándares de ensamblaje, políticas de garantía y filosofía de servicio de TechStore mediante audio interactivo nativo HTML5.</p>
+                    <span class="eyebrow">Experiencia Multimedia Nativa HTML5</span>
+                    <h2 class="titulo-seccion">Laboratorio de Hardware y Audio-Guía Oficial</h2>
+                    <p class="subtitulo-seccion">Conoce nuestros estándares de ensamblaje gamer, políticas de garantía y filosofía de servicio mediante video y audio interactivos HTML5.</p>
                 </div>
 
-                <div style="max-width: 640px; margin: 0 auto;">
-                    <!-- Audio Guía Institucional -->
-                    <div class="audio-tarjeta" style="background: var(--panel2); border: 1px solid var(--line); border-radius: var(--radio-borde); padding: 24px; box-shadow: var(--sombra-tarjeta); display: flex; flex-direction: column; justify-content: space-between;">
+                <div class="cuadricula-multimedia">
+                    <!-- Video Institucional HTML5 -->
+                    <div class="video-tarjeta" style="background: var(--panel2); border: 1px solid var(--line); border-radius: var(--radio-borde); overflow: hidden; box-shadow: var(--sombra-tarjeta);">
+                        <video controls poster="../media/poster-video.jpg" style="width: 100%; height: auto; display: block;" preload="metadata">
+                            <source src="../media/video-techstore.mp4" type="video/mp4">
+                            <p>Tu navegador no soporta la reproducción de video HTML5 nativo.</p>
+                        </video>
+                        <div style="padding: 14px 18px; background: var(--panel);">
+                            <strong style="color: var(--color-blanco); font-size: 15px;">Demostración de Laboratorio: Ensamble Gamer</strong>
+                            <p style="color: var(--color-texto-apagado); font-size: 13px; margin-top: 4px;">Control de calidad y pruebas de estrés en cada componente oficial.</p>
+                        </div>
+                    </div>
+
+                    <!-- Audio Guía Institucional HTML5 -->
+                    <div class="audio-tarjeta" style="background: var(--panel2); border: 1px solid var(--line); border-radius: var(--radio-borde); padding: 22px; box-shadow: var(--sombra-tarjeta); display: flex; flex-direction: column; justify-content: space-between;">
                         <div>
                             <div style="display: flex; align-items: center; gap: 12px; margin-bottom: 12px;">
                                 <div style="width: 44px; height: 44px; border-radius: 50%; background: rgba(0,210,255,0.15); display: flex; align-items: center; justify-content: center; color: var(--color-primario); flex-shrink: 0;">
@@ -173,6 +185,7 @@
             <div id="lista-carrito"></div>
             <div id="total-carrito" class="total-carrito">Total: S/ 0.00</div>
             <div class="acciones-modal" style="display: flex; gap: 8px; flex-wrap: wrap; justify-content: flex-end; margin-top: 15px;">
+                <button type="button" class="boton boton-secundario" style="font-size: 13px;" onclick="agregarNotaEntrega()">Nota de Entrega</button>
                 <button type="button" class="boton boton-peligro" onclick="vaciarCarrito()">Vaciar Carrito</button>
                 <button type="button" class="boton boton-secundario" onclick="cerrarModalCarrito()">Seguir comprando</button>
                 <button type="button" class="boton boton-primario" onclick="procesarCompra()">Procesar Compra</button>

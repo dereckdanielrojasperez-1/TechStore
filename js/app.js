@@ -114,9 +114,46 @@ function cerrarModalDetalle() {
 }
 
 // =========================================================================
-// BLOQUE 5: FUNCIÓN PARA VACIAR EL CARRITO CON CONFIRMACIÓN (CONFIRM)
-// Solicita confirmación al usuario antes de borrar los productos seleccionados
+// BLOQUE 5: MÉTODOS DE ENTRADA Y SALIDA (SEMANA 12 DEL SÍLABO: PROMPT Y CONFIRM)
+// 1. cotizarEquipoPrompt(): Solicita presupuesto por prompt() y sugiere setup gamer
+// 2. agregarNotaEntrega(): Solicita nota o indicación de entrega con prompt()
+// 3. vaciarCarrito(): Solicita confirmación crítica con confirm() antes de vaciar
 // =========================================================================
+function cotizarEquipoPrompt() {
+    let presupuesto = prompt("Ingrese su presupuesto aproximado para su equipo gamer en Soles (ej. 4500):", "5000");
+    if (presupuesto === null) return;
+    presupuesto = presupuesto.trim();
+    let monto = parseFloat(presupuesto);
+    if (isNaN(monto) || monto <= 0) {
+        alert("Por favor ingrese un monto numérico válido en Soles.");
+        return;
+    }
+    let recomendacion = "";
+    if (monto < 4000) {
+        recomendacion = "Setup Starter Esports sugerido: AMD Ryzen 5, 16GB RAM DDR5, RTX 4060, SSD 1TB.";
+    } else if (monto < 7500) {
+        recomendacion = "Setup BattleStation Pro sugerido: Intel Core i7 14700KF, 32GB DDR5, RTX 4070 Super, Watercooling 240mm.";
+    } else {
+        recomendacion = "Setup Custom Titan Ultra sugerido: Intel Core i9 14900KF, 64GB DDR5, RTX 4090 24GB, Watercooling 360mm.";
+    }
+    alert("Cotización Rápida TechStore (S/ " + monto.toFixed(2) + "):\n\n" + recomendacion + "\n\nSe ha guardado su solicitud de cotización en el sistema.");
+}
+
+function agregarNotaEntrega() {
+    let notaActual = sessionStorage.getItem("techstore_nota_entrega") || "";
+    let nuevaNota = prompt("Ingrese una indicación o nota especial para la entrega de su pedido (ej. Dejar en recepción, llamar al llegar):", notaActual);
+    if (nuevaNota === null) return;
+    nuevaNota = nuevaNota.trim();
+    if (nuevaNota !== "") {
+        sessionStorage.setItem("techstore_nota_entrega", nuevaNota);
+        alert("Nota de entrega registrada con éxito:\n\"" + nuevaNota + "\"");
+    } else {
+        sessionStorage.removeItem("techstore_nota_entrega");
+        alert("Se eliminó la nota de entrega.");
+    }
+    abrirModalCarrito();
+}
+
 function vaciarCarrito() {
     if (carrito.length === 0) {
         alert("El carrito ya se encuentra vacío.");
@@ -127,6 +164,7 @@ function vaciarCarrito() {
         carrito = [];
         guardarCarritoEnStorage();
         actualizarContadorCarrito();
+        sessionStorage.removeItem("techstore_nota_entrega");
         abrirModalCarrito();
     }
 }
@@ -171,6 +209,10 @@ function abrirModalCarrito() {
 
         if (totalElem) {
             let htmlTotal = '';
+            let nota = sessionStorage.getItem("techstore_nota_entrega");
+            if (nota) {
+                htmlTotal += '<div style="font-size: 12px; color: var(--color-texto); background: rgba(0, 210, 255, 0.08); border-left: 3px solid var(--color-primario); padding: 5px 8px; margin-bottom: 8px; border-radius: 3px; text-align: left;"><strong>Nota de Entrega:</strong> ' + nota + '</div>';
+            }
             htmlTotal += '<div style="font-size: 13px; color: var(--color-texto-apagado); font-weight: normal; margin-bottom: 3px;">Subtotal (Base Imponible): S/ ' + subtotal.toFixed(2) + '</div>';
             htmlTotal += '<div style="font-size: 13px; color: var(--color-texto-apagado); font-weight: normal; margin-bottom: 6px;">IGV (18%): S/ ' + igv.toFixed(2) + '</div>';
             htmlTotal += '<div style="color: var(--color-primario); font-size: 19px; font-weight: bold;">Total a Pagar: S/ ' + sumaTotal.toFixed(2) + '</div>';
