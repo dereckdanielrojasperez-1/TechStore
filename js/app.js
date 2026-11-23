@@ -43,10 +43,10 @@ function cargarProductos(limite, categoriaFiltro) {
         tarjeta.setAttribute("onmouseout", "quitarResaltado(this)");
         tarjeta.innerHTML = 
             '<div class="tarjeta-figura">' +
-                '<span class="tarjeta-categoria">' + categorias[idx] + '</span>' +
                 '<img src="' + obtenerPrefijoRuta() + imagenes[idx] + '" alt="' + nombres[idx] + '" class="tarjeta-imagen">' +
             '</div>' +
             '<div class="tarjeta-cuerpo">' +
+                '<span class="tarjeta-categoria">' + categorias[idx] + '</span>' +
                 '<h3 class="tarjeta-titulo">' + nombres[idx] + '</h3>' +
                 '<p class="tarjeta-detalle">' + detalles[idx] + '</p>' +
                 '<p class="tarjeta-precio">S/ ' + precios[idx].toFixed(2) + '</p>' +
