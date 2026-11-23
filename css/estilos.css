@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Orbitron:wght@600;700;800&family=Rajdhani:wght@500;600;700&display=swap');
+
 :root {
     --color-titulo-producto: #00d2ff;        
     --color-primario: #00d2ff;               
@@ -30,7 +32,9 @@
     --color-exito-hover: #34d399;
     --color-peligro: #ef4444;
     --color-peligro-hover: #f87171;
-    --fuente-principal: system-ui, -apple-system, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+    --fuente-principal: 'Inter', system-ui, -apple-system, sans-serif;
+    --fuente-titulos: 'Rajdhani', 'Orbitron', system-ui, sans-serif;
+    --fuente-gamer: 'Orbitron', 'Rajdhani', sans-serif;
     --fuente-mono: 'Consolas', 'Courier New', monospace;
     --espacio-pequeno: 8px;
     --espacio-medio: 16px;
@@ -46,6 +50,12 @@
     padding: 0;
     box-sizing: border-box;
 }
+
+h1, h2, h3, h4, .logo, .titulo-seccion, .tarjeta-titulo, .modal-titulo {
+    font-family: var(--fuente-titulos);
+    letter-spacing: 0.02em;
+}
+
 body {
     background-color: var(--color-fondo);
     color: var(--color-texto);
@@ -150,12 +160,7 @@ a:hover {
     justify-content: center;
     transition: border-color var(--transicion-rapida), background-color var(--transicion-rapida);
 }
-.boton-menu::before {
-    content: "\2630";
-    font-size: 20px;
-    line-height: 1;
-    color: var(--color-primario);
-}
+
 .boton-menu:hover {
     border-color: var(--color-primario);
     background-color: rgba(0, 180, 216, 0.1);
@@ -880,7 +885,13 @@ textarea.formulario-control {
     box-shadow: var(--sombra-cyber);
     border-color: var(--color-primario);
 }
-html, body {
+html, 
+h1, h2, h3, h4, .logo, .titulo-seccion, .tarjeta-titulo, .modal-titulo {
+    font-family: var(--fuente-titulos);
+    letter-spacing: 0.02em;
+}
+
+body {
     max-width: 100%;
     overflow-x: hidden;
     font-size: var(--tamano-fuente-base);
@@ -957,7 +968,13 @@ a.boton-secundario:focus {
     box-sizing: border-box;
 }
 
-html, body {
+html, 
+h1, h2, h3, h4, .logo, .titulo-seccion, .tarjeta-titulo, .modal-titulo {
+    font-family: var(--fuente-titulos);
+    letter-spacing: 0.02em;
+}
+
+body {
     max-width: 100%;
     overflow-x: hidden !important;
 }
@@ -1227,5 +1244,38 @@ img {
     .menu-navegacion.activo .nav-lista,
     #menu-navegacion.activo .nav-lista {
         display: flex !important;
+    }
+}
+
+
+.boton-menu svg {
+    display: block;
+    stroke: var(--color-primario);
+}
+.boton-carrito-nav svg {
+    stroke: var(--color-fondo);
+    display: inline-block;
+    vertical-align: middle;
+}
+
+
+/* Cuadricula Multimedia Responsiva (Video y Audio) */
+.cuadricula-multimedia {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 24px;
+    max-width: 1000px;
+    margin: 0 auto;
+    width: 100%;
+}
+@media (max-width: 600px) {
+    .cuadricula-multimedia {
+        grid-template-columns: 1fr !important;
+        gap: 16px;
+    }
+    .video-tarjeta,
+    .audio-tarjeta {
+        width: 100% !important;
+        max-width: 100% !important;
     }
 }
