@@ -1,4 +1,17 @@
+// =========================================================================
+// BLOQUE: BASE DE DATOS DE PRODUCTOS (TECHSTORE)
+// Este bloque contiene el catálogo maestro con:
+// - nombre: Nombre comercial del equipo
+// - categoria: Categoría a la que pertenece (Laptops, Computadoras, Monitores, Accesorios)
+// - precio: Precio de venta al público en Soles (S/)
+// - precioAnterior: Precio tachado referencial para ofertas
+// - stock: Cantidad de unidades disponibles en almacén
+// - imagen: Fotografía de estudio de alta definición (1024x1024)
+// - detalles: Especificaciones técnicas y descripción del producto
+// =========================================================================
 const PRODUCTOS_SEED = [
+
+    // --- [SUB-BLOQUE: LAPTOPS GAMER - NOMBRES, DESCRIPCIONES Y PRECIOS] ---
     {
         id: "lap-01",
         nombre: "Laptop ASUS ROG Strix G16",
@@ -9,6 +22,7 @@ const PRODUCTOS_SEED = [
         imagen: "img/laptop-rog.jpg",
         detalles: "Intel Core i7 13650HX, 16GB RAM DDR5, 1TB SSD, RTX 4060 8GB, Pantalla 16'' FHD+ 165Hz."
     },
+    // --- [SUB-BLOQUE: COMPUTADORAS Y TORRES GAMER - NOMBRES, DESCRIPCIONES Y PRECIOS] ---
     {
         id: "pc-01",
         nombre: "PC BattleStation Custom Ultra",
@@ -19,6 +33,7 @@ const PRODUCTOS_SEED = [
         imagen: "img/pc-gamer.jpg",
         detalles: "AMD Ryzen 7 7800X3D, 32GB DDR5 6000MHz, 1TB SSD Gen4, RTX 4070 Ti Super, Watercooling 360mm."
     },
+    // --- [SUB-BLOQUE: MONITORES DE ALTO RENDIMIENTO - NOMBRES, DESCRIPCIONES Y PRECIOS] ---
     {
         id: "mon-01",
         nombre: "Samsung Odyssey G7 32 Pulgadas",
@@ -29,6 +44,7 @@ const PRODUCTOS_SEED = [
         imagen: "img/monitor-samsung-odyssey.jpg",
         detalles: "Curvatura 1000R, WQHD 2560x1440, 240Hz, 1ms GtG, QLED, compatible G-Sync y FreeSync Premium Pro."
     },
+    // --- [SUB-BLOQUE: ACCESORIOS Y PERIFÉRICOS GAMER - NOMBRES, DESCRIPCIONES Y PRECIOS] ---
     {
         id: "per-01",
         nombre: "Corsair K70 RGB PRO OPX",
@@ -319,6 +335,7 @@ const PRODUCTOS_SEED = [
         imagen: "img/periferico-elgato-streamdeck.jpg",
         detalles: "15 teclas LCD personalizables para controlar transmisiones, apps y herramientas de producción."
     },
+    // --- [SUB-BLOQUE: PRODUCTOS AMPLIADOS DEL CATÁLOGO] ---
     {
         id: "lap-09",
         nombre: "Laptop Lenovo Legion Pro 5",
@@ -401,6 +418,15 @@ const PRODUCTOS_SEED = [
     }
 ];
 
+// =========================================================================
+// BLOQUE: ARRAYS DE ACCESO RÁPIDO PARA EL MOTOR DEL CATÁLOGO Y CARRITO
+// Estos arreglos extraen los datos de PRODUCTOS_SEED para usarlos en app.js:
+// - nombres: Lista de títulos de productos
+// - precios: Lista de precios unitarios
+// - categorias: Lista de categorías asociadas
+// - imagenes: Rutas de las imágenes de estudio
+// - detalles: Descripciones y especificaciones técnicas
+// =========================================================================
 let nombres = PRODUCTOS_SEED.map(function(p) { return p.nombre; });
 let precios = PRODUCTOS_SEED.map(function(p) { return p.precio; });
 let categorias = PRODUCTOS_SEED.map(function(p) { return p.categoria; });

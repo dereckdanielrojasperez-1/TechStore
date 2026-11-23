@@ -12,6 +12,9 @@
 </head>
 <body>
 
+    <!-- ========================================================================= -->
+    <!-- BLOQUE 1: CABECERA PRINCIPAL Y LOGOTIPO TECHSTORE                     -->
+    <!-- ========================================================================= -->
     <header id="cabecera-principal">
         <div class="contenedor barra-superior">
             <div class="logo">
@@ -26,6 +29,9 @@
                 </svg>
             </button>
 
+            <!-- ========================================================================= -->
+            <!-- BLOQUE 2: MENÚ DE NAVEGACIÓN Y BOTÓN DEL CARRITO DE COMPRAS           -->
+            <!-- ========================================================================= -->
             <nav id="menu-navegacion" class="menu-navegacion">
                 <ul class="nav-lista">
                     <li class="nav-item"><a href="../index.html" class="nav-enlace">Inicio</a></li>
@@ -51,6 +57,9 @@
     </header>
 
     <main>
+        <!-- ========================================================================= -->
+        <!-- BLOQUE 3: PORTADA Y ENCABEZADO DEL CATÁLOGO DE PRODUCTOS                  -->
+        <!-- ========================================================================= -->
         <section class="portada">
             <div class="contenedor">
                 <h2>Catálogo de Productos</h2>
@@ -60,7 +69,11 @@
 
         <section class="seccion">
             <div class="contenedor">
-                <div class="caja-filtros">
+                <!-- ========================================================================= -->
+        <!-- BLOQUE 4: FILTROS POR CATEGORÍA Y BUSCADOR DE PRODUCTOS EN TIEMPO REAL    -->
+        <!-- Permite filtrar por Laptops, Computadoras, Monitores y buscar por nombre  -->
+        <!-- ========================================================================= -->
+        <div class="caja-filtros">
                     <div class="filtro-titulo">
                         <span style="font-weight: bold; color: #ffffff;">Filtrar catálogo:</span>
                     </div>
@@ -80,11 +93,19 @@
                     </div>
                 </div>
 
-                <div id="contenedor-productos" class="caja-productos"></div>
+                <!-- ========================================================================= -->
+        <!-- BLOQUE 5: CONTENEDOR DINÁMICO DEL CATÁLOGO COMPLETO DE PRODUCTOS          -->
+        <!-- En este div (#contenedor-productos) se cargan todas las tarjetas con foto,-->
+        <!-- descripción técnica, precio en Soles y botón para agregar al carrito       -->
+        <!-- ========================================================================= -->
+        <div id="contenedor-productos" class="caja-productos"></div>
             </div>
         </section>
     </main>
 
+    <!-- ========================================================================= -->
+    <!-- BLOQUE 6: PIE DE PÁGINA (FOOTER Y ENLACES RÁPIDOS)                        -->
+    <!-- ========================================================================= -->
     <footer id="pie-pagina">
         <div class="contenedor">
             <div class="pie-columnas">
@@ -115,6 +136,9 @@
     </footer>
 
     
+    <!-- ========================================================================= -->
+    <!-- BLOQUE 7: VENTANA MODAL PARA VISUALIZAR DETALLES TÉCNICOS DEL PRODUCTO    -->
+    <!-- ========================================================================= -->
     <div id="modal-detalle" class="fondo-modal">
         <div class="ventana-modal">
             <button class="boton-cerrar-modal" onclick="cerrarModalDetalle()">&times;</button>
@@ -123,6 +147,9 @@
     </div>
 
     
+    <!-- ========================================================================= -->
+    <!-- BLOQUE 8: VENTANA MODAL PARA AGREGAR PRODUCTOS Y GESTIONAR EL CARRITO     -->
+    <!-- ========================================================================= -->
     <div id="modal-carrito" class="fondo-modal">
         <div class="ventana-modal">
             <button class="boton-cerrar-modal" onclick="cerrarModalCarrito()">&times;</button>
@@ -137,6 +164,9 @@
         </div>
     </div>
     
+    <!-- ========================================================================= -->
+    <!-- BLOQUE 9: VENTANA MODAL DE INICIO DE SESIÓN Y REGISTRO                    -->
+    <!-- ========================================================================= -->
     <div id="modal-sesion" class="fondo-modal">
         <div class="ventana-modal" style="max-width: 440px;">
             <button class="boton-cerrar-modal" onclick="cerrarModalSesion()">&times;</button>
@@ -229,6 +259,9 @@
     </script>
 
     
+    <!-- ========================================================================= -->
+    <!-- BLOQUE 10: VENTANA MODAL DE CHECKOUT Y FINALIZACIÓN DE COMPRA             -->
+    <!-- ========================================================================= -->
     <div id="modal-checkout" class="fondo-modal">
         <div class="ventana-modal" style="max-width: 500px;">
             <button class="boton-cerrar-modal" onclick="cerrarModalCheckout()">&times;</button>

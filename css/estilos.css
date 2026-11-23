@@ -1,5 +1,9 @@
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Orbitron:wght@600;700;800&family=Rajdhani:wght@500;600;700&display=swap');
 
+/* ========================================================================= */
+/* BLOQUE 1: VARIABLES GLOBALES, PALETA DE COLORES Y TIPOGRAFÍAS            */
+/* Define colores primarios, secundarios, bordes, fondos y fuentes del sitio */
+/* ========================================================================= */
 :root {
     --color-titulo-producto: #00d2ff;        
     --color-primario: #00d2ff;               
@@ -45,6 +49,10 @@
     --transicion-rapida: 0.2s ease;
     --transicion-suave: 0.3s cubic-bezier(0.4, 0, 0.2, 1);
 }
+/* ========================================================================= */
+/* BLOQUE 2: RESET Y ESTILOS GENERALES DE BASE                              */
+/* Normalización de márgenes, caja de modelo y tipografía por defecto       */
+/* ========================================================================= */
 * {
     margin: 0;
     padding: 0;
@@ -77,6 +85,10 @@ a:hover {
     max-width: 1100px;
     margin: 0 auto;
 }
+/* ========================================================================= */
+/* BLOQUE 3: CABECERA PRINCIPAL Y LOGOTIPO                                  */
+/* Estructura superior fija/adhesiva y diseño del logo TechStore            */
+/* ========================================================================= */
 #cabecera-principal {
     background-color: var(--color-fondo-secundario);
     border-bottom: 2px solid var(--color-borde);
@@ -98,6 +110,10 @@ a:hover {
 .acento {
     color: var(--color-primario);
 }
+/* ========================================================================= */
+/* BLOQUE 4: MENÚ DE NAVEGACIÓN Y BOTÓN DEL CARRITO DE COMPRAS              */
+/* Enlaces de páginas principales, estado activo y contador del carrito     */
+/* ========================================================================= */
 .menu-navegacion {
     display: flex;
     align-items: center;
@@ -165,6 +181,10 @@ a:hover {
     border-color: var(--color-primario);
     background-color: rgba(0, 180, 216, 0.1);
 }
+/* ========================================================================= */
+/* BLOQUE 5: SECCIÓN DE PORTADA / HERO BANNER                               */
+/* Mensaje principal de bienvenida, subtítulo y botones de acción rápida    */
+/* ========================================================================= */
 .portada {
     background-color: #16263d;
     padding: 50px 0;
@@ -196,6 +216,10 @@ a:hover {
     margin-bottom: 30px;
     font-size: 15px;
 }
+/* ========================================================================= */
+/* BLOQUE 6: BOTONES GENERALES (PRIMARIO, SECUNDARIO Y PELIGRO)             */
+/* Estilos visuales de botones para agregar al carrito, cotizar y comprar   */
+/* ========================================================================= */
 .boton, a.boton {
     display: inline-block;
     padding: 10px 18px;
@@ -241,6 +265,10 @@ a:hover {
 .boton-peligro:hover {
     background-color: var(--color-peligro-hover);
 }
+/* ========================================================================= */
+/* BLOQUE 7: FILTROS DE CATEGORÍA Y BUSCADOR EN TIEMPO REAL                 */
+/* Selector desplegable y caja de texto para buscar productos por nombre     */
+/* ========================================================================= */
 .caja-filtros {
     margin-bottom: 25px;
     display: flex;
@@ -297,6 +325,9 @@ a:hover {
     width: 250px;
     max-width: 100%;
 }
+/* ========================================================================= */
+/* BLOQUE 8: CONTENEDOR Y TARJETAS DE PRODUCTOS (CARDS DEL CATÁLOGO)        */
+/* ========================================================================= */
 .caja-productos {
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
@@ -321,6 +352,10 @@ a:hover {
 .tarjeta-resaltada {
     border-color: var(--color-primario);
 }
+/* ------------------------------------------------------------------------- */
+/* SUB-BLOQUE: IMAGEN DEL PRODUCTO (FOTOGRAFÍA DE ESTUDIO 1024x1024)       */
+/* Marco blanco contenedor de la imagen, sin elementos sobrepuestos encima  */
+/* ------------------------------------------------------------------------- */
 .tarjeta-figura {
     width: 100%;
     height: 195px;
@@ -342,6 +377,10 @@ a:hover {
 .tarjeta:hover .tarjeta-imagen {
     transform: scale(1.04);
 }
+/* ------------------------------------------------------------------------- */
+/* SUB-BLOQUE: ETIQUETA DE CATEGORÍA DEL PRODUCTO                           */
+/* Distintivo cyan sutil (Laptops, Computadoras, Monitores, Accesorios)     */
+/* ------------------------------------------------------------------------- */
 .tarjeta-categoria {
     align-self: flex-start;
     display: inline-block;
@@ -362,6 +401,9 @@ a:hover {
     flex-direction: column;
     flex-grow: 1;
 }
+/* ------------------------------------------------------------------------- */
+/* SUB-BLOQUE: TÍTULO / NOMBRE COMERCIAL DEL PRODUCTO                       */
+/* ------------------------------------------------------------------------- */
 .tarjeta-titulo {
     font-size: 17px;
     color: var(--color-titulo-producto);
@@ -369,18 +411,29 @@ a:hover {
     font-weight: 700;
     transition: color 0.25s ease;
 }
+/* ------------------------------------------------------------------------- */
+/* SUB-BLOQUE: DESCRIPCIÓN Y ESPECIFICACIONES TÉCNICAS DEL PRODUCTO         */
+/* Muestra procesador, memoria RAM, tarjeta gráfica, pantalla y detalles    */
+/* ------------------------------------------------------------------------- */
 .tarjeta-detalle {
     font-size: 13px;
     color: var(--color-texto-apagado);
     margin-bottom: 12px;
     flex-grow: 1;
 }
+/* ------------------------------------------------------------------------- */
+/* SUB-BLOQUE: PRECIO DEL PRODUCTO (MONTO EN SOLES S/)                      */
+/* ------------------------------------------------------------------------- */
 .tarjeta-precio {
     font-size: 20px;
     font-weight: bold;
     color: var(--color-primario);
     margin-bottom: 14px;
 }
+/* ------------------------------------------------------------------------- */
+/* SUB-BLOQUE: BOTONES PARA AGREGAR PRODUCTO AL CARRITO Y VER DETALLE      */
+/* Botón secundario (Detalle técnico) y botón primario (Agregar al carrito) */
+/* ------------------------------------------------------------------------- */
 .tarjeta-acciones {
     display: flex;
     gap: 8px;
@@ -391,6 +444,9 @@ a:hover {
     font-size: 12px;
 }
 .caja-beneficios,
+/* ========================================================================= */
+/* BLOQUE 9: SECCIÓN DE CARACTERÍSTICAS Y BENEFICIOS (GARANTÍA Y ENVÍOS)    */
+/* ========================================================================= */
 .caja-servicios {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
@@ -556,6 +612,9 @@ textarea.formulario-control {
     font-size: 14px;
     animation: aparecer 0.25s ease-out;
 }
+/* ========================================================================= */
+/* BLOQUE 11: VENTANAS MODALES GENERALES (OVERLAY Y ESTRUCTURA BASE)        */
+/* ========================================================================= */
 .fondo-modal {
     display: none;
     position: fixed;
@@ -600,6 +659,12 @@ textarea.formulario-control {
     border-bottom: 1px solid var(--color-borde);
     padding-bottom: 8px;
 }
+/* ========================================================================= */
+/* BLOQUE: VENTANA MODAL DEL CARRITO DE COMPRAS Y DESGLOSE DE PRECIOS        */
+/* 1. .item-carrito: Estilo de cada producto agregado con botón de quitar    */
+/* 2. .total-carrito: Desglose de precios (Subtotal, IGV 18% y Total a pagar)*/
+/* 3. .acciones-modal: Botones para vaciar carrito y procesar compra         */
+/* ========================================================================= */
 .item-carrito {
     display: flex;
     justify-content: space-between;
@@ -621,6 +686,9 @@ textarea.formulario-control {
     justify-content: flex-end;
     gap: 10px;
 }
+/* ========================================================================= */
+/* BLOQUE 10: PIE DE PÁGINA (FOOTER, ENLACES DE AYUDA Y CONTACTO)           */
+/* ========================================================================= */
 #pie-pagina {
     background-color: #09131e;
     border-top: 2px solid var(--color-borde);
@@ -1153,7 +1221,13 @@ img {
     .metodos-pago-grid {
         grid-template-columns: 1fr;
     }
-    .item-carrito {
+    /* ========================================================================= */
+/* BLOQUE: VENTANA MODAL DEL CARRITO DE COMPRAS Y DESGLOSE DE PRECIOS        */
+/* 1. .item-carrito: Estilo de cada producto agregado con botón de quitar    */
+/* 2. .total-carrito: Desglose de precios (Subtotal, IGV 18% y Total a pagar)*/
+/* 3. .acciones-modal: Botones para vaciar carrito y procesar compra         */
+/* ========================================================================= */
+.item-carrito {
         flex-direction: column;
         align-items: flex-start;
         gap: 6px;

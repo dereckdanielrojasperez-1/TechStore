@@ -1,3 +1,7 @@
+// =========================================================================
+// BLOQUE 1: UTILIDADES GENERALES Y CONTROL DE NAVEGACIÓN MÓVIL
+// Detecta rutas relativas y abre/cierra el menú hamburguesa en celulares
+// =========================================================================
 function obtenerPrefijoRuta() {
     let ruta = window.location.pathname.replace(/\\/g, '/');
     let subcarpetas = ['/productos/', '/comparativa/', '/ofertas/', '/servicios/', '/nosotros/', '/contacto/', '/login/'];
@@ -24,6 +28,16 @@ function resaltarTarjeta(elemento) {
 function quitarResaltado(elemento) {
     elemento.classList.remove("tarjeta-resaltada");
 }
+// =========================================================================
+// BLOQUE 2: RENDERIZADO DINÁMICO DE TARJETAS DE PRODUCTOS (CARDS)
+// Construye el HTML de cada tarjeta con:
+// 1. Foto de estudio 1024x1024 (.tarjeta-figura > .tarjeta-imagen)
+// 2. Etiqueta de categoría (.tarjeta-categoria)
+// 3. Título comercial (.tarjeta-titulo)
+// 4. Descripción técnica (.tarjeta-detalle)
+// 5. Precio de venta en Soles (.tarjeta-precio)
+// 6. Botones de acción: Detalle y Agregar al Carrito
+// =========================================================================
 function cargarProductos(limite, categoriaFiltro) {
     let contenedor = document.getElementById("contenedor-productos");
     if (!contenedor) {
@@ -58,6 +72,10 @@ function cargarProductos(limite, categoriaFiltro) {
         contenedor.appendChild(tarjeta);
     }
 }
+// =========================================================================
+// BLOQUE 3: FILTRADO DE PRODUCTOS POR CATEGORÍA
+// Filtra los productos mostrados según la categoría seleccionada en el menú
+// =========================================================================
 function filtrarCategoria() {
     let select = document.getElementById("filtro-categoria");
     if (select) {
@@ -65,6 +83,10 @@ function filtrarCategoria() {
         cargarProductos(null, valor);
     }
 }
+// =========================================================================
+// BLOQUE 4: VENTANA MODAL PARA VISUALIZAR DETALLES TÉCNICOS DEL PRODUCTO
+// Muestra la imagen, categoría, precio y especificaciones completas del equipo
+// =========================================================================
 function abrirModalDetalle(indice) {
     let modal = document.getElementById("modal-detalle");
     let cuerpo = document.getElementById("modal-detalle-contenido");
@@ -91,6 +113,10 @@ function cerrarModalDetalle() {
     }
 }
 
+// =========================================================================
+// BLOQUE 5: FUNCIÓN PARA VACIAR EL CARRITO CON CONFIRMACIÓN (CONFIRM)
+// Solicita confirmación al usuario antes de borrar los productos seleccionados
+// =========================================================================
 function vaciarCarrito() {
     if (carrito.length === 0) {
         alert("El carrito ya se encuentra vacío.");
@@ -105,6 +131,13 @@ function vaciarCarrito() {
     }
 }
 
+// =========================================================================
+// BLOQUE 6: VENTANA MODAL DEL CARRITO Y CÁLCULO DE TOTALES (SUBTOTAL, IGV, TOTAL)
+// Renderiza la lista de compras y calcula:
+// - Subtotal (Base imponible sin impuestos)
+// - IGV (18% según normativa comercial peruana)
+// - Total final a pagar en Soles (S/)
+// =========================================================================
 function abrirModalCarrito() {
     let modal = document.getElementById("modal-carrito");
     let lista = document.getElementById("lista-carrito");
@@ -152,6 +185,10 @@ function cerrarModalCarrito() {
         modal.style.display = "none";
     }
 }
+// =========================================================================
+// BLOQUE 7: FUNCIONES PARA AGREGAR Y ELIMINAR PRODUCTOS DEL CARRITO
+// Permite añadir un producto por su índice y quitar artículos de la lista
+// =========================================================================
 function agregarCarrito(indice) {
     agregarAlArregloCarrito(indice);
     guardarCarritoEnStorage();
@@ -169,6 +206,10 @@ function eliminarDelCarrito(posicion) {
     actualizarContadorCarrito();
     abrirModalCarrito();
 }
+// =========================================================================
+// BLOQUE 8: PERSISTENCIA DEL CARRITO EN LOCALSTORAGE
+// Guarda y recupera los productos para que no se pierdan al recargar la página
+// =========================================================================
 function guardarCarritoEnStorage() {
     try {
         localStorage.setItem("carritoTechStore", JSON.stringify(carrito));
@@ -191,6 +232,10 @@ function actualizarContadorCarrito() {
         contador.innerText = carrito.length;
     }
 }
+// =========================================================================
+// BLOQUE 9: PROCESO DE COMPRA (VALIDACIÓN DE SESIÓN Y CHECKOUT)
+// Comprueba que el carrito no esté vacío y que el usuario tenga sesión activa
+// =========================================================================
 function procesarCompra() {
     if (carrito.length === 0) {
         let lista = document.getElementById("lista-carrito");
@@ -208,6 +253,10 @@ function procesarCompra() {
     cerrarModalCarrito();
     abrirModalCheckout();
 }
+// =========================================================================
+// BLOQUE 10: AUTENTICACIÓN, REGISTRO Y CONTROL DE SESIONES DE USUARIO
+// Gestiona el inicio de sesión, registro de nuevos clientes y cierre de sesión
+// =========================================================================
 function obtenerUsuariosRegistrados() {
     let guardados = localStorage.getItem("techstore_usuarios");
     if (guardados) {
@@ -932,6 +981,10 @@ function mostrarToast(mensaje, tipo) {
     // Desactivado para mantener la interfaz academica limpia sin alertas invasivas
     return;
 }
+// =========================================================================
+// BLOQUE 11: FINALIZACIÓN DE COMPRA (CHECKOUT, FORMULARIO DE ENVÍO Y TICKET)
+// Registra el pedido en la base de datos emulada y genera comprobante de compra
+// =========================================================================
 function abrirModalCheckout() {
     if (carrito.length === 0) {
         abrirModalCarrito();
@@ -1033,6 +1086,10 @@ function confirmarPedidoCheckout(event) {
     if (bloqueExito) bloqueExito.style.display = "block";
     mostrarToast("¡Compra completada con éxito! Pedido #" + codigo, "exito");
 }
+// =========================================================================
+// BLOQUE 12: BUSCADOR DE PRODUCTOS EN TIEMPO REAL
+// Filtra automáticamente las tarjetas visibles mientras el usuario escribe
+// =========================================================================
 function buscarProductosEnTiempoReal() {
     let input = document.getElementById("buscador-productos");
     if (!input) return;
