@@ -91,30 +91,6 @@ function cerrarModalDetalle() {
     }
 }
 
-let descuentoActivo = 0;
-
-function aplicarCuponDescuento() {
-    if (carrito.length === 0) {
-        alert("El carrito está vacío. Agrega productos antes de aplicar un cupón promocional.");
-        return;
-    }
-    let cupon = prompt("Ingresa tu cupón de descuento gamer (Ej. CYBERTECH2026 o TECHSTORE15):");
-    if (cupon === null) {
-        return;
-    }
-    cupon = cupon.trim().toUpperCase();
-    if (cupon === "CYBERTECH2026" || cupon === "TECHSTORE15") {
-        descuentoActivo = 0.15;
-        sessionStorage.setItem("cuponDescuentoTechStore", "0.15");
-        alert("¡Cupón '" + cupon + "' aplicado con éxito! Tienes un 15% de descuento sobre tu compra.");
-        abrirModalCarrito();
-    } else if (cupon === "") {
-        alert("No ingresaste ningún código de cupón.");
-    } else {
-        alert("El cupón '" + cupon + "' no es válido o ha expirado.");
-    }
-}
-
 function vaciarCarrito() {
     if (carrito.length === 0) {
         alert("El carrito ya se encuentra vacío.");
@@ -125,8 +101,6 @@ function vaciarCarrito() {
         carrito = [];
         guardarCarritoEnStorage();
         actualizarContadorCarrito();
-        sessionStorage.removeItem("cuponDescuentoTechStore");
-        descuentoActivo = 0;
         abrirModalCarrito();
     }
 }
@@ -159,24 +133,14 @@ function abrirModalCarrito() {
                 '<button class="boton boton-peligro" style="padding: 4px 8px; font-size: 12px;" onclick="eliminarDelCarrito(' + i + ')">Quitar</button>';
             lista.appendChild(fila);
         }
-        let descGuardado = sessionStorage.getItem("cuponDescuentoTechStore");
-        if (descGuardado) {
-            descuentoActivo = parseFloat(descGuardado) || 0;
-        }
-        let montoDescuento = sumaTotal * descuentoActivo;
-        let totalFinal = sumaTotal - montoDescuento;
-        let subtotal = totalFinal / 1.18;
-        let igv = totalFinal - subtotal;
+        let subtotal = sumaTotal / 1.18;
+        let igv = sumaTotal - subtotal;
 
         if (totalElem) {
             let htmlTotal = '';
-            if (descuentoActivo > 0) {
-                htmlTotal += '<div style="font-size: 13px; color: var(--color-texto-apagado); font-weight: normal; margin-bottom: 2px;">Precio Base: S/ ' + sumaTotal.toFixed(2) + '</div>';
-                htmlTotal += '<div style="font-size: 13px; color: var(--color-exito); font-weight: 600; margin-bottom: 2px;">Descuento Promocional (15%): -S/ ' + montoDescuento.toFixed(2) + '</div>';
-            }
             htmlTotal += '<div style="font-size: 13px; color: var(--color-texto-apagado); font-weight: normal; margin-bottom: 3px;">Subtotal (Base Imponible): S/ ' + subtotal.toFixed(2) + '</div>';
             htmlTotal += '<div style="font-size: 13px; color: var(--color-texto-apagado); font-weight: normal; margin-bottom: 6px;">IGV (18%): S/ ' + igv.toFixed(2) + '</div>';
-            htmlTotal += '<div style="color: var(--color-primario); font-size: 19px; font-weight: bold;">Total a Pagar: S/ ' + totalFinal.toFixed(2) + '</div>';
+            htmlTotal += '<div style="color: var(--color-primario); font-size: 19px; font-weight: bold;">Total a Pagar: S/ ' + sumaTotal.toFixed(2) + '</div>';
             totalElem.innerHTML = htmlTotal;
         }
     }
