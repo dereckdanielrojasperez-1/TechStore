@@ -1,5 +1,5 @@
 # TECHSTORE - Tienda Especializada en Cómputo Gamer y Hardware de Alto Rendimiento
-> **Proyecto Final – Avance 3** | Curso: **Taller de Programación Web**  
+> **Proyecto Final – Avance Final** | Curso: **Taller de Programación Web**  
 > **Universidad Tecnológica del Perú (UTP)** – Lima, Perú (2026)  
 > **Docente:** Mg. JESUS ANTONIO, PACAHUALA ARROYO  
 
@@ -15,7 +15,7 @@
 1. [Descripción General y Alcance](#-descripción-general-y-alcance)
 2. [Documentación Técnica Oficial e Informes](#-documentación-técnica-oficial-e-informes)
 3. [Estructura del Repositorio e Indexación de Archivos](#-estructura-del-repositorio-e-indexación-de-archivos)
-4. [Nuevas Funcionalidades del Avance 3 (JavaScript Vanilla y DOM)](#-nuevas-funcionalidades-del-avance-3-javascript-vanilla-y-dom)
+4. [Nuevas Funcionalidades del Avance Final (JavaScript Vanilla y DOM)](#-nuevas-funcionalidades-del-avance-3-javascript-vanilla-y-dom)
    - [4.1. Ventana Modal de Sesión Interactiva](#41-ventana-modal-de-sesión-interactiva-modal-sesion)
    - [4.2. Restricciones Numéricas y Alfabéticas en Tiempo Real](#42-restricciones-numéricas-y-alfabéticas-en-tiempo-real-oninput)
    - [4.3. Persistencia de Sesión con Web Storage API](#43-persistencia-de-sesión-con-web-storage-api)
@@ -32,7 +32,7 @@
 
 **TechStore** es una plataforma web de comercio electrónico frontend desarrollada como proyecto integrador del curso **Taller de Programación Web** de la UTP. El sitio simula una tienda formal peruana orientada a la venta de laptops gamer de alta gama, computadoras de escritorio ensambladas, monitores esports y periféricos competitivos.
 
-En este **Avance 3 (Proyecto Final)**, el sistema integra la capa de interactividad y comportamiento dinámico mediante **JavaScript nativo puro (Vanilla JS)**, prescindiendo en un 100% de librerías o dependencias externas (cero Bootstrap, cero jQuery), cumpliendo rigurosamente los lineamientos pedagógicos del docente.
+En este **Avance Final (Proyecto Final)**, el sistema integra la capa de interactividad y comportamiento dinámico mediante **JavaScript nativo puro (Vanilla JS)**, prescindiendo en un 100% de librerías o dependencias externas (cero Bootstrap, cero jQuery), cumpliendo rigurosamente los lineamientos pedagógicos del docente.
 
 ---
 
@@ -42,10 +42,10 @@ Para la revisión académica y sustentación, se han compilado los informes ofic
 
 | Formato | Recurso / Enlace | Descripción |
 | :---: | :--- | :--- |
-| **PDF** | [📥 Descargar INFORME_AVANCE_3_PROYECTO_FINAL.pdf](docs/INFORME_AVANCE_3_PROYECTO_FINAL.pdf) | Documento PDF listo para lectura e impresión, renderizado directamente con Microsoft Word (17 figuras y 5 tablas). |
-| **Word** | [📥 Descargar INFORME_AVANCE_3_PROYECTO_FINAL.docx](docs/INFORME_AVANCE_3_PROYECTO_FINAL.docx) | Documento original en Word con formato exacto del Avance 2, cajas de captura de pantalla y tablas académicas. |
-| **Markdown** | [📖 Ver INFORME_AVANCE_3_PROYECTO_FINAL.md](docs/INFORME_AVANCE_3_PROYECTO_FINAL.md) | Versión completa en Markdown para lectura e indexación directa en GitHub. |
-| **ZIP** | [📦 Descargar TechStore-TallerWeb avance 3.zip](docs/TechStore-TallerWeb%20avance%203.zip) | Paquete comprimido con el código fuente depurado, 32 imágenes y scripts. |
+| **PDF** | [📥 Descargar INFORME_AVANCE_FINAL_PROYECTO_FINAL.pdf](docs/INFORME_AVANCE_FINAL_PROYECTO_FINAL.pdf) | Documento PDF listo para lectura e impresión, renderizado directamente con Microsoft Word (17 figuras y 5 tablas). |
+| **Word** | [📥 Descargar INFORME_AVANCE_FINAL_PROYECTO_FINAL.docx](docs/INFORME_AVANCE_FINAL_PROYECTO_FINAL.docx) | Documento original en Word con formato exacto del Avance 2, cajas de captura de pantalla y tablas académicas. |
+| **Markdown** | [📖 Ver INFORME_AVANCE_FINAL_PROYECTO_FINAL.md](docs/INFORME_AVANCE_FINAL_PROYECTO_FINAL.md) | Versión completa en Markdown para lectura e indexación directa en GitHub. |
+| **ZIP** | [📦 Descargar TechStore-TallerWeb avance final.zip](docs/TechStore-TallerWeb%20avance%203.zip) | Paquete comprimido con el código fuente depurado, 32 imágenes y scripts. |
 
 ---
 
@@ -68,16 +68,16 @@ TechStore/
 │   └── datos.js                 # Arreglo de 32 objetos con especificaciones y catálogo
 ├── img/                         # 32 fotografías de hardware optimizadas e íconos SVG/PNG
 ├── docs/                        # Informes académicos oficiales (PDF, Word, Markdown, ZIP)
-│   ├── INFORME_AVANCE_3_PROYECTO_FINAL.pdf
-│   ├── INFORME_AVANCE_3_PROYECTO_FINAL.docx
-│   ├── INFORME_AVANCE_3_PROYECTO_FINAL.md
-│   └── TechStore-TallerWeb avance 3.zip
+│   ├── INFORME_AVANCE_FINAL_PROYECTO_FINAL.pdf
+│   ├── INFORME_AVANCE_FINAL_PROYECTO_FINAL.docx
+│   ├── INFORME_AVANCE_FINAL_PROYECTO_FINAL.md
+│   └── TechStore-TallerWeb avance final.zip
 └── README.md                    # Índice técnico y documentación del repositorio
 ```
 
 ---
 
-## ⚡ Nuevas Funcionalidades del Avance 3 (JavaScript Vanilla y DOM)
+## ⚡ Nuevas Funcionalidades del Avance Final (JavaScript Vanilla y DOM)
 
 ### 4.1. Ventana Modal de Sesión Interactiva (`#modal-sesion`)
 - **Apertura Automatizada:** Al ingresar a `index.html`, si el navegador no registra una sesión activa en `sessionStorage`, el modal se abre automáticamente tras 300 ms de carga.
@@ -129,7 +129,7 @@ Base de datos en el cliente estructurada en `js/datos.js` con 8 modelos por cate
 
 ## 📊 Matriz Comparativa de Avances
 
-| Aspecto Técnico | Avance 1 | Avance 2 | Avance 3 (Proyecto Final) |
+| Aspecto Técnico | Avance 1 | Avance 2 | Avance Final (Proyecto Final) |
 | :--- | :--- | :--- | :--- |
 | **Páginas** | 4 páginas estáticas | 8 páginas interconectadas | 8 páginas completamente integradas con lógica JS |
 | **Maquetación** | Float y cajas simples | CSS Grid, Flexbox y media queries | Grid + Flexbox + componentes modales flotantes |

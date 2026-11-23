@@ -258,7 +258,7 @@ const BDTechStore = (function() {
     }
     function exportarJSON() {
         const copia = {
-            version: 'Avance 3 - Base de Datos Emulada TechStore',
+            version: 'Avance Final - Base de Datos Emulada TechStore',
             fecha: new Date().toISOString(),
             productos: obtenerProductos(),
             usuarios: obtenerUsuarios(),
