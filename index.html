@@ -12,9 +12,7 @@
 </head>
 <body>
 
-    <!-- ========================================================================= -->
-    <!-- BLOQUE 1: CABECERA PRINCIPAL Y LOGOTIPO TECHSTORE                     -->
-    <!-- ========================================================================= -->
+    <!-- Encabezado y logotipo -->
     <header id="cabecera-principal">
         <div class="contenedor barra-superior">
             <div class="logo">
@@ -29,10 +27,7 @@
                 </svg>
             </button>
 
-            <!-- ========================================================================= -->
-            <!-- BLOQUE 2: MENÚ DE NAVEGACIÓN Y BOTÓN DEL CARRITO DE COMPRAS           -->
-            <!-- Permite navegar entre páginas y consultar el contador de compras      -->
-            <!-- ========================================================================= -->
+            <!-- Menú de navegación y carrito -->
             <nav id="menu-navegacion" class="menu-navegacion">
                 <ul class="nav-lista">
                     <li class="nav-item"><a href="index.html" class="nav-enlace activo">Inicio</a></li>
@@ -58,10 +53,7 @@
     </header>
 
     <main>
-        <!-- ========================================================================= -->
-        <!-- BLOQUE 3: PORTADA / HERO (BIENVENIDA Y ACCESO RÁPIDO AL CATÁLOGO)         -->
-        <!-- Título principal, subtítulo y botones para ver catálogo o cotizar         -->
-        <!-- ========================================================================= -->
+        <!-- Portada de bienvenida y cotización -->
         <section class="portada">
             <div class="contenedor">
                 <h1>Bienvenido a TechStore</h1>
@@ -73,11 +65,7 @@
             </div>
         </section>
 
-        <!-- ========================================================================= -->
-        <!-- BLOQUE 4: CONTENEDOR DE PRODUCTOS DESTACADOS                              -->
-        <!-- En este div (#contenedor-productos) se cargan dinámicamente las tarjetas  -->
-        <!-- con la imagen, título, descripción técnica, precio y botón de agregar     -->
-        <!-- ========================================================================= -->
+        <!-- Catálogo de productos destacados (renderizado dinámico) -->
         <section class="seccion">
             <div class="contenedor">
                 <h2 class="titulo-seccion">Productos Destacados</h2>
@@ -86,10 +74,7 @@
             </div>
         </section>
 
-        <!-- ========================================================================= -->
-        <!-- BLOQUE 5: BENEFICIOS COMERCIALES Y SERVICIOS (GARANTÍA Y ASESORÍA)         -->
-        <!-- Muestra las ventajas competitivas de TechStore (Garantía, Envíos, Soporte)-->
-        <!-- ========================================================================= -->
+        <!-- Beneficios y garantías de compra -->
         <section class="seccion" style="background-color: #122135;">
             <div class="contenedor">
                 <h2 class="titulo-seccion">¿Por qué elegirnos?</h2>
@@ -112,9 +97,7 @@
         </section>
     </main>
 
-    <!-- ========================================================================= -->
-    <!-- BLOQUE 6: PIE DE PÁGINA (FOOTER, ENLACES RÁPIDOS Y CONTACTO)              -->
-    <!-- ========================================================================= -->
+    <!-- Pie de página -->
     <footer id="pie-pagina">
         <div class="contenedor">
             <div class="pie-columnas">
@@ -145,10 +128,7 @@
     </footer>
 
     
-    <!-- ========================================================================= -->
-    <!-- BLOQUE 7: VENTANA MODAL PARA VISUALIZAR DETALLES TÉCNICOS DEL PRODUCTO    -->
-    <!-- Muestra foto ampliada, categoría, precio y especificaciones completas    -->
-    <!-- ========================================================================= -->
+    <!-- Modal: Detalle y descripción del producto -->
     <div id="modal-detalle" class="fondo-modal">
         <div class="ventana-modal">
             <button class="boton-cerrar-modal" onclick="cerrarModalDetalle()">&times;</button>
@@ -157,13 +137,7 @@
     </div>
 
     
-    <!-- ========================================================================= -->
-    <!-- BLOQUE 8: VENTANA MODAL PARA AGREGAR PRODUCTOS Y GESTIONAR EL CARRITO     -->
-    <!-- Permite:                                                                  -->
-    <!-- 1. Visualizar productos agregados (nombre, precio unitario y botón quitar)-->
-    <!-- 2. Desglose de precios: Subtotal (Base imponible), IGV 18% y Total final  -->
-    <!-- 3. Botones de acción: Vaciar Carrito (confirm), Seguir comprando y Pagar  -->
-    <!-- ========================================================================= -->
+    <!-- Modal: Carrito de compras y cálculo de precios -->
     <div id="modal-carrito" class="fondo-modal">
         <div class="ventana-modal">
             <button class="boton-cerrar-modal" onclick="cerrarModalCarrito()">&times;</button>
@@ -179,10 +153,7 @@
         </div>
     </div>
     
-    <!-- ========================================================================= -->
-    <!-- BLOQUE 9: VENTANA MODAL DE INICIO DE SESIÓN Y REGISTRO DE USUARIOS        -->
-    <!-- Permite autenticación de clientes y creación de nuevas cuentas            -->
-    <!-- ========================================================================= -->
+    <!-- Modal: Inicio de sesión y registro -->
     <div id="modal-sesion" class="fondo-modal">
         <div class="ventana-modal" style="max-width: 440px;">
             <button class="boton-cerrar-modal" onclick="cerrarModalSesion()">&times;</button>
@@ -275,10 +246,7 @@
     </script>
 
     
-    <!-- ========================================================================= -->
-    <!-- BLOQUE 10: VENTANA MODAL PARA PROCESAR COMPRA (CHECKOUT Y TICKET FINAL)   -->
-    <!-- Permite ingresar datos de envío, método de pago y emitir comprobante      -->
-    <!-- ========================================================================= -->
+    <!-- Modal: Procesar compra y comprobante -->
     <div id="modal-checkout" class="fondo-modal">
         <div class="ventana-modal" style="max-width: 500px;">
             <button class="boton-cerrar-modal" onclick="cerrarModalCheckout()">&times;</button>
