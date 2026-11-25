@@ -414,6 +414,30 @@ let precios = PRODUCTOS_SEED.map(function(p) { return p.precio; });
 let categorias = PRODUCTOS_SEED.map(function(p) { return p.categoria; });
 let imagenes = PRODUCTOS_SEED.map(function(p) { return p.imagen; });
 let detalles = PRODUCTOS_SEED.map(function(p) { return p.detalles; });
+let stocks = PRODUCTOS_SEED.map(function(p) { return p.stock; });
+
+try {
+    let stocksGuardados = localStorage.getItem("techstore_stocks");
+    if (stocksGuardados) {
+        let parsed = JSON.parse(stocksGuardados);
+        if (Array.isArray(parsed) && parsed.length === stocks.length) {
+            stocks = parsed;
+        }
+    }
+} catch (e) {}
+
+function guardarStocksEnStorage() {
+    try {
+        localStorage.setItem("techstore_stocks", JSON.stringify(stocks));
+    } catch (e) {}
+}
+
+function obtenerStockDisponible(indice) {
+    if (typeof stocks !== "undefined" && stocks[indice] !== undefined) {
+        return Math.max(0, parseInt(stocks[indice], 10) || 0);
+    }
+    return 5;
+}
 
 let carrito = [];
 

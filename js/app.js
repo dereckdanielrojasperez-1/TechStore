@@ -39,6 +39,13 @@ function cargarProductos(limite, categoriaFiltro) {
     }
     for (let i = 0; i < total; i++) {
         let idx = indices[i];
+        let stockActual = typeof obtenerStockDisponible === "function" ? obtenerStockDisponible(idx) : 5;
+        let stockClase = stockActual <= 3 ? "tarjeta-stock stock-bajo" : "tarjeta-stock";
+        let textoStock = stockActual > 0 ? "Stock: " + stockActual + " unid." : "Agotado";
+        let botonAgregar = stockActual > 0 ?
+            '<button class="boton boton-primario" onclick="agregarCarrito(' + idx + ')">Agregar</button>' :
+            '<button class="boton boton-secundario" disabled>Agotado</button>';
+
         let tarjeta = document.createElement("article");
         tarjeta.className = "tarjeta";
         tarjeta.setAttribute("onmouseover", "resaltarTarjeta(this)");
@@ -48,24 +55,55 @@ function cargarProductos(limite, categoriaFiltro) {
                 '<img src="' + obtenerPrefijoRuta() + imagenes[idx] + '" alt="' + nombres[idx] + '" class="tarjeta-imagen">' +
             '</div>' +
             '<div class="tarjeta-cuerpo">' +
-                '<span class="tarjeta-categoria">' + categorias[idx] + '</span>' +
+                '<div class="tarjeta-meta">' +
+                    '<span class="tarjeta-categoria">' + categorias[idx] + '</span>' +
+                    '<span class="' + stockClase + '">' + textoStock + '</span>' +
+                '</div>' +
                 '<h3 class="tarjeta-titulo">' + nombres[idx] + '</h3>' +
                 '<p class="tarjeta-detalle">' + detalles[idx] + '</p>' +
                 '<p class="tarjeta-precio">S/ ' + precios[idx].toFixed(2) + '</p>' +
                 '<div class="tarjeta-acciones">' +
                     '<button class="boton boton-secundario" onclick="abrirModalDetalle(' + idx + ')">Detalle</button>' +
-                    '<button class="boton boton-primario" onclick="agregarCarrito(' + idx + ')">Agregar</button>' +
+                    botonAgregar +
                 '</div>' +
             '</div>';
         contenedor.appendChild(tarjeta);
     }
+    let contadorElem = document.getElementById("contador-productos-encontrados");
+    if (contadorElem) {
+        contadorElem.innerText = "Mostrando " + total + (total === 1 ? " producto disponible" : " productos disponibles");
+    }
+    let msgVacio = document.getElementById("mensaje-sin-resultados");
+    if (msgVacio) {
+        msgVacio.style.display = total === 0 ? "block" : "none";
+    }
 }
-// Bloque para filtrar productos por categoría
+// Bloque para filtrar productos por categoría y limpiar filtros
 function filtrarCategoria() {
     let select = document.getElementById("filtro-categoria");
     if (select) {
         let valor = select.value;
         cargarProductos(null, valor);
+        let input = document.getElementById("buscador-productos");
+        if (input && input.value.trim() !== "") {
+            buscarProductosEnTiempoReal();
+        }
+    }
+}
+function limpiarFiltrosCatalogo() {
+    let select = document.getElementById("filtro-categoria");
+    let input = document.getElementById("buscador-productos");
+    if (select) select.value = "todas";
+    if (input) input.value = "";
+    cargarProductos(null, "todas");
+}
+function recargarVistaCatalogo() {
+    let ruta = window.location.pathname.toLowerCase();
+    let esPaginaProductos = ruta.indexOf("productos") !== -1;
+    if (esPaginaProductos) {
+        filtrarCategoria();
+    } else {
+        cargarProductos(8, "todas");
     }
 }
 // Bloque para ver descripción y detalle de los productos
@@ -75,16 +113,27 @@ function abrirModalDetalle(indice) {
     if (!modal || !cuerpo) {
         return;
     }
+    let stockDetalle = typeof obtenerStockDisponible === "function" ? obtenerStockDisponible(indice) : 5;
+    let stockTextoDetalle = stockDetalle > 0 ? 
+        '<span class="modal-stock-ok">Stock disponible: ' + stockDetalle + ' unidades</span>' :
+        '<span class="modal-stock-agotado">Producto temporalmente agotado</span>';
+    let botonModal = stockDetalle > 0 ?
+        '<button class="boton boton-primario" onclick="agregarCarrito(' + indice + '); cerrarModalDetalle();">Agregar al Carrito</button>' :
+        '<button class="boton boton-secundario" disabled>Agotado</button>';
+
     cuerpo.innerHTML = 
         '<div style="text-align: center; margin-bottom: 15px;">' +
             '<img src="' + obtenerPrefijoRuta() + imagenes[indice] + '" alt="' + nombres[indice] + '" style="max-height: 180px; max-width: 100%; object-fit: contain;">' +
         '</div>' +
         '<h3 style="color: #ffffff; margin-bottom: 10px;">' + nombres[indice] + '</h3>' +
-        '<p style="color: #00b4d8; font-size: 13px; font-weight: bold; margin-bottom: 8px;">Categoría: ' + categorias[indice] + '</p>' +
+        '<div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 8px;">' +
+            '<span style="color: #00b4d8; font-size: 13px; font-weight: bold;">Categoría: ' + categorias[indice] + '</span>' +
+            stockTextoDetalle +
+        '</div>' +
         '<p style="color: #a0b2c6; font-size: 14px; margin-bottom: 15px;">' + detalles[indice] + '</p>' +
         '<p style="color: #00b4d8; font-size: 22px; font-weight: bold; margin-bottom: 20px;">S/ ' + precios[indice].toFixed(2) + '</p>' +
         '<div style="text-align: right;">' +
-            '<button class="boton boton-primario" onclick="agregarCarrito(' + indice + '); cerrarModalDetalle();">Agregar al Carrito</button>' +
+            botonModal +
         '</div>';
     modal.style.display = "flex";
 }
@@ -200,8 +249,22 @@ function cerrarModalCarrito() {
         modal.style.display = "none";
     }
 }
+function contarEnCarrito(indice) {
+    let cantidad = 0;
+    for (let i = 0; i < carrito.length; i++) {
+        if (carrito[i] === indice) {
+            cantidad++;
+        }
+    }
+    return cantidad;
+}
 // Bloque para agregar productos al carrito
 function agregarCarrito(indice) {
+    let stockActual = typeof obtenerStockDisponible === "function" ? obtenerStockDisponible(indice) : 5;
+    if (stockActual <= 0 || contarEnCarrito(indice) >= stockActual) {
+        alert("Stock insuficiente: solo quedan " + stockActual + " unidad(es) disponible(s) de " + nombres[indice] + ".");
+        return;
+    }
     agregarAlArregloCarrito(indice);
     guardarCarritoEnStorage();
     actualizarContadorCarrito();
@@ -397,6 +460,7 @@ function validarLogin(event) {
             usuario: encontrado.usuario,
             nombre: encontrado.nombre,
             correo: encontrado.correo,
+            telefono: encontrado.telefono || "",
             fechaIngreso: new Date().toLocaleTimeString('es-PE')
         };
         sessionStorage.setItem("usuarioLogueado", JSON.stringify(datosSesion));
@@ -460,15 +524,34 @@ function verificarEstadoSesion() {
             let nombreMostrar = "Usuario";
             try {
                 let datos = JSON.parse(sesion);
-                nombreMostrar = datos.nombre ? datos.nombre.split(" ")[0] : (datos.usuario || "Usuario");
+                if (datos.nombre) {
+                    let partes = datos.nombre.trim().split(/\s+/);
+                    let dosPalabras = partes.slice(0, 2).join(" ");
+                    nombreMostrar = dosPalabras.length <= 15 ? dosPalabras : partes[0];
+                } else {
+                    nombreMostrar = datos.usuario || "Usuario";
+                }
             } catch (e) {
                 nombreMostrar = sesion;
             }
+            sesionContenedor.classList.add("nav-item-sesion");
             sesionContenedor.innerHTML = 
-                '<span style="color: var(--color-primario); font-size: 13px; font-weight: bold; margin-right: 6px;">' + nombreMostrar + '</span> ' +
-                '<a href="javascript:void(0)" onclick="cerrarSesion()" class="nav-enlace" style="font-size: 12px; padding: 4px 8px; background-color: var(--color-peligro); color: #fff;">Salir</a>';
+                '<span class="badge-cliente">' +
+                    '<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">' +
+                        '<path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>' +
+                        '<circle cx="12" cy="7" r="4"></circle>' +
+                    '</svg>' +
+                    'Cliente: <strong>' + nombreMostrar + '</strong>' +
+                '</span>' +
+                '<a href="javascript:void(0)" onclick="cerrarSesion()" class="nav-enlace boton-salir-nav">Salir</a>';
         } else {
-            sesionContenedor.innerHTML = '<a href="javascript:void(0)" onclick="abrirModalSesion()" class="nav-enlace">Ingresar</a>';
+            sesionContenedor.classList.remove("nav-item-sesion");
+            let rutaLogin = window.location.pathname.indexOf("/login/") !== -1;
+            if (rutaLogin) {
+                sesionContenedor.innerHTML = '<a href="../login/index.html" class="nav-enlace activo">Ingresar</a>';
+            } else {
+                sesionContenedor.innerHTML = '<a href="javascript:void(0)" onclick="abrirModalSesion()" class="nav-enlace">Ingresar</a>';
+            }
         }
     }
     if (sesion) {
@@ -637,6 +720,7 @@ function iniciarConCuentaPrevia() {
         usuario: datosCuenta.usuario,
         nombre: datosCuenta.nombre,
         correo: datosCuenta.correo,
+        telefono: datosCuenta.telefono || "",
         fechaIngreso: new Date().toLocaleTimeString('es-PE')
     };
     sessionStorage.setItem("usuarioLogueado", JSON.stringify(datosSesion));
@@ -716,6 +800,7 @@ function registrarUsuarioModal(event) {
         usuario: nuevoUsuario.usuario,
         nombre: nuevoUsuario.nombre,
         correo: nuevoUsuario.correo,
+        telefono: nuevoUsuario.telefono || "",
         fechaIngreso: new Date().toLocaleTimeString('es-PE')
     };
     sessionStorage.setItem("usuarioLogueado", JSON.stringify(datosSesion));
@@ -756,6 +841,7 @@ function validarLoginModal(event) {
             usuario: encontrado.usuario,
             nombre: encontrado.nombre,
             correo: encontrado.correo,
+            telefono: encontrado.telefono || "",
             fechaIngreso: new Date().toLocaleTimeString('es-PE')
         };
         sessionStorage.setItem("usuarioLogueado", JSON.stringify(datosSesion));
@@ -951,11 +1037,76 @@ function calcularFinanciamiento(event) {
     resultado.innerHTML = html;
     return false;
 }
+// Bloque para validación visual en tiempo real de formularios
+function actualizarEstadoCampoVisual(campo) {
+    if (!campo) return;
+    let valor = campo.value ? campo.value.trim() : "";
+    if (valor === "") {
+        campo.classList.remove("campo-valido", "campo-invalido");
+        return;
+    }
+    let valido = campo.checkValidity();
+    if (campo.id === "txt-reg-confirmar") {
+        let claveOrig = document.getElementById("txt-reg-clave");
+        if (claveOrig && campo.value !== claveOrig.value) {
+            valido = false;
+        }
+    }
+    if (valido) {
+        campo.classList.add("campo-valido");
+        campo.classList.remove("campo-invalido");
+    } else {
+        campo.classList.add("campo-invalido");
+        campo.classList.remove("campo-valido");
+    }
+}
+function inicializarValidacionFormularios() {
+    let campos = document.querySelectorAll("form .formulario-control, #modal-clave-previa");
+    campos.forEach(function(campo) {
+        campo.addEventListener("input", function() {
+            actualizarEstadoCampoVisual(campo);
+            if (campo.id === "txt-reg-clave") {
+                let conf = document.getElementById("txt-reg-confirmar");
+                if (conf && conf.value !== "") {
+                    actualizarEstadoCampoVisual(conf);
+                }
+            }
+        });
+        campo.addEventListener("change", function() {
+            actualizarEstadoCampoVisual(campo);
+        });
+        campo.addEventListener("blur", function() {
+            if (campo.hasAttribute("required") || campo.value.trim() !== "") {
+                let valido = campo.checkValidity();
+                if (campo.id === "txt-reg-confirmar") {
+                    let claveOrig = document.getElementById("txt-reg-clave");
+                    if (claveOrig && campo.value !== claveOrig.value) {
+                        valido = false;
+                    }
+                }
+                campo.classList.toggle("campo-valido", valido);
+                campo.classList.toggle("campo-invalido", !valido);
+            }
+        });
+    });
+    let formularios = document.querySelectorAll("form");
+    formularios.forEach(function(form) {
+        form.addEventListener("reset", function() {
+            setTimeout(function() {
+                let controles = form.querySelectorAll(".formulario-control");
+                controles.forEach(function(c) {
+                    c.classList.remove("campo-valido", "campo-invalido");
+                });
+            }, 0);
+        });
+    });
+}
 window.addEventListener("DOMContentLoaded", function() {
     cargarCarritoDeStorage();
     actualizarContadorCarrito();
     verificarEstadoSesion();
     cargarHistorialContacto();
+    inicializarValidacionFormularios();
     let contenedor = document.getElementById("contenedor-productos");
     if (contenedor) {
         let ruta = window.location.pathname.toLowerCase();
@@ -979,6 +1130,10 @@ window.addEventListener("click", function(event) {
     let modalDetalle = document.getElementById("modal-detalle");
     if (modalDetalle && event.target === modalDetalle) {
         cerrarModalDetalle();
+    }
+    let modalCheckout = document.getElementById("modal-checkout");
+    if (modalCheckout && event.target === modalCheckout) {
+        cerrarModalCheckout();
     }
 });
 function mostrarToast(mensaje, tipo) {
@@ -1040,9 +1195,24 @@ function confirmarPedidoCheckout(event) {
     let direccion = inputDireccion ? inputDireccion.value.trim() : "";
     let metodo = metodoSeleccionado ? metodoSeleccionado.value : "Tarjeta";
     if (telefono.length !== 9) {
-        mostrarToast("El celular debe tener exactamente 9 dígitos numéricos.", "error");
+        alert("El celular debe tener exactamente 9 dígitos numéricos.");
         if (inputTelefono) inputTelefono.focus();
         return;
+    }
+    let conteoCarrito = {};
+    for (let i = 0; i < carrito.length; i++) {
+        let idx = carrito[i];
+        conteoCarrito[idx] = (conteoCarrito[idx] || 0) + 1;
+    }
+    for (let key in conteoCarrito) {
+        let idxNum = parseInt(key, 10);
+        let disp = typeof obtenerStockDisponible === "function" ? obtenerStockDisponible(idxNum) : 5;
+        if (conteoCarrito[key] > disp) {
+            alert("Stock insuficiente para " + nombres[idxNum] + " (disponible: " + disp + "). Ajusta tu carrito.");
+            cerrarModalCheckout();
+            abrirModalCarrito();
+            return;
+        }
     }
     let total = 0;
     for (let i = 0; i < carrito.length; i++) {
@@ -1078,7 +1248,17 @@ function confirmarPedidoCheckout(event) {
     if (ticketCliente) ticketCliente.innerText = nombre + " (" + telefono + ")";
     if (ticketMetodo) ticketMetodo.innerText = metodo + " | " + direccion;
     if (ticketTotal) ticketTotal.innerText = "S/ " + total.toFixed(2);
+    for (let i = 0; i < carrito.length; i++) {
+        let itemIdx = carrito[i];
+        if (typeof stocks !== 'undefined' && stocks[itemIdx] !== undefined) {
+            stocks[itemIdx] = Math.max(0, stocks[itemIdx] - 1);
+        }
+    }
+    if (typeof guardarStocksEnStorage === 'function') {
+        guardarStocksEnStorage();
+    }
     carrito = [];
+    recargarVistaCatalogo();
     guardarCarritoEnStorage();
     actualizarContadorCarrito();
     let bloqueContenido = document.getElementById("checkout-contenido");
@@ -1093,14 +1273,28 @@ function buscarProductosEnTiempoReal() {
     if (!input) return;
     let texto = input.value.toLowerCase().trim();
     let tarjetas = document.querySelectorAll("#contenedor-productos .tarjeta");
+    let visibles = 0;
     tarjetas.forEach(function(t) {
         let titulo = t.querySelector(".tarjeta-titulo") ? t.querySelector(".tarjeta-titulo").innerText.toLowerCase() : "";
         let detalle = t.querySelector(".tarjeta-detalle") ? t.querySelector(".tarjeta-detalle").innerText.toLowerCase() : "";
         let categoria = t.querySelector(".tarjeta-categoria") ? t.querySelector(".tarjeta-categoria").innerText.toLowerCase() : "";
         if (titulo.indexOf(texto) !== -1 || detalle.indexOf(texto) !== -1 || categoria.indexOf(texto) !== -1) {
             t.style.display = "flex";
+            visibles++;
         } else {
             t.style.display = "none";
         }
     });
+    let contadorElem = document.getElementById("contador-productos-encontrados");
+    if (contadorElem) {
+        if (texto === "") {
+            contadorElem.innerText = "Mostrando " + visibles + (visibles === 1 ? " producto disponible" : " productos disponibles");
+        } else {
+            contadorElem.innerText = (visibles === 1 ? "Se encontró 1 producto" : "Se encontraron " + visibles + " productos") + " para \"" + texto + "\"";
+        }
+    }
+    let msgVacio = document.getElementById("mensaje-sin-resultados");
+    if (msgVacio) {
+        msgVacio.style.display = visibles === 0 ? "block" : "none";
+    }
 }

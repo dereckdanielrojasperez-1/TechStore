@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>TechStore | Iniciar Sesión</title>
+    <link rel="icon" type="image/x-icon" href="../favicon.ico">
     <link rel="stylesheet" href="../css/estilos.css">
     <!-- Google Fonts: Inter, Rajdhani, Orbitron -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -12,6 +13,7 @@
 </head>
 <body>
 
+    <!-- Encabezado y logotipo -->
     <header id="cabecera-principal">
         <div class="contenedor barra-superior">
             <div class="logo">
@@ -75,6 +77,7 @@
                 </div>
 
                 
+                <!-- Formularios de inicio de sesión y registro -->
                 <div id="contenedor-formularios-auth" class="formulario-cuadricula">
                     
                     
@@ -92,12 +95,12 @@
                         <form id="formulario-login" onsubmit="return validarLogin(event)">
                             <div class="formulario-grupo">
                                 <label for="txt-usuario">Usuario o Correo Electrónico *</label>
-                                <input type="text" id="txt-usuario" class="formulario-control" placeholder="Ej. admin o tu usuario" required>
+                                <input type="text" id="txt-usuario" class="formulario-control" minlength="3" placeholder="Ej. admin o tu usuario" required>
                             </div>
 
                             <div class="formulario-grupo">
                                 <label for="txt-clave">Contraseña *</label>
-                                <input type="password" id="txt-clave" class="formulario-control" placeholder="••••••••" required>
+                                <input type="password" id="txt-clave" class="formulario-control" minlength="4" placeholder="••••••••" required>
                             </div>
 
                             <div style="margin-top: 20px;">
@@ -125,7 +128,7 @@
                         <form id="formulario-registro" onsubmit="return registrarUsuario(event)">
                             <div class="formulario-grupo">
                                 <label for="txt-reg-nombre">Nombre y Apellidos *</label>
-                                <input type="text" id="txt-reg-nombre" class="formulario-control" placeholder="Ej. Mario Vargas" oninput="this.value = this.value.replace(/[^a-zA-ZáéíóúÁÉÍÓÚñÑ\s]/g, '')" required>
+                                <input type="text" id="txt-reg-nombre" class="formulario-control" minlength="3" placeholder="Ej. Mario Vargas" oninput="this.value = this.value.replace(/[^a-zA-ZáéíóúÁÉÍÓÚñÑ\s]/g, '')" required>
                             </div>
 
                             <div class="formulario-grupo">
@@ -140,17 +143,17 @@
 
                             <div class="formulario-grupo">
                                 <label for="txt-reg-usuario">Nombre de Usuario *</label>
-                                <input type="text" id="txt-reg-usuario" class="formulario-control" placeholder="mariov" required>
+                                <input type="text" id="txt-reg-usuario" class="formulario-control" minlength="3" placeholder="mariov" required>
                             </div>
 
                             <div class="formulario-grupo">
                                 <label for="txt-reg-clave">Contraseña *</label>
-                                <input type="password" id="txt-reg-clave" class="formulario-control" placeholder="Mínimo 4 caracteres" required>
+                                <input type="password" id="txt-reg-clave" class="formulario-control" minlength="4" placeholder="Mínimo 4 caracteres" required>
                             </div>
 
                             <div class="formulario-grupo">
                                 <label for="txt-reg-confirmar">Confirmar Contraseña *</label>
-                                <input type="password" id="txt-reg-confirmar" class="formulario-control" placeholder="Repite tu contraseña" required>
+                                <input type="password" id="txt-reg-confirmar" class="formulario-control" minlength="4" placeholder="Repite tu contraseña" required>
                             </div>
 
                             <div style="margin-top: 20px;">
@@ -164,6 +167,7 @@
         </section>
     </main>
 
+    <!-- Pie de página -->
     <footer id="pie-pagina">
         <div class="contenedor">
             <div class="pie-columnas">
@@ -240,7 +244,7 @@
                     
                     <div class="formulario-grupo" style="text-align: left; margin-bottom: 10px;">
                         <label for="modal-clave-previa" style="font-size: 13px;">Contraseña *</label>
-                        <input type="password" id="modal-clave-previa" class="formulario-control" placeholder="Ingresa tu contraseña">
+                        <input type="password" id="modal-clave-previa" class="formulario-control" minlength="4" placeholder="Ingresa tu contraseña" required>
                     </div>
                     <div id="modal-alerta-login-previa" class="alerta-mensaje alerta-error" style="display: none; font-size: 13px; margin-bottom: 10px;"></div>
                     <button type="button" onclick="iniciarConCuentaPrevia()" class="boton boton-primario" style="width: 100%; margin-bottom: 10px;">Iniciar Sesión</button>
@@ -253,11 +257,11 @@
                 <form id="form-modal-login" style="display: none;" onsubmit="return validarLoginModal(event)">
                     <div class="formulario-grupo">
                         <label for="modal-txt-usuario" style="font-size: 13px;">Usuario o Correo Electrónico *</label>
-                        <input type="text" id="modal-txt-usuario" class="formulario-control" placeholder="Ej. admin o tu correo">
+                        <input type="text" id="modal-txt-usuario" class="formulario-control" minlength="3" placeholder="Ej. admin o tu correo" required>
                     </div>
                     <div class="formulario-grupo">
                         <label for="modal-txt-clave" style="font-size: 13px;">Contraseña *</label>
-                        <input type="password" id="modal-txt-clave" class="formulario-control" placeholder="Tu contraseña">
+                        <input type="password" id="modal-txt-clave" class="formulario-control" minlength="4" placeholder="Tu contraseña" required>
                     </div>
                     <div id="modal-alerta-login" class="alerta-mensaje alerta-error" style="display: none; font-size: 13px; margin-bottom: 12px;"></div>
                     <button type="submit" class="boton boton-primario" style="width: 100%; margin-top: 5px;">Iniciar Sesión</button>
@@ -271,22 +275,22 @@
             <form id="form-modal-registro" style="display: none;" onsubmit="return registrarUsuarioModal(event)">
                 <div class="formulario-grupo" style="margin-bottom: 10px;">
                     <label for="modal-reg-nombre" style="font-size: 13px;">Nombre y Apellidos *</label>
-                    <input type="text" id="modal-reg-nombre" class="formulario-control" placeholder="Ej. Carlos Ramos" oninput="this.value = this.value.replace(/[^a-zA-ZáéíóúÁÉÍÓÚñÑ\s]/g, '')">
+                    <input type="text" id="modal-reg-nombre" class="formulario-control" minlength="3" placeholder="Ej. Carlos Ramos" oninput="this.value = this.value.replace(/[^a-zA-ZáéíóúÁÉÍÓÚñÑ\s]/g, '')" required>
                 </div>
 
                 <div class="formulario-grupo" style="margin-bottom: 10px;">
                     <label for="modal-reg-telefono" style="font-size: 13px;">Número de Teléfono (9 dígitos) *</label>
-                    <input type="text" id="modal-reg-telefono" maxlength="9" class="formulario-control" placeholder="987654321" oninput="this.value = this.value.replace(/[^0-9]/g, '')">
+                    <input type="tel" id="modal-reg-telefono" maxlength="9" pattern="[0-9]{9}" class="formulario-control" placeholder="987654321" oninput="this.value = this.value.replace(/[^0-9]/g, '')" required>
                 </div>
 
                 <div class="formulario-grupo" style="margin-bottom: 10px;">
                     <label for="modal-reg-correo" style="font-size: 13px;">Correo Electrónico *</label>
-                    <input type="email" id="modal-reg-correo" class="formulario-control" placeholder="carlos@techstore.pe">
+                    <input type="email" id="modal-reg-correo" class="formulario-control" placeholder="carlos@techstore.pe" required>
                 </div>
 
                 <div class="formulario-grupo" style="margin-bottom: 12px;">
                     <label for="modal-reg-clave" style="font-size: 13px;">Contraseña *</label>
-                    <input type="password" id="modal-reg-clave" class="formulario-control" placeholder="Mínimo 6 caracteres">
+                    <input type="password" id="modal-reg-clave" class="formulario-control" minlength="6" placeholder="Mínimo 6 caracteres" required>
                 </div>
 
                 <div id="modal-alerta-registro" class="alerta-mensaje alerta-error" style="display: none; font-size: 13px; margin-bottom: 12px;"></div>
@@ -330,13 +334,13 @@
                 <form id="formulario-checkout" onsubmit="confirmarPedidoCheckout(event)">
                     <div class="formulario-grupo" style="margin-bottom: 8px;">
                         <label for="chk-nombre" style="font-size: 12px;">Nombre del Destinatario *</label>
-                        <input type="text" id="chk-nombre" class="formulario-control" required placeholder="Nombres y Apellidos" oninput="this.value = this.value.replace(/[^a-zA-ZáéíóúÁÉÍÓÚñÑ ]/g, '')">
+                        <input type="text" id="chk-nombre" class="formulario-control" minlength="3" required placeholder="Nombres y Apellidos" oninput="this.value = this.value.replace(/[^a-zA-ZáéíóúÁÉÍÓÚñÑ ]/g, '')">
                     </div>
 
                     <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 8px; margin-bottom: 8px;">
                         <div class="formulario-grupo">
                             <label for="chk-telefono" style="font-size: 12px;">Teléfono (9 dígitos) *</label>
-                            <input type="text" id="chk-telefono" maxlength="9" class="formulario-control" required placeholder="987654321" oninput="this.value = this.value.replace(/[^0-9]/g, '')">
+                            <input type="tel" id="chk-telefono" maxlength="9" pattern="[0-9]{9}" class="formulario-control" required placeholder="987654321" oninput="this.value = this.value.replace(/[^0-9]/g, '')">
                         </div>
                         <div class="formulario-grupo">
                             <label for="chk-metodo-envio" style="font-size: 12px;">Tipo de Entrega</label>
@@ -349,7 +353,7 @@
 
                     <div class="formulario-grupo" style="margin-bottom: 8px;">
                         <label for="chk-direccion" style="font-size: 12px;">Dirección de Entrega *</label>
-                        <input type="text" id="chk-direccion" class="formulario-control" required placeholder="Av. / Calle, Nro, Distrito">
+                        <input type="text" id="chk-direccion" class="formulario-control" minlength="5" required placeholder="Av. / Calle, Nro, Distrito">
                     </div>
 
                     <div class="formulario-grupo" style="margin-bottom: 12px;">
