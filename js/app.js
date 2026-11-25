@@ -274,6 +274,7 @@ function agregarCarrito(indice) {
         void contador.offsetWidth;
         contador.classList.add("animar-pulso");
     }
+    mostrarToast("Agregado al carrito: " + nombres[indice], "exito");
 }
 // Bloque para quitar productos del carrito
 function eliminarDelCarrito(posicion) {
@@ -305,19 +306,13 @@ function actualizarContadorCarrito() {
         contador.innerText = carrito.length;
     }
 }
-// Bloque para procesar compra y validar usuario
+// Bloque para procesar compra (Invitado o Cliente Registrado)
 function procesarCompra() {
     if (carrito.length === 0) {
         let lista = document.getElementById("lista-carrito");
         if (lista) {
             lista.innerHTML = '<p style="color: var(--color-peligro); text-align: center; padding: 15px 0; font-weight: bold;">Tu carrito está vacío. Agrega productos del catálogo para continuar.</p>';
         }
-        return;
-    }
-    let sesion = sessionStorage.getItem("usuarioLogueado");
-    if (!sesion) {
-        cerrarModalCarrito();
-        abrirModalSesion("Para completar tu compra, por favor inicia sesión o selecciona la cuenta que hayas usado.");
         return;
     }
     cerrarModalCarrito();
@@ -1136,9 +1131,21 @@ window.addEventListener("click", function(event) {
         cerrarModalCheckout();
     }
 });
+// Notificaciones Toast visuales
 function mostrarToast(mensaje, tipo) {
-    // Desactivado para mantener la interfaz academica limpia sin alertas invasivas
-    return;
+    let contenedor = document.getElementById("contenedor-toast");
+    if (!contenedor) return;
+    let toast = document.createElement("div");
+    toast.className = "toast" + (tipo ? " toast-" + tipo : "");
+    toast.innerText = mensaje;
+    contenedor.appendChild(toast);
+    setTimeout(function() {
+        toast.style.opacity = "0";
+        toast.style.transform = "translateX(40px)";
+        setTimeout(function() {
+            if (toast.parentNode) toast.parentNode.removeChild(toast);
+        }, 300);
+    }, 2800);
 }
 // Bloque para confirmar compra y emitir comprobante
 function abrirModalCheckout() {
@@ -1167,12 +1174,21 @@ function abrirModalCheckout() {
     let sesion = sessionStorage.getItem("usuarioLogueado");
     let inputNombre = document.getElementById("chk-nombre");
     let inputTelefono = document.getElementById("chk-telefono");
+    let inputCorreo = document.getElementById("chk-correo");
+    let modoBadge = document.getElementById("checkout-modo-badge");
     if (sesion) {
         try {
             let u = JSON.parse(sesion);
-            if (inputNombre && u.nombre) inputNombre.value = u.nombre;
-            if (inputTelefono && u.telefono) inputTelefono.value = u.telefono;
+            if (inputNombre) { inputNombre.value = u.nombre || ""; actualizarEstadoCampoVisual(inputNombre); }
+            if (inputTelefono) { inputTelefono.value = u.telefono || ""; actualizarEstadoCampoVisual(inputTelefono); }
+            if (inputCorreo) { inputCorreo.value = u.correo || ""; actualizarEstadoCampoVisual(inputCorreo); }
+            if (modoBadge) modoBadge.innerText = "Modo: Cliente Registrado (" + (u.nombre || u.usuario) + ")";
         } catch (e) {}
+    } else {
+        if (inputNombre) { inputNombre.value = ""; inputNombre.classList.remove("campo-valido", "campo-invalido"); }
+        if (inputTelefono) { inputTelefono.value = ""; inputTelefono.classList.remove("campo-valido", "campo-invalido"); }
+        if (inputCorreo) { inputCorreo.value = ""; inputCorreo.classList.remove("campo-valido", "campo-invalido"); }
+        if (modoBadge) modoBadge.innerText = "Modo: Compra rápida como Invitado (sin registro obligatorio)";
     }
     let bloqueContenido = document.getElementById("checkout-contenido");
     let bloqueExito = document.getElementById("checkout-exito");
@@ -1188,15 +1204,23 @@ function confirmarPedidoCheckout(event) {
     if (event) event.preventDefault();
     let inputNombre = document.getElementById("chk-nombre");
     let inputTelefono = document.getElementById("chk-telefono");
+    let inputCorreo = document.getElementById("chk-correo");
     let inputDireccion = document.getElementById("chk-direccion");
     let metodoSeleccionado = document.querySelector('input[name="metodo_pago"]:checked');
     let nombre = inputNombre ? inputNombre.value.trim() : "Cliente";
     let telefono = inputTelefono ? inputTelefono.value.trim() : "";
+    let correo = inputCorreo ? inputCorreo.value.trim() : "";
     let direccion = inputDireccion ? inputDireccion.value.trim() : "";
     let metodo = metodoSeleccionado ? metodoSeleccionado.value : "Tarjeta";
     if (telefono.length !== 9) {
-        alert("El celular debe tener exactamente 9 dígitos numéricos.");
+        mostrarToast("El celular debe tener exactamente 9 dígitos numéricos.", "error");
         if (inputTelefono) inputTelefono.focus();
+        return;
+    }
+    let formatoCorreo = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    if (!formatoCorreo.test(correo)) {
+        mostrarToast("Por favor ingresa un correo electrónico válido.", "error");
+        if (inputCorreo) inputCorreo.focus();
         return;
     }
     let conteoCarrito = {};
@@ -1229,7 +1253,8 @@ function confirmarPedidoCheckout(event) {
                     cantidad: 1
                 };
             });
-            let pedidoBD = BDTechStore.crearPedido({ nombre: nombre, celular: telefono, direccion: direccion }, itemsBD, metodo);
+            let tipoCliente = sessionStorage.getItem("usuarioLogueado") ? "Cliente Registrado" : "Invitado";
+            let pedidoBD = BDTechStore.crearPedido({ nombre: nombre, celular: telefono, correo: correo, tipo: tipoCliente, direccion: direccion }, itemsBD, metodo);
             if (pedidoBD && pedidoBD.idPedido) {
                 codigo = pedidoBD.idPedido;
             }
@@ -1245,7 +1270,8 @@ function confirmarPedidoCheckout(event) {
     let ticketTotal = document.getElementById("ticket-total");
     if (ticketCodigo) ticketCodigo.innerText = "#" + codigo;
     if (ticketFecha) ticketFecha.innerText = fechaHoy;
-    if (ticketCliente) ticketCliente.innerText = nombre + " (" + telefono + ")";
+    let etiquetaTipo = sessionStorage.getItem("usuarioLogueado") ? "Registrado" : "Invitado";
+    if (ticketCliente) ticketCliente.innerText = nombre + " | " + correo + " (" + telefono + ") [" + etiquetaTipo + "]";
     if (ticketMetodo) ticketMetodo.innerText = metodo + " | " + direccion;
     if (ticketTotal) ticketTotal.innerText = "S/ " + total.toFixed(2);
     for (let i = 0; i < carrito.length; i++) {

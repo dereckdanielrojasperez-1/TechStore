@@ -6,7 +6,7 @@ const BDTechStore = (function() {
         PEDIDOS: 'techstore_db_pedidos',
         COTIZACIONES: 'techstore_db_cotizaciones',
         RECLAMACIONES: 'techstore_db_reclamaciones',
-        CARRITO: 'techstore_db_carrito',
+        CARRITO: 'carritoTechStore',
         SESION: 'techstore_sesion_activa' 
     };
     const USUARIOS_INICIALES = [
@@ -174,13 +174,13 @@ const BDTechStore = (function() {
         const pedidos = obtenerPedidos();
         const correlativo = String(pedidos.length + 1).padStart(4, '0');
         const idPedido = 'TS-2026-' + correlativo;
-        let subtotal = 0;
+        let total = 0;
         itemsCarrito.forEach(item => {
-            subtotal += (item.precio * item.cantidad);
+            total += (item.precio * item.cantidad);
             descontarStock(item.id, item.cantidad);
         });
-        const igv = subtotal * 0.18;
-        const total = subtotal + igv;
+        const subtotal = total / 1.18;
+        const igv = total - subtotal;
         const nuevoPedido = {
             idPedido: idPedido,
             fecha: new Date().toLocaleString('es-PE'),

@@ -5,44 +5,31 @@
     --color-primario-hover: #00a8cc;         
     --tamano-fuente-base: 16px;              
     --black: #05070a;
-    --black-2: #0a0e14;
     --panel: #0e141c;
     --panel2: #131b26;
     --line: #1e2a38;
-    --line-soft: #141c26;
     --white: #ffffff;
-    --white-soft: #dce4ec;
-    --gray: #9aa8b6;
     --cut: polygon(16px 0, 100% 0, 100% calc(100% - 16px), calc(100% - 16px) 100%, 0 100%, 0 16px);
     --cut-sm: polygon(10px 0, 100% 0, 100% calc(100% - 10px), calc(100% - 10px) 100%, 0 100%, 0 10px);
     --sombra-cyber: 0 12px 30px rgba(0, 0, 0, 0.5), inset 0 0 0 1px var(--color-primario);
     --color-secundario: #8b5cf6;
-    --color-secundario-hover: #a78bfa;
     --color-fondo: #07090e;
     --color-fondo-secundario: #0e141c;
     --color-fondo-tarjeta: #131b26;
-    --color-fondo-tarjeta-hover: #172230;
     --color-borde: #1e2a38;
-    --color-borde-activo: var(--color-primario);
     --color-texto: #dce4ec;
     --color-texto-apagado: #9aa8b6;
     --color-blanco: #ffffff;
     --color-exito: #10b981;
-    --color-exito-hover: #34d399;
     --color-peligro: #ef4444;
     --color-peligro-hover: #f87171;
     --fuente-principal: 'Inter', system-ui, -apple-system, sans-serif;
     --fuente-titulos: 'Rajdhani', 'Orbitron', system-ui, sans-serif;
-    --fuente-gamer: 'Orbitron', 'Rajdhani', sans-serif;
     --fuente-mono: 'Consolas', 'Courier New', monospace;
-    --espacio-pequeno: 8px;
-    --espacio-medio: 16px;
-    --espacio-grande: 24px;
     --radio-borde: 8px;
     --sombra-tarjeta: 0 4px 16px rgba(0, 0, 0, 0.4);
     --sombra-hover: 0 10px 25px rgba(0, 210, 255, 0.25);
     --transicion-rapida: 0.2s ease;
-    --transicion-suave: 0.3s cubic-bezier(0.4, 0, 0.2, 1);
 }
 /* Reseteo y estilos base */
 * {
@@ -525,7 +512,9 @@ a:hover {
 }
 .tabla-contenedor {
     width: 100%;
+    max-width: 100%;
     overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
     margin-top: 15px;
 }
 .tabla-datos {
@@ -978,13 +967,13 @@ textarea.formulario-control {
     background: var(--color-primario);
     border-radius: 2px;
 }
-.boton-primario, .btn-destacado {
+.boton-primario {
     position: relative;
     overflow: hidden;
     clip-path: var(--cut-sm);
     transition: background-color 0.3s ease, transform 0.2s ease, box-shadow 0.3s ease;
 }
-.boton-primario::after, .btn-destacado::after {
+.boton-primario::after {
     content: "";
     position: absolute;
     top: 0;
@@ -996,7 +985,7 @@ textarea.formulario-control {
     transform: skewX(-20deg);
     transition: left 0.55s ease;
 }
-.boton-primario:hover::after, .btn-destacado:hover::after {
+.boton-primario:hover::after {
     left: 130%;
 }
 .boton-primario:hover, a.boton-primario:hover {
@@ -1027,43 +1016,10 @@ body {
     overflow-x: hidden;
     font-size: var(--tamano-fuente-base);
 }
-@media (max-width: 992px) {
-    .nav-toggle {
-        display: block !important;
-    }
-    .menu-navegacion {
-        display: none;
-        flex-direction: column;
-        width: 100%;
-        background: var(--panel);
-        border-top: 1px solid var(--line);
-    }
-    .menu-navegacion.activo {
-        display: flex !important;
-    }
-}
 @media (max-width: 640px) {
     .contenedor {
         padding-left: 12px;
         padding-right: 12px;
-    }
-    .inspector-modal-panel {
-        max-height: 95vh;
-        margin: 10px;
-    }
-    .inspector-tabs {
-        flex-wrap: nowrap;
-    }
-    .tab-btn {
-        padding: 10px 12px;
-        font-size: 12px;
-    }
-    .techstore-inspector-toggle .inspector-label {
-        display: none;
-    }
-    .techstore-inspector-toggle {
-        padding: 10px;
-        border-radius: 50%;
     }
 }
 a.boton-primario, 
@@ -1191,6 +1147,9 @@ img {
 
 /* Tablets Verticales y Celulares Grandes (<= 768px) */
 @media (max-width: 768px) {
+    .indicador-scroll-movil {
+        display: block !important;
+    }
     .caja-filtros {
         flex-direction: column;
         align-items: stretch;

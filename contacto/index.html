@@ -115,8 +115,7 @@
 
                     <div id="contenedor-confirmacion-contacto" style="display: none; margin-top: 25px;"></div>
                 </div>
-            </div>
-        
+
                 <!-- Ubicación Física en Google Maps (Iframe Interactivo - Tabla 5 del Informe) -->
                 <div class="mapa-caja" style="max-width: 720px; margin: 40px auto 0 auto; background: var(--panel); border: 1px solid var(--line); border-radius: var(--radio-borde); padding: 24px; box-shadow: var(--sombra-tarjeta);">
                     <div style="display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 10px; margin-bottom: 16px;">
@@ -292,6 +291,7 @@
             <h3 class="modal-titulo">Finalizar Compra</h3>
             
             <div id="checkout-contenido">
+                <p id="checkout-modo-badge" style="font-size: 12px; color: var(--color-primario); margin-bottom: 10px; font-weight: 600;"></p>
                 <div class="resumen-compra-caja">
                     <h4 style="color: var(--color-blanco); font-size: 14px; margin-bottom: 8px;">Resumen del Pedido</h4>
                     <div id="checkout-lista-items" style="max-height: 120px; overflow-y: auto; margin-bottom: 8px;"></div>
@@ -327,6 +327,11 @@
                                 <option value="tienda">Recojo en Tienda (Cyberplaza)</option>
                             </select>
                         </div>
+                    </div>
+
+                    <div class="formulario-grupo" style="margin-bottom: 8px;">
+                        <label for="chk-correo" style="font-size: 12px;">Correo Electrónico *</label>
+                        <input type="email" id="chk-correo" class="formulario-control" required placeholder="ejemplo@correo.com">
                     </div>
 
                     <div class="formulario-grupo" style="margin-bottom: 8px;">
