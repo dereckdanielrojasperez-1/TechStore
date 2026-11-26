@@ -37,7 +37,7 @@
                     <li class="nav-item"><a href="../comparativa/index.html" class="nav-enlace">Comparativa</a></li>
                     <li class="nav-item"><a href="../nosotros/index.html" class="nav-enlace activo">Nosotros</a></li>
                     <li class="nav-item"><a href="../contacto/index.html" class="nav-enlace">Contacto</a></li>
-                    <li class="nav-item" id="estado-sesion"><a href="../login/index.html" class="nav-enlace">Ingresar</a></li>
+                    <li class="nav-item nav-item-sesion" id="estado-sesion"><a href="javascript:void(0)" onclick="abrirModalSesion(null, 'login')" class="nav-enlace boton-ingresar-nav">Ingresar</a><a href="javascript:void(0)" onclick="abrirModalSesion(null, 'registro')" class="nav-enlace boton-registro-nav">Registro</a></li>
                 </ul>
             </nav>
 
@@ -83,59 +83,6 @@
                     <div class="caja-item">
                         <h3>Nuestros Valores</h3>
                         <p>Honestidad comercial, rigurosidad técnica, puntualidad en entregas y compromiso con la garantía de cada equipo comercializado.</p>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- Sección Multimedia HTML5: Video Institucional y Audio-Guía Oficial -->
-        <section class="seccion seccion-multimedia" style="background-color: #0b111c; border-top: 1px solid var(--line); border-bottom: 1px solid var(--line);">
-            <div class="contenedor">
-                <div style="text-align: center; margin-bottom: 25px;">
-                    <span class="eyebrow">Experiencia Multimedia Nativa HTML5</span>
-                    <h2 class="titulo-seccion">Laboratorio de Hardware y Audio-Guía Oficial</h2>
-                    <p class="subtitulo-seccion">Conoce nuestros estándares de ensamblaje gamer, políticas de garantía y filosofía de servicio mediante video y audio interactivos HTML5.</p>
-                </div>
-
-                <div class="cuadricula-multimedia">
-                    <!-- Video Institucional HTML5 -->
-                    <div class="video-tarjeta" style="background: var(--panel2); border: 1px solid var(--line); border-radius: var(--radio-borde); overflow: hidden; box-shadow: var(--sombra-tarjeta);">
-                        <video controls poster="../media/poster-video.jpg" style="width: 100%; height: auto; display: block;" preload="metadata">
-                            <source src="../media/video-techstore.mp4" type="video/mp4">
-                            <p>Tu navegador no soporta la reproducción de video HTML5 nativo.</p>
-                        </video>
-                        <div style="padding: 14px 18px; background: var(--panel);">
-                            <strong style="color: var(--color-blanco); font-size: 15px;">Demostración de Laboratorio: Ensamble Gamer</strong>
-                            <p style="color: var(--color-texto-apagado); font-size: 13px; margin-top: 4px;">Control de calidad y pruebas de estrés en cada componente oficial.</p>
-                        </div>
-                    </div>
-
-                    <!-- Audio Guía Institucional HTML5 -->
-                    <div class="audio-tarjeta" style="background: var(--panel2); border: 1px solid var(--line); border-radius: var(--radio-borde); padding: 22px; box-shadow: var(--sombra-tarjeta); display: flex; flex-direction: column; justify-content: space-between;">
-                        <div>
-                            <div style="display: flex; align-items: center; gap: 12px; margin-bottom: 12px;">
-                                <div style="width: 44px; height: 44px; border-radius: 50%; background: rgba(0,210,255,0.15); display: flex; align-items: center; justify-content: center; color: var(--color-primario); flex-shrink: 0;">
-                                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                                        <polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"></polygon>
-                                        <path d="M19.07 4.93a10 10 0 0 1 0 14.14M15.54 8.46a5 5 0 0 1 0 7.07"></path>
-                                    </svg>
-                                </div>
-                                <div>
-                                    <strong style="color: var(--color-blanco); font-size: 16px;">Audio-Guía: Políticas y Respaldo Oficial</strong>
-                                    <p style="color: var(--color-texto-apagado); font-size: 12px; margin: 0;">Presentación con controles nativos HTML5</p>
-                                </div>
-                            </div>
-                            <p style="color: var(--color-texto); font-size: 14px; line-height: 1.6; margin-bottom: 18px;">
-                                Escucha la introducción en audio sobre nuestras políticas de garantía oficial de fábrica, homologación de piezas gamer y asesoría personalizada para profesionales de ingeniería y diseño.
-                            </p>
-                        </div>
-                        <div style="background: var(--panel); padding: 14px; border-radius: 6px; border: 1px solid var(--line);">
-                            <audio controls style="width: 100%; border-radius: 4px;" preload="metadata">
-                                <source src="../media/audio-guia-techstore.mp3" type="audio/mpeg">
-                                Tu navegador no soporta el elemento de audio HTML5 nativo.
-                            </audio>
-                            <span style="display: block; margin-top: 6px; font-size: 11px; color: var(--color-texto-apagado); text-align: center;">Formato: MP3 Estéreo | 96 kbps | Audio oficial</span>
-                        </div>
                     </div>
                 </div>
             </div>

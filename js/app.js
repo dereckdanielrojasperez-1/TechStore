@@ -540,12 +540,16 @@ function verificarEstadoSesion() {
                 '</span>' +
                 '<a href="javascript:void(0)" onclick="cerrarSesion()" class="nav-enlace boton-salir-nav">Salir</a>';
         } else {
-            sesionContenedor.classList.remove("nav-item-sesion");
+            sesionContenedor.classList.add("nav-item-sesion");
             let rutaLogin = window.location.pathname.indexOf("/login/") !== -1;
             if (rutaLogin) {
-                sesionContenedor.innerHTML = '<a href="../login/index.html" class="nav-enlace activo">Ingresar</a>';
+                sesionContenedor.innerHTML =
+                    '<a href="#formulario-login" class="nav-enlace boton-ingresar-nav activo">Ingresar</a>' +
+                    '<a href="#formulario-registro" class="nav-enlace boton-registro-nav">Registro</a>';
             } else {
-                sesionContenedor.innerHTML = '<a href="javascript:void(0)" onclick="abrirModalSesion()" class="nav-enlace">Ingresar</a>';
+                sesionContenedor.innerHTML =
+                    '<a href="javascript:void(0)" onclick="abrirModalSesion(null, \'login\')" class="nav-enlace boton-ingresar-nav">Ingresar</a>' +
+                    '<a href="javascript:void(0)" onclick="abrirModalSesion(null, \'registro\')" class="nav-enlace boton-registro-nav">Registro</a>';
             }
         }
     }
@@ -556,7 +560,7 @@ function verificarEstadoSesion() {
         } catch (e) {}
     }
 }
-function abrirModalSesion(mensaje) {
+function abrirModalSesion(mensaje, modo) {
     let modal = document.getElementById("modal-sesion");
     if (!modal) {
         return;
@@ -570,7 +574,11 @@ function abrirModalSesion(mensaje) {
             alerta.style.display = "none";
         }
     }
-    mostrarModalLogin();
+    if (modo === "registro") {
+        mostrarModalRegistro();
+    } else {
+        mostrarModalLogin();
+    }
     modal.style.display = "flex";
 }
 function cerrarModalSesion() {

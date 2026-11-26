@@ -148,6 +148,30 @@ a:hover {
     background-color: var(--color-peligro-hover);
     color: var(--color-blanco) !important;
 }
+.boton-ingresar-nav {
+    font-size: 12px !important;
+    padding: 5px 10px !important;
+    border: 1px solid var(--color-primario);
+    color: var(--color-primario) !important;
+    font-weight: 600;
+}
+.boton-ingresar-nav:hover,
+.boton-ingresar-nav.activo {
+    background-color: var(--color-primario);
+    color: var(--color-fondo) !important;
+}
+.boton-registro-nav {
+    font-size: 12px !important;
+    padding: 5px 10px !important;
+    background-color: rgba(0, 210, 255, 0.14);
+    border: 1px solid rgba(0, 210, 255, 0.45);
+    color: var(--color-blanco) !important;
+    font-weight: 600;
+}
+.boton-registro-nav:hover {
+    background-color: var(--color-primario);
+    color: var(--color-fondo) !important;
+}
 .boton-carrito-nav {
     background-color: var(--color-primario);
     color: var(--color-fondo);
@@ -1084,7 +1108,9 @@ img {
         font-size: 11px;
         padding: 4px 6px;
     }
-    .boton-salir-nav {
+    .boton-salir-nav,
+    .boton-ingresar-nav,
+    .boton-registro-nav {
         padding: 4px 7px !important;
         font-size: 11px !important;
     }
@@ -1381,26 +1407,4 @@ img {
     stroke: var(--color-fondo);
     display: inline-block;
     vertical-align: middle;
-}
-
-
-/* Cuadricula Multimedia Responsiva (Video y Audio) */
-.cuadricula-multimedia {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-    gap: 24px;
-    max-width: 1000px;
-    margin: 0 auto;
-    width: 100%;
-}
-@media (max-width: 600px) {
-    .cuadricula-multimedia {
-        grid-template-columns: 1fr !important;
-        gap: 16px;
-    }
-    .video-tarjeta,
-    .audio-tarjeta {
-        width: 100% !important;
-        max-width: 100% !important;
-    }
 }
